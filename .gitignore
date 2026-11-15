@@ -1,0 +1,35 @@
+# Gradle / Android
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build
+**/build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.kotlin/
+
+# 签名与本地密钥（绝不入库）
+keystore.properties
+keystore/
+*.keystore
+*.jks
+
+# 构建产物
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# 本地工具链与缓存
+/tools/build/out/
+/content/build/
+/toolchain/
+
+# Python
+__pycache__/
+*.pyc
+\n
