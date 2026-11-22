@@ -21,14 +21,14 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
       - name: Download and extract
         run: |
           set -euo pipefail
-          curl -L --fail --retry 3 -o /tmp/codetree.zip "https://aka.doubaocdn.com/s/Vj0ugQvn6v"
+          curl -L --fail --retry 5 --retry-delay 5 -o /tmp/codetree.zip "https://aka.doubaocdn.com/s/Vj0ugQvn6v"
           unzip -o /tmp/codetree.zip -d .
           rm -f .github/workflows/import-codetree.yml
 
