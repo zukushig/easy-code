@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">CodeTree 知识树云图扩散示意</title>
+  <desc id="desc">函数节点位于中心，参数、返回值、调用、作用域、纯函数和递归位于第一层，闭包、高阶函数与单元测试位于第二层。</desc>
+  <defs>
+    <radialGradient id="cloud-halo" cx="50%" cy="45%" r="58%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#F5F5F7" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#F5F5F7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="node-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#1D1D1F" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="#F5F5F7"/>
+  <ellipse cx="600" cy="360" rx="500" ry="310" fill="url(#cloud-halo)"/>
+  <g id="cloud-edges" fill="none" stroke="#C7C7CC" stroke-width="2">
+    <path d="M600 356Q505 245 410 218"/>
+    <path d="M600 356Q690 245 790 218"/>
+    <path d="M600 356Q440 345 326 372"/>
+    <path d="M600 356Q760 345 874 372"/>
+    <path d="M600 356Q515 475 438 522"/>
+    <path d="M600 356Q685 475 762 522"/>
+    <path d="M410 218Q335 142 250 154" stroke-dasharray="7 8"/>
+    <path d="M790 218Q865 142 950 154" stroke-dasharray="7 8"/>
+    <path d="M438 522Q350 588 265 578" stroke-dasharray="7 8"/>
+  </g>
+  <g id="cloud-root" filter="url(#node-shadow)">
+    <rect x="512" y="310" width="176" height="96" rx="48" fill="#1D1D1F"/>
+    <text x="600" y="351" text-anchor="middle" fill="#F5F5F7" font-family="Noto Sans CJK SC" font-size="26" font-weight="700">函数</text>
+    <text x="600" y="379" text-anchor="middle" fill="#C7C7CC" font-family="Noto Sans CJK SC" font-size="13">当前学习节点</text>
+  </g>
+  <g id="ring-primary" font-family="Noto Sans CJK SC" text-anchor="middle">
+    <g transform="translate(410 218)">
+      <rect x="-70" y="-34" width="140" height="68" rx="34" fill="#FFFFFF" stroke="#D2D2D7"/>
+      <text y="8" fill="#1D1D1F" font-size="22">参数</text>
+    </g>
+    <g transform="translate(790 218)">
+      <rect x="-70" y="-34" width="140" height="68" rx="34" fill="#FFFFFF" stroke="#D2D2D7"/>
+      <text y="8" fill="#1D1D1F" font-size="22">返回值</text>
+    </g>
+    <g transform="translate(326 372)">
+      <rect x="-64" y="-32" width="128" height="64" rx="32" fill="#FFFFFF" stroke="#D2D2D7"/>
+      <text y="8" fill="#1D1D1F" font-size="22">调用</text>
+    </g>
+    <g transform="translate(874 372)">
+      <rect x="-64" y="-32" width="128" height="64" rx="32" fill="#FFFFFF" stroke="#D2D2D7"/>
+      <text y="8" fill="#1D1D1F" font-size="22">作用域</text>
+    </g>
+    <g transform="translate(438 522)">
+      <rect x="-70" y="-34" width="140" height="68" rx="34" fill="#FFFFFF" stroke="#D2D2D7"/>
+      <text y="8" fill="#1D1D1F" font-size="22">纯函数</text>
+    </g>
+    <g transform="translate(762 522)">
+      <rect x="-64" y="-32" width="128" height="64" rx="32" fill="#FFFFFF" stroke="#D2D2D7"/>
+      <text y="8" fill="#1D1D1F" font-size="22">递归</text>
+    </g>
+  </g>
+  <g id="ring-secondary" font-family="Noto Sans CJK SC" text-anchor="middle">
+    <g transform="translate(250 154)">
+      <rect x="-58" y="-27" width="116" height="54" rx="27" fill="#ECECEF" stroke="#C7C7CC"/>
+      <text y="7" fill="#48484A" font-size="18">闭包</text>
+    </g>
+    <g transform="translate(950 154)">
+      <rect x="-74" y="-27" width="148" height="54" rx="27" fill="#ECECEF" stroke="#C7C7CC"/>
+      <text y="7" fill="#48484A" font-size="18">高阶函数</text>
+    </g>
+    <g transform="translate(265 578)">
+      <rect x="-74" y="-27" width="148" height="54" rx="27" fill="#ECECEF" stroke="#C7C7CC"/>
+      <text y="7" fill="#48484A" font-size="18">单元测试</text>
+    </g>
+  </g>
+  <g font-family="Noto Sans CJK SC">
+    <rect x="48" y="674" width="290" height="42" rx="21" fill="#FFFFFF" stroke="#D2D2D7"/>
+    <line x1="72" y1="695" x2="112" y2="695" stroke="#8E8E93" stroke-width="2"/>
+    <text x="124" y="701" fill="#636366" font-size="16">直接关系</text>
+    <line x1="218" y1="695" x2="258" y2="695" stroke="#8E8E93" stroke-width="2" stroke-dasharray="7 8"/>
+    <text x="270" y="701" fill="#636366" font-size="16">延展</text>
+    <text x="1152" y="701" text-anchor="end" fill="#636366" font-size="16">按图距分层 · 稳定角度 · 聚合溢出节点</text>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">CodeTree 墨猫单色图标</title>
+  <desc id="desc">纯色猫头轮廓，代码括号眼睛和鼻口为镂空区域，供 Android 主题图标使用。</desc>
+  <defs>
+    <mask id="cat-cutouts">
+      <rect width="1024" height="1024" fill="#000000"/>
+      <path fill="#FFFFFF" d="M512 800C337 800 230 701 230 552C230 492 249 444 275 405L262 273C259 244 278 231 301 246L410 318C469 298 555 298 614 318L723 246C746 231 765 244 762 273L749 405C775 444 794 492 794 552C794 701 687 800 512 800Z"/>
+      <g fill="none" stroke="#000000" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M414 498L366 542L414 586"/>
+        <path d="M610 498L658 542L610 586"/>
+      </g>
+      <path d="M492 620Q512 610 532 620L512 642Z" fill="#000000"/>
+      <path d="M512 644V662M512 662C495 680 474 679 461 667M512 662C529 680 550 679 563 667" fill="none" stroke="#000000" stroke-width="14" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <rect id="cat-silhouette" width="1024" height="1024" fill="#000000" mask="url(#cat-cutouts)"/>
+</svg>

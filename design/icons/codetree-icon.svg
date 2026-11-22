@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">CodeTree 墨猫应用图标</title>
+  <desc id="desc">黑灰渐变圆角方形中的银色猫头，猫的双眼由左右代码括号构成。</desc>
+  <defs>
+    <linearGradient id="ink-background" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#4B4E53"/>
+      <stop offset="45%" stop-color="#24262A"/>
+      <stop offset="100%" stop-color="#0B0C0E"/>
+    </linearGradient>
+    <linearGradient id="silver-cat" x1="18%" y1="4%" x2="82%" y2="96%">
+      <stop offset="0%" stop-color="#FAFAFB"/>
+      <stop offset="52%" stop-color="#C7C9CE"/>
+      <stop offset="100%" stop-color="#858990"/>
+    </linearGradient>
+    <radialGradient id="soft-light" cx="20%" cy="5%" r="90%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="32" y="32" width="960" height="960" rx="220" fill="url(#ink-background)"/>
+  <rect x="32" y="32" width="960" height="960" rx="220" fill="url(#soft-light)"/>
+  <rect x="40" y="40" width="944" height="944" rx="212" fill="none" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="8"/>
+  <path id="cat-silhouette" fill="url(#silver-cat)" d="M512 800C337 800 230 701 230 552C230 492 249 444 275 405L262 273C259 244 278 231 301 246L410 318C469 298 555 298 614 318L723 246C746 231 765 244 762 273L749 405C775 444 794 492 794 552C794 701 687 800 512 800Z"/>
+  <g fill="none" stroke="#24262A" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+    <path id="code-eye-left" d="M414 498L366 542L414 586"/>
+    <path id="code-eye-right" d="M610 498L658 542L610 586"/>
+  </g>
+  <path id="cat-nose" d="M492 620Q512 610 532 620L512 642Z" fill="#4B4E53"/>
+  <path id="cat-mouth" d="M512 644V662M512 662C495 680 474 679 461 667M512 662C529 680 550 679 563 667" fill="none" stroke="#4B4E53" stroke-width="14" stroke-linecap="round"/>
+</svg>

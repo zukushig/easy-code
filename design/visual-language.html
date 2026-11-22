@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>CodeTree · 墨猫视觉规范</title>
+  <style>
+    :root {
+      --color-bg: #F5F5F7;
+      --color-surface: #FFFFFF;
+      --color-surface-2: #ECECEF;
+      --color-text: #1D1D1F;
+      --color-muted: #636366;
+      --color-border: #D2D2D7;
+      --color-accent: #1D1D1F;
+      --color-on-accent: #F5F5F7;
+      --color-focus: #0A84FF;
+      --color-success: #248A3D;
+      --shadow-1: 0 2px 8px rgba(29, 29, 31, .08);
+      --shadow-2: 0 8px 28px rgba(29, 29, 31, .12);
+      --shadow-3: 0 24px 64px rgba(29, 29, 31, .16);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
+      --dur-fast: 160ms;
+      --dur-base: 320ms;
+      --font-display: "Manrope", "Avenir Next", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+      --font-body: "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "PingFang SC", sans-serif;
+      --font-code: "JetBrains Mono", "SFMono-Regular", monospace;
+    }
+    [data-theme="dark"] {
+      --color-bg: #0B0B0D;
+      --color-surface: #1C1C1E;
+      --color-surface-2: #2C2C2E;
+      --color-text: #F5F5F7;
+      --color-muted: #AEAEB2;
+      --color-border: #48484A;
+      --color-accent: #F5F5F7;
+      --color-on-accent: #1D1D1F;
+      --color-focus: #64D2FF;
+      --color-success: #30D158;
+      --shadow-1: 0 2px 8px rgba(0, 0, 0, .18);
+      --shadow-2: 0 8px 28px rgba(0, 0, 0, .28);
+      --shadow-3: 0 24px 64px rgba(0, 0, 0, .40);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--color-text);
+      background: var(--color-bg);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 3px;
+    }
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: -80px;
+      z-index: 20;
+      padding: 10px 16px;
+      color: var(--color-on-accent);
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+    }
+    .skip-link:focus { top: 16px; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 80px;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -.02em; }
+    .brand img { width: 38px; height: 38px; border-radius: 10px; }
+    .brand small { display: block; color: var(--color-muted); font-size: 11px; font-weight: 500; letter-spacing: .08em; }
+    .toolbar { display: flex; gap: 8px; }
+    .icon-button, .chip, .primary-button, .secondary-button {
+      min-height: 48px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 0 18px;
+      color: var(--color-text);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: transform var(--dur-fast) ease-out, background var(--dur-fast) ease-out;
+    }
+    .icon-button:hover, .chip:hover, .secondary-button:hover { background: var(--color-surface-2); }
+    .icon-button:active, .chip:active, .primary-button:active, .secondary-button:active { transform: scale(.98); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 48px;
+      min-height: 600px;
+      padding: 64px 0 88px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--color-muted);
+      font-family: var(--font-code);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; margin: 0; letter-spacing: -.035em; }
+    h1 { max-width: 720px; font-size: clamp(44px, 6vw, 76px); }
+    h2 { font-size: clamp(32px, 4vw, 48px); }
+    h3 { font-size: 22px; letter-spacing: -.02em; }
+    .hero-copy > p { max-width: 590px; margin: 28px 0 0; color: var(--color-muted); font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .primary-button { border-color: var(--color-accent); color: var(--color-on-accent); background: var(--color-accent); }
+    .secondary-button { background: transparent; }
+    .icon-stage { position: relative; display: grid; place-items: center; min-height: 420px; }
+    .icon-stage::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--color-surface) 0%, transparent 70%);
+    }
+    .hero-icon {
+      position: relative;
+      width: min(290px, 72vw);
+      filter: drop-shadow(0 30px 44px rgba(0, 0, 0, .22));
+    }
+    .icon-caption {
+      position: absolute;
+      right: 0;
+      bottom: 24px;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-1);
+      font-family: var(--font-code);
+      font-size: 12px;
+    }
+    .section { padding: 80px 0; border-top: 1px solid var(--color-border); }
+    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; margin-bottom: 40px; }
+    .section-head p { max-width: 590px; margin: 4px 0 0; color: var(--color-muted); }
+    .icon-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; }
+    .icon-spec {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      color: #F5F5F7;
+      background: #17181B;
+    }
+    .icon-spec img { width: 180px; }
+    .gradient-list { display: grid; gap: 12px; margin-top: 20px; }
+    .gradient-row { display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 12px; font-size: 13px; }
+    .swatch { width: 54px; height: 30px; border: 1px solid rgba(255,255,255,.15); border-radius: 8px; }
+    .gradient-row code { color: #C7C7CC; font-family: var(--font-code); }
+    .variant-panel { display: grid; align-content: space-between; gap: 24px; padding: 32px; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+    .variants { display: flex; align-items: end; justify-content: space-around; gap: 24px; }
+    .variant { text-align: center; color: var(--color-muted); font-size: 12px; }
+    .variant img { display: block; margin: 0 auto 10px; }
+    .variant:nth-child(1) img { width: 112px; }
+    .variant:nth-child(2) img { width: 72px; }
+    .variant:nth-child(3) img { width: 48px; }
+    .mono-sample { width: 72px; height: 72px; margin: 0 auto 10px; background: var(--color-text); mask: url("icons/codetree-icon-mono.svg") center / contain no-repeat; }
+    .cloud-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 20px; }
+    .cloud-board { overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-1); }
+    .cloud-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--color-border); }
+    .cloud-toolbar p { margin: 0; color: var(--color-muted); font-size: 13px; }
+    .cloud-toolbar div { display: flex; gap: 8px; }
+    .chip { min-height: 44px; padding: 0 14px; font-size: 13px; }
+    .chip[aria-pressed="true"] { color: var(--color-on-accent); border-color: var(--color-accent); background: var(--color-accent); }
+    #cloud-svg { display: block; width: 100%; min-height: 430px; }
+    #cloud-svg text { font-family: var(--font-body); pointer-events: none; }
+    .cloud-edge { fill: none; stroke: var(--color-border); stroke-width: 2; }
+    .cloud-edge.extension { stroke-dasharray: 7 8; }
+    .cloud-node { cursor: pointer; }
+    .cloud-node rect { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1.5; transition: fill var(--dur-fast), stroke var(--dur-fast); }
+    .cloud-node text { fill: var(--color-text); font-size: 17px; font-weight: 600; }
+    .cloud-node.secondary rect { fill: var(--color-surface-2); }
+    .cloud-node.secondary text { fill: var(--color-muted); font-size: 14px; }
+    .cloud-node.selected rect { fill: var(--color-accent); stroke: var(--color-accent); stroke-width: 2; }
+    .cloud-node.selected text { fill: var(--color-on-accent); }
+    .cloud-node:hover rect { stroke: var(--color-muted); }
+    .cloud-node:focus-visible { outline: none; }
+    .cloud-node:focus-visible rect { stroke: var(--color-focus); stroke-width: 4; }
+    .ring-secondary, .edge-secondary { transition: opacity var(--dur-base) var(--ease-out); }
+    .cloud-board:not(.expanded) .ring-secondary, .cloud-board:not(.expanded) .edge-secondary { opacity: 0; pointer-events: none; }
+    .cloud-board.expanded .ring-secondary, .cloud-board.expanded .edge-secondary { opacity: 1; }
+    .node-detail { display: flex; flex-direction: column; padding: 28px; border-radius: var(--radius-lg); color: var(--color-on-accent); background: var(--color-accent); }
+    .node-detail .label { font-family: var(--font-code); font-size: 11px; letter-spacing: .08em; opacity: .65; }
+    .node-detail h3 { margin-top: 12px; font-size: 32px; }
+    .node-detail p { opacity: .72; }
+    .node-detail dl { margin: auto 0 0; padding-top: 24px; font-size: 13px; }
+    .node-detail dt { opacity: .6; }
+    .node-detail dd { margin: 2px 0 16px; }
+    .node-list { margin-top: 20px; padding: 20px; border: 1px solid var(--color-border); border-radius: var(--radius-md); }
+    .node-list summary { min-height: 44px; cursor: pointer; font-weight: 600; }
+    .node-list ul { color: var(--color-muted); }
+    .token-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .token { min-height: 156px; padding: 20px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+    .token-sample { width: 44px; height: 44px; margin-bottom: 24px; border: 1px solid var(--color-border); border-radius: 12px; }
+    .token strong, .token code { display: block; }
+    .token code { margin-top: 4px; color: var(--color-muted); font-family: var(--font-code); font-size: 12px; }
+    .type-demo { margin-top: 24px; padding: 32px; border-radius: var(--radius-lg); background: var(--color-surface-2); }
+    .type-demo .display { font-family: var(--font-display); font-size: 34px; font-weight: 700; letter-spacing: -.02em; }
+    .type-demo .body { max-width: 660px; margin: 16px 0; font-size: 17px; }
+    .type-demo pre { overflow-x: auto; margin: 0; padding: 20px; border-radius: var(--radius-md); color: #F5F5F7; background: #1C1C1E; font: 14px/1.7 var(--font-code); }
+    .update-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0; list-style: none; counter-reset: updates; }
+    .update-list li { position: relative; min-height: 190px; padding: 28px; border-top: 1px solid var(--color-text); counter-increment: updates; }
+    .update-list li::before { content: "0" counter(updates); display: block; margin-bottom: 28px; color: var(--color-muted); font: 12px var(--font-code); }
+    .update-list strong { display: block; margin-bottom: 8px; font-size: 18px; }
+    .update-list p { margin: 0; color: var(--color-muted); font-size: 14px; }
+    footer { display: flex; justify-content: space-between; gap: 24px; padding: 40px 0 64px; border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: 13px; }
+    .reveal { animation: reveal 640ms var(--ease-out) both; }
+    .reveal.delay { animation-delay: 100ms; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; }
+      .icon-stage { min-height: 340px; }
+      .section-head, .icon-grid, .cloud-layout { grid-template-columns: 1fr; }
+      .section-head { gap: 16px; }
+      .node-detail { min-height: 260px; }
+      .token-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      .topbar { min-height: 72px; flex-wrap: wrap; padding: 12px 0; }
+      .brand small { display: none; }
+      .toolbar { width: 100%; gap: 8px; }
+      .toolbar .icon-button { flex: 1; padding: 0 12px; font-size: 13px; }
+      .hero { min-height: 0; padding: 40px 0 64px; gap: 24px; }
+      h1 { font-size: 42px; }
+      .hero-copy > p { font-size: 16px; }
+      .icon-stage { min-height: 300px; }
+      .hero-icon { width: 230px; }
+      .icon-caption { right: 4px; bottom: 4px; }
+      .section { padding: 56px 0; }
+      .icon-spec { grid-template-columns: 1fr; padding: 24px; }
+      .icon-spec img { width: 150px; }
+      .gradient-row { grid-template-columns: 46px 1fr; }
+      .gradient-row code { grid-column: 2; }
+      .cloud-toolbar { align-items: flex-start; }
+      #cloud-svg { min-height: 360px; }
+      .update-list { grid-template-columns: 1fr; }
+      .update-list li { min-height: 0; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    [data-reduce-motion="true"] *, [data-reduce-motion="true"] *::before, [data-reduce-motion="true"] *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="shell topbar">
+    <div class="brand">
+      <img src="icons/codetree-icon.svg" alt="CodeTree 墨猫图标">
+      <span>CodeTree<small>INK CAT · VISUAL SYSTEM v0.6.0</small></span>
+    </div>
+    <div class="toolbar">
+      <button class="icon-button" id="motion-toggle" type="button" aria-pressed="false">减少动效</button>
+      <button class="icon-button" id="theme-toggle" type="button" aria-pressed="false">深色模式</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Curious by nature · Clear by design</span>
+        <h1 id="hero-title">一只猫，<br>一张知识云图。</h1>
+        <p>以黑灰与银色建立安静、专注的学习空间。猫耳与代码括号形成品牌记忆，云图扩散把复杂知识关系变成可定位、可返回的探索路径。</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#cloud" style="display:inline-flex;align-items:center;text-decoration:none">查看云图扩散</a>
+          <a class="secondary-button" href="#updates" style="display:inline-flex;align-items:center;text-decoration:none">每次更新条例</a>
+        </div>
+      </div>
+      <div class="icon-stage reveal delay">
+        <img class="hero-icon" src="icons/codetree-icon.svg" alt="黑灰渐变底板和银色代码猫眼组成的墨猫图标">
+        <span class="icon-caption">1024 / SVG / 01</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="icon-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="icon-title">墨猫图标</h2>
+          <p>猫耳负责识别，代码括号眼睛负责表达编程属性。渐变只服务品牌，不蔓延到按钮、正文和终端。主图、前景与单色层共享同一轮廓。</p>
+        </div>
+        <div class="icon-grid">
+          <article class="icon-spec">
+            <img src="icons/codetree-icon.svg" alt="墨猫主图标大图">
+            <div>
+              <h3>Graphite / Silver</h3>
+              <div class="gradient-list" aria-label="图标渐变色值">
+                <div class="gradient-row"><span class="swatch" style="background:#4B4E53"></span><span>底板亮部</span><code>#4B4E53</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:#24262A"></span><span>底板中间</span><code>#24262A</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:#0B0C0E"></span><span>底板暗部</span><code>#0B0C0E</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:linear-gradient(135deg,#FAFAFB,#858990)"></span><span>银色猫头</span><code>3 stops</code></div>
+              </div>
+            </div>
+          </article>
+          <article class="variant-panel">
+            <div>
+              <h3>小尺寸仍然清楚</h3>
+              <p style="color:var(--color-muted);font-size:14px">优先保留猫耳、脸颊和括号眼睛；鼻口在小尺寸自然弱化。</p>
+            </div>
+            <div class="variants">
+              <div class="variant"><img src="icons/codetree-icon.svg" alt="112 像素图标">112 px</div>
+              <div class="variant"><img src="icons/codetree-icon.svg" alt="72 像素图标">72 px</div>
+              <div class="variant"><img src="icons/codetree-icon.svg" alt="48 像素图标">48 px</div>
+            </div>
+            <div class="variant"><div class="mono-sample" role="img" aria-label="单色墨猫图标"></div>单色透明镂空</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cloud" aria-labelledby="cloud-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="cloud-title">云图扩散</h2>
+          <p>以当前节点为中心，按图距离分层展开。稳定排序保留位置记忆，聚合节点控制密度；动效只说明“从哪里展开”，不让整张图持续漂浮。</p>
+        </div>
+        <div class="cloud-layout">
+          <div class="cloud-board" id="cloud-board">
+            <div class="cloud-toolbar">
+              <p>当前路径 / Python 基础 / 函数</p>
+              <div>
+                <button class="chip" id="expand-cloud" type="button" aria-pressed="false">展开第二层</button>
+                <button class="chip" id="reset-cloud" type="button">回到函数</button>
+              </div>
+            </div>
+            <svg id="cloud-svg" viewBox="0 0 760 470" role="group" aria-label="可选择节点的函数知识云图">
+              <g aria-hidden="true">
+                <path class="cloud-edge" d="M380 230Q320 155 260 128"/>
+                <path class="cloud-edge" d="M380 230Q440 155 500 128"/>
+                <path class="cloud-edge" d="M380 230Q285 220 190 238"/>
+                <path class="cloud-edge" d="M380 230Q475 220 570 238"/>
+                <path class="cloud-edge" d="M380 230Q320 315 270 344"/>
+                <path class="cloud-edge" d="M380 230Q440 315 490 344"/>
+                <g class="edge-secondary">
+                  <path class="cloud-edge extension" d="M260 128Q205 75 142 76"/>
+                  <path class="cloud-edge extension" d="M500 128Q555 75 618 76"/>
+                  <path class="cloud-edge extension" d="M270 344Q205 392 142 388"/>
+                </g>
+              </g>
+              <g class="cloud-node selected" data-node="function" tabindex="0" role="button" aria-label="函数，当前学习节点" transform="translate(380 230)">
+                <rect x="-66" y="-36" width="132" height="72" rx="36"/>
+                <text text-anchor="middle" y="7">函数</text>
+              </g>
+              <g class="cloud-node" data-node="parameter" tabindex="0" role="button" aria-label="参数，前置知识" transform="translate(260 128)">
+                <rect x="-54" y="-28" width="108" height="56" rx="28"/>
+                <text text-anchor="middle" y="6">参数</text>
+              </g>
+              <g class="cloud-node" data-node="return" tabindex="0" role="button" aria-label="返回值，相关知识" transform="translate(500 128)">
+                <rect x="-58" y="-28" width="116" height="56" rx="28"/>
+                <text text-anchor="middle" y="6">返回值</text>
+              </g>
+              <g class="cloud-node" data-node="call" tabindex="0" role="button" aria-label="调用，实际应用" transform="translate(190 238)">
+                <rect x="-54" y="-28" width="108" height="56" rx="28"/>
+                <text text-anchor="middle" y="6">调用</text>
+              </g>
+              <g class="cloud-node" data-node="scope" tabindex="0" role="button" aria-label="作用域，相关知识" transform="translate(570 238)">
+                <rect x="-58" y="-28" width="116" height="56" rx="28"/>
+                <text text-anchor="middle" y="6">作用域</text>
+              </g>
+              <g class="cloud-node" data-node="pure" tabindex="0" role="button" aria-label="纯函数，相关知识" transform="translate(270 344)">
+                <rect x="-58" y="-28" width="116" height="56" rx="28"/>
+                <text text-anchor="middle" y="6">纯函数</text>
+              </g>
+              <g class="cloud-node" data-node="recursion" tabindex="0" role="button" aria-label="递归，实际应用" transform="translate(490 344)">
+                <rect x="-54" y="-28" width="108" height="56" rx="28"/>
+                <text text-anchor="middle" y="6">递归</text>
+              </g>
+              <g class="ring-secondary">
+                <g class="cloud-node secondary" data-node="closure" tabindex="0" role="button" aria-label="闭包，第二层延展" transform="translate(142 76)">
+                  <rect x="-46" y="-23" width="92" height="46" rx="23"/>
+                  <text text-anchor="middle" y="5">闭包</text>
+                </g>
+                <g class="cloud-node secondary" data-node="higher" tabindex="0" role="button" aria-label="高阶函数，第二层延展" transform="translate(618 76)">
+                  <rect x="-62" y="-23" width="124" height="46" rx="23"/>
+                  <text text-anchor="middle" y="5">高阶函数</text>
+                </g>
+                <g class="cloud-node secondary" data-node="testing" tabindex="0" role="button" aria-label="单元测试，第二层延展" transform="translate(142 388)">
+                  <rect x="-62" y="-23" width="124" height="46" rx="23"/>
+                  <text text-anchor="middle" y="5">单元测试</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <aside class="node-detail" aria-live="polite">
+            <span class="label">SELECTED TOPIC</span>
+            <h3 id="node-name">函数</h3>
+            <p id="node-description">把一段可复用逻辑命名为明确能力，是进入模块化编程的核心节点。</p>
+            <dl>
+              <dt>关系</dt><dd id="node-relation">当前学习节点</dd>
+              <dt>下一步</dt><dd id="node-next">查看双语示例并完成练习</dd>
+            </dl>
+          </aside>
+        </div>
+        <details class="node-list">
+          <summary>等价列表：不依赖图形也可访问节点</summary>
+          <ul>
+            <li>函数：前置知识为参数；相关知识为返回值、作用域和纯函数。</li>
+            <li>实际应用：调用、递归；第二层延展：闭包、高阶函数和单元测试。</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tokens-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="tokens-title">一套令牌，全端统一</h2>
+          <p>中性色建立层级，功能色只在焦点和状态出现。展示、正文与代码字体各司其职；所有间距、圆角和动效来自同一份设计令牌。</p>
+        </div>
+        <div class="token-grid">
+          <div class="token"><span class="token-sample" style="background:#F5F5F7"></span><strong>页面背景</strong><code>#F5F5F7</code></div>
+          <div class="token"><span class="token-sample" style="background:#FFFFFF"></span><strong>一级表面</strong><code>#FFFFFF</code></div>
+          <div class="token"><span class="token-sample" style="background:#1D1D1F"></span><strong>主文字</strong><code>#1D1D1F</code></div>
+          <div class="token"><span class="token-sample" style="background:#0A84FF"></span><strong>焦点蓝</strong><code>#0A84FF</code></div>
+        </div>
+        <div class="type-demo">
+          <div class="display">函数，让逻辑拥有名字。</div>
+          <p class="body">正文使用 17sp 与 1.6 倍行高，中文行长保持舒适。标题建立明确层级，代码使用等宽字体并允许横向查看。</p>
+          <pre><code>def greet(name: str) -> str:
+    return f"你好，{name}"</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="updates" aria-labelledby="updates-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="updates-title">每次更新都有凭据</h2>
+          <p>每项变化记录任务、范围、前后差异、影响、验证和回退。设计目标与实测结果分开陈述，源文件与派生物在同一变更中同步。</p>
+        </div>
+        <ol class="update-list">
+          <li><strong>建立基线</strong><p>确认版本、任务 ID、已有改动和权威来源。</p></li>
+          <li><strong>修改源文件</strong><p>先契约与令牌，再页面和资产生成。</p></li>
+          <li><strong>生成全套派生物</strong><p>图标三版本与 PNG、合集和压缩包保持同步。</p></li>
+          <li><strong>执行正反例验证</strong><p>结构、对比度、小尺寸、云图稳定性与减少动效。</p></li>
+          <li><strong>复核前后差异</strong><p>检查未声明变化，记录真实命令与关键输出。</p></li>
+          <li><strong>交接与回退</strong><p>限制、剩余事项和整组恢复方式可追踪。</p></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>CodeTree · Ink Cat / 视觉规范 v0.6.0</span>
+    <span>48dp 触控 · 4.5:1 正文对比 · 减少动效 · 等价列表</span>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.getElementById('theme-toggle');
+    const motionButton = document.getElementById('motion-toggle');
+    themeButton.addEventListener('click', () => {
+      const dark = root.dataset.theme !== 'dark';
+      root.dataset.theme = dark ? 'dark' : 'light';
+      themeButton.setAttribute('aria-pressed', String(dark));
+      themeButton.textContent = dark ? '浅色模式' : '深色模式';
+    });
+    motionButton.addEventListener('click', () => {
+      const reduced = root.dataset.reduceMotion !== 'true';
+      root.dataset.reduceMotion = String(reduced);
+      motionButton.setAttribute('aria-pressed', String(reduced));
+      motionButton.textContent = reduced ? '标准动效' : '减少动效';
+    });
+
+    const board = document.getElementById('cloud-board');
+    const expandButton = document.getElementById('expand-cloud');
+    expandButton.addEventListener('click', () => {
+      const expanded = !board.classList.contains('expanded');
+      board.classList.toggle('expanded', expanded);
+      expandButton.setAttribute('aria-pressed', String(expanded));
+      expandButton.textContent = expanded ? '收起第二层' : '展开第二层';
+      board.querySelectorAll('.ring-secondary .cloud-node').forEach(node => {
+        node.tabIndex = expanded ? 0 : -1;
+        node.setAttribute('aria-hidden', String(!expanded));
+      });
+    });
+    board.querySelectorAll('.ring-secondary .cloud-node').forEach(node => {
+      node.tabIndex = -1;
+      node.setAttribute('aria-hidden', 'true');
+    });
+
+    const topics = {
+      function: ['函数', '把一段可复用逻辑命名为明确能力，是进入模块化编程的核心节点。', '当前学习节点', '查看双语示例并完成练习'],
+      parameter: ['参数', '调用函数时传入的输入，让同一逻辑可以处理不同数据。', '前置知识', '比较位置参数与关键字参数'],
+      return: ['返回值', '函数交给调用者的结果，需要与输出到屏幕区分。', '相关知识', '观察 return 与 print 的差异'],
+      call: ['调用', '使用函数名与实参执行已定义的逻辑。', '实际应用', '在安全终端运行一个调用示例'],
+      scope: ['作用域', '名称可被访问的范围，影响变量读取与修改。', '相关知识', '追踪局部变量与全局变量'],
+      pure: ['纯函数', '相同输入产生相同输出，并避免可观察的副作用。', '相关知识', '判断三个函数是否为纯函数'],
+      recursion: ['递归', '函数通过更小的同类问题推进到明确的终止条件。', '实际应用', '检查终止条件与调用深度'],
+      closure: ['闭包', '函数保留定义环境中的名称绑定。', '第二层延展', '从一个计数器示例开始'],
+      higher: ['高阶函数', '接收函数作为参数，或返回另一个函数。', '第二层延展', '比较 map 与显式循环'],
+      testing: ['单元测试', '用可重复输入和明确期望验证函数行为。', '第二层延展', '为纯函数添加边界用例']
+    };
+    const nodes = [...document.querySelectorAll('.cloud-node')];
+    function selectNode(key) {
+      const topic = topics[key];
+      nodes.forEach(node => node.classList.toggle('selected', node.dataset.node === key));
+      document.getElementById('node-name').textContent = topic[0];
+      document.getElementById('node-description').textContent = topic[1];
+      document.getElementById('node-relation').textContent = topic[2];
+      document.getElementById('node-next').textContent = topic[3];
+    }
+    nodes.forEach(node => {
+      node.addEventListener('click', () => selectNode(node.dataset.node));
+      node.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectNode(node.dataset.node);
+        }
+      });
+    });
+    document.getElementById('reset-cloud').addEventListener('click', () => selectNode('function'));
+  </script>
+</body>
+</html>

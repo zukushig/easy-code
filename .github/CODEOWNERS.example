@@ -1,0 +1,12 @@
+# 复制为 .github/CODEOWNERS，并把下列占位替换为真实 GitHub 组织或团队后生效。
+# 占位值不是有效 GitHub 身份；保留占位会让规则失效，校验脚本会拒绝含占位的 CODEOWNERS。
+
+/docs/                 @<ORG>/<TEAM-DOCS>
+/.github/              @<ORG>/<TEAM-RELEASE>
+/scripts/              @<ORG>/<TEAM-RELEASE>
+/app/                  @<ORG>/<TEAM-ANDROID>
+/core/                 @<ORG>/<TEAM-ANDROID>
+/feature/              @<ORG>/<TEAM-ANDROID>
+/runtime/              @<ORG>/<TEAM-TERMINAL>
+/plugin-api/           @<ORG>/<TEAM-PLUGIN>
+/content/              @<ORG>/<TEAM-CONTENT>

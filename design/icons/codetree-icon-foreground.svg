@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">CodeTree 墨猫自适应图标前景</title>
+  <desc id="desc">透明背景上的银色渐变猫头，主体位于中央安全区。</desc>
+  <defs>
+    <linearGradient id="silver-cat" x1="18%" y1="4%" x2="82%" y2="96%">
+      <stop offset="0%" stop-color="#FAFAFB"/>
+      <stop offset="52%" stop-color="#C7C9CE"/>
+      <stop offset="100%" stop-color="#858990"/>
+    </linearGradient>
+  </defs>
+  <path id="cat-silhouette" fill="url(#silver-cat)" d="M512 800C337 800 230 701 230 552C230 492 249 444 275 405L262 273C259 244 278 231 301 246L410 318C469 298 555 298 614 318L723 246C746 231 765 244 762 273L749 405C775 444 794 492 794 552C794 701 687 800 512 800Z"/>
+  <g fill="none" stroke="#24262A" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+    <path id="code-eye-left" d="M414 498L366 542L414 586"/>
+    <path id="code-eye-right" d="M610 498L658 542L610 586"/>
+  </g>
+  <path id="cat-nose" d="M492 620Q512 610 532 620L512 642Z" fill="#4B4E53"/>
+  <path id="cat-mouth" d="M512 644V662M512 662C495 680 474 679 461 667M512 662C529 680 550 679 563 667" fill="none" stroke="#4B4E53" stroke-width="14" stroke-linecap="round"/>
+</svg>
