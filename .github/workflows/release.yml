@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '发布版本号，需与制品版本一致'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: 发布前门禁
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 Python（固定版本并缓存依赖）
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: scripts/requirements-ci.txt
+
+      - name: 安装固定版本校验依赖
+        run: python3 -m pip install -r scripts/requirements-ci.txt
+
+      - name: 发布前静态校验
+        run: |
+          python3 scripts/validate_workflows.py
+          python3 scripts/merge_docs.py --check
+
+  build:
+    name: 构建发布制品与哈希
+    needs: [verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment: release
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK 与 Gradle 缓存
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+
+      - name: 干净构建 Release 制品
+        run: >-
+          ./gradlew -I "$CODETREE_GRADLE_INIT"
+          clean assembleRelease --no-daemon --build-cache
+
+      - name: 生成制品哈希清单
+        run: |
+          find . -path '*/build/outputs/*' -type f \( -name '*.apk' -o -name '*.aab' \) -print0 \
+            | sort -z | xargs -0 -r sha256sum > SHA256SUMS
+          test -s SHA256SUMS
+          cat SHA256SUMS
+
+      - name: 上传未签名制品与哈希
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate-${{ github.ref_name }}
+          path: |
+            **/build/outputs/**/*.apk
+            **/build/outputs/**/*.aab
+            SHA256SUMS
+          retention-days: 30
+          if-no-files-found: error

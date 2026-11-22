@@ -1,0 +1,111 @@
+name: Android
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'core/**'
+      - 'feature/**'
+      - 'runtime/**'
+      - 'plugin-api/**'
+      - 'content/**'
+      - 'buildSrc/**'
+      - 'gradle/**'
+      - '*.gradle'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - 'settings.gradle*'
+      - 'gradlew'
+      - 'gradlew.bat'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'core/**'
+      - 'feature/**'
+      - 'runtime/**'
+      - 'plugin-api/**'
+      - 'content/**'
+      - 'buildSrc/**'
+      - 'gradle/**'
+      - '*.gradle'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - 'settings.gradle*'
+      - 'gradlew'
+      - 'gradlew.bat'
+  workflow_dispatch:
+    inputs:
+      use-cn-mirrors:
+        description: '启用按仓库分别设置的国内 Maven 镜像'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: 静态检查与 JVM 单元测试
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK 与 Gradle 缓存
+        id: setup
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+          use-cn-mirrors: ${{ inputs.use-cn-mirrors || false }}
+
+      - name: 静态检查与单元测试
+        run: >-
+          ./gradlew -I "$CODETREE_GRADLE_INIT"
+          lint test --no-daemon --parallel --build-cache --configure-on-demand
+
+      - name: 上传测试报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ github.sha }}
+          path: '**/build/reports/tests/**'
+          retention-days: 7
+          if-no-files-found: warn
+
+  assemble:
+    name: 构建 Debug 制品
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK 与 Gradle 缓存
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+          use-cn-mirrors: ${{ inputs.use-cn-mirrors || false }}
+
+      - name: 构建 Debug 包
+        run: >-
+          ./gradlew -I "$CODETREE_GRADLE_INIT"
+          assembleDebug --no-daemon --parallel --build-cache --configure-on-demand
+
+      - name: 上传 Debug 制品
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk-${{ github.sha }}
+          path: '**/build/outputs/apk/debug/*.apk'
+          retention-days: 7
+          if-no-files-found: warn

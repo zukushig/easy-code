@@ -1,0 +1,94 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preflight:
+    name: 检测 Gradle 工程是否落地
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      gradle-ready: ${{ steps.check.outputs.gradle-ready }}
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: 检查 gradlew
+        id: check
+        run: |
+          if [ -f gradlew ]; then
+            echo 'gradle-ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'gradle-ready=false' >> "$GITHUB_OUTPUT"
+          fi
+
+  full-check:
+    name: 全量校验与重建
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 Python（固定版本并缓存依赖）
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: scripts/requirements-ci.txt
+
+      - name: 安装固定版本校验依赖
+        run: python3 -m pip install -r scripts/requirements-ci.txt
+
+      - name: 校验工作流结构
+        run: python3 scripts/validate_workflows.py
+
+      - name: 校验合集时效性
+        run: python3 scripts/merge_docs.py --check
+
+      - name: 确认源文件未产生漂移
+        run: git diff --exit-code -- CodeTree-项目文档合集.md CodeTree-合并文档包.zip docs scripts .github
+
+  full-build:
+    name: 全量构建（缓存冷启动复现）
+    needs: [preflight]
+    if: needs.preflight.outputs.gradle-ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK 与 Gradle 缓存
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+
+      - name: 全量构建与测试
+        run: >-
+          ./gradlew -I "$CODETREE_GRADLE_INIT"
+          lint test assembleDebug --no-daemon --parallel --build-cache
+
+      - name: 上传全量报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-reports-${{ github.run_id }}
+          path: '**/build/reports/**'
+          retention-days: 3
+          if-no-files-found: warn
