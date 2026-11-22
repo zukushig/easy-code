@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>CodeTree · 墨猫视觉规范</title>
+  <title>编程猫 CodeCat · 主题猫视觉规范</title>
   <style>
     :root {
-      --color-bg: #F5F5F7;
+      --color-bg: #F7F5EF;
       --color-surface: #FFFFFF;
       --color-surface-2: #ECECEF;
       --color-text: #1D1D1F;
       --color-muted: #636366;
       --color-border: #D2D2D7;
       --color-accent: #1D1D1F;
-      --color-on-accent: #F5F5F7;
-      --color-focus: #0A84FF;
+      --color-on-accent: #FFFDF8;
+      --color-focus: #2563EB;
       --color-success: #248A3D;
       --shadow-1: 0 2px 8px rgba(29, 29, 31, .08);
       --shadow-2: 0 8px 28px rgba(29, 29, 31, .12);
@@ -34,10 +34,10 @@
       --color-bg: #0B0B0D;
       --color-surface: #1C1C1E;
       --color-surface-2: #2C2C2E;
-      --color-text: #F5F5F7;
+      --color-text: #F7F2E8;
       --color-muted: #AEAEB2;
       --color-border: #48484A;
-      --color-accent: #F5F5F7;
+      --color-accent: #F7F2E8;
       --color-on-accent: #1D1D1F;
       --color-focus: #64D2FF;
       --color-success: #30D158;
@@ -162,7 +162,7 @@
       align-items: center;
       padding: 32px;
       border-radius: var(--radius-lg);
-      color: #F5F5F7;
+      color: #F7F2E8;
       background: #17181B;
     }
     .icon-spec img { width: 180px; }
@@ -220,7 +220,7 @@
     .type-demo { margin-top: 24px; padding: 32px; border-radius: var(--radius-lg); background: var(--color-surface-2); }
     .type-demo .display { font-family: var(--font-display); font-size: 34px; font-weight: 700; letter-spacing: -.02em; }
     .type-demo .body { max-width: 660px; margin: 16px 0; font-size: 17px; }
-    .type-demo pre { overflow-x: auto; margin: 0; padding: 20px; border-radius: var(--radius-md); color: #F5F5F7; background: #1C1C1E; font: 14px/1.7 var(--font-code); }
+    .type-demo pre { overflow-x: auto; margin: 0; padding: 20px; border-radius: var(--radius-md); color: #F7F2E8; background: #1C1C1E; font: 14px/1.7 var(--font-code); }
     .update-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0; list-style: none; counter-reset: updates; }
     .update-list li { position: relative; min-height: 190px; padding: 28px; border-top: 1px solid var(--color-text); counter-increment: updates; }
     .update-list li::before { content: "0" counter(updates); display: block; margin-bottom: 28px; color: var(--color-muted); font: 12px var(--font-code); }
@@ -276,8 +276,8 @@
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="shell topbar">
     <div class="brand">
-      <img src="icons/codetree-icon.svg" alt="CodeTree 墨猫图标">
-      <span>CodeTree<small>INK CAT · VISUAL SYSTEM v0.6.0</small></span>
+      <img src="icons/codetree-icon.svg" alt="编程猫 CodeCat 图标">
+      <span>编程猫<small>CODECAT · VISUAL SYSTEM v0.7.0</small></span>
     </div>
     <div class="toolbar">
       <button class="icon-button" id="motion-toggle" type="button" aria-pressed="false">减少动效</button>
@@ -289,35 +289,62 @@
     <section class="shell hero" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
         <span class="eyebrow">Curious by nature · Clear by design</span>
-        <h1 id="hero-title">一只猫，<br>一张知识云图。</h1>
-        <p>以黑灰与银色建立安静、专注的学习空间。猫耳与代码括号形成品牌记忆，云图扩散把复杂知识关系变成可定位、可返回的探索路径。</p>
+        <h1 id="hero-title">一只猫，<br>一棵知识树。</h1>
+        <p>以暖纸、墨黑、薄荷与珊瑚建立好奇、清晰的学习空间。主题猫「小码」与代码括号形成品牌记忆，云图扩散把复杂知识关系变成可定位、可返回的探索路径。</p>
         <div class="hero-actions">
           <a class="primary-button" href="#cloud" style="display:inline-flex;align-items:center;text-decoration:none">查看云图扩散</a>
           <a class="secondary-button" href="#updates" style="display:inline-flex;align-items:center;text-decoration:none">每次更新条例</a>
         </div>
       </div>
       <div class="icon-stage reveal delay">
-        <img class="hero-icon" src="icons/codetree-icon.svg" alt="黑灰渐变底板和银色代码猫眼组成的墨猫图标">
+        <img class="hero-icon" src="icons/codetree-icon.svg" alt="墨黑底板、奶油猫头和珊瑚耳内组成的编程猫图标">
         <span class="icon-caption">1024 / SVG / 01</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="mascot-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="mascot-title">主题猫「小码」</h2>
+          <p>好奇、敏捷、敢试错。墨黑猫身、薄荷代码眼、珊瑚耳内与知识枝尾巴，构成可识别、可延展的角色母版。</p>
+        </div>
+        <div class="icon-grid">
+          <article class="icon-spec">
+            <img src="mascot/programming-cat.svg" alt="编程猫主题猫小码招手姿态">
+            <div>
+              <h3>Curious / Agile</h3>
+              <div class="gradient-list" aria-label="主题猫品牌色">
+                <div class="gradient-row"><span class="swatch" style="background:#8CE8C6"></span><span>薄荷 / 代码眼</span><code>#8CE8C6</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:#FF7A66"></span><span>珊瑚 / 耳内与鼻</span><code>#FF7A66</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:#16181D"></span><span>墨黑 / 猫身</span><code>#16181D</code></div>
+              </div>
+            </div>
+          </article>
+          <article class="variant-panel">
+            <h3>角色设定板</h3>
+            <p>用于设计评审与宣传交底。母版与设定板同源；应用内单页最多一只猫，不进入代码区和终端。</p>
+            <img src="mascot/programming-cat-sheet.svg" alt="编程猫主题猫角色设定板" style="width:100%;border-radius:var(--radius-md);margin-top:16px">
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="icon-title">
       <div class="shell">
         <div class="section-head">
-          <h2 id="icon-title">墨猫图标</h2>
-          <p>猫耳负责识别，代码括号眼睛负责表达编程属性。渐变只服务品牌，不蔓延到按钮、正文和终端。主图、前景与单色层共享同一轮廓。</p>
+          <h2 id="icon-title">编程猫图标</h2>
+          <p>猫耳负责识别，薄荷与珊瑚负责性格，代码括号眼睛负责表达编程属性。渐变只服务品牌，不蔓延到按钮、正文和终端。主图、前景与单色层共享同一轮廓。</p>
         </div>
         <div class="icon-grid">
           <article class="icon-spec">
-            <img src="icons/codetree-icon.svg" alt="墨猫主图标大图">
+            <img src="icons/codetree-icon.svg" alt="编程猫主图标大图">
             <div>
-              <h3>Graphite / Silver</h3>
+              <h3>Ink / Cream / Coral</h3>
               <div class="gradient-list" aria-label="图标渐变色值">
-                <div class="gradient-row"><span class="swatch" style="background:#4B4E53"></span><span>底板亮部</span><code>#4B4E53</code></div>
-                <div class="gradient-row"><span class="swatch" style="background:#24262A"></span><span>底板中间</span><code>#24262A</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:#2B3036"></span><span>底板亮部</span><code>#2B3036</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:#171A1E"></span><span>底板中间</span><code>#171A1E</code></div>
                 <div class="gradient-row"><span class="swatch" style="background:#0B0C0E"></span><span>底板暗部</span><code>#0B0C0E</code></div>
-                <div class="gradient-row"><span class="swatch" style="background:linear-gradient(135deg,#FAFAFB,#858990)"></span><span>银色猫头</span><code>3 stops</code></div>
+                <div class="gradient-row"><span class="swatch" style="background:linear-gradient(135deg,#FFF9EC,#D0BFA5)"></span><span>奶油猫头</span><code>3 stops</code></div>
               </div>
             </div>
           </article>
@@ -331,7 +358,7 @@
               <div class="variant"><img src="icons/codetree-icon.svg" alt="72 像素图标">72 px</div>
               <div class="variant"><img src="icons/codetree-icon.svg" alt="48 像素图标">48 px</div>
             </div>
-            <div class="variant"><div class="mono-sample" role="img" aria-label="单色墨猫图标"></div>单色透明镂空</div>
+            <div class="variant"><div class="mono-sample" role="img" aria-label="单色编程猫图标"></div>单色透明镂空</div>
           </article>
         </div>
       </div>
@@ -437,10 +464,10 @@
           <p>中性色建立层级，功能色只在焦点和状态出现。展示、正文与代码字体各司其职；所有间距、圆角和动效来自同一份设计令牌。</p>
         </div>
         <div class="token-grid">
-          <div class="token"><span class="token-sample" style="background:#F5F5F7"></span><strong>页面背景</strong><code>#F5F5F7</code></div>
+          <div class="token"><span class="token-sample" style="background:#F7F5EF"></span><strong>暖纸背景</strong><code>#F7F5EF</code></div>
           <div class="token"><span class="token-sample" style="background:#FFFFFF"></span><strong>一级表面</strong><code>#FFFFFF</code></div>
           <div class="token"><span class="token-sample" style="background:#1D1D1F"></span><strong>主文字</strong><code>#1D1D1F</code></div>
-          <div class="token"><span class="token-sample" style="background:#0A84FF"></span><strong>焦点蓝</strong><code>#0A84FF</code></div>
+          <div class="token"><span class="token-sample" style="background:#2563EB"></span><strong>焦点蓝</strong><code>#2563EB</code></div>
         </div>
         <div class="type-demo">
           <div class="display">函数，让逻辑拥有名字。</div>
@@ -470,7 +497,7 @@
   </main>
 
   <footer class="shell">
-    <span>CodeTree · Ink Cat / 视觉规范 v0.6.0</span>
+    <span>编程猫 · CodeCat / 视觉规范 v0.7.0</span>
     <span>48dp 触控 · 4.5:1 正文对比 · 减少动效 · 等价列表</span>
   </footer>
 

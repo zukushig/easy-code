@@ -1,9 +1,9 @@
-# CodeTree 项目文档
+# 编程猫 CodeTree 项目文档
 
-> CodeTree 是当前项目代号：一款原生 Android 编程学习应用，以知识树组织内容，以词典、双语示例、终端和 AI 助手形成学习闭环。
+> 编程猫（英文名 CodeCat，仓库代号 CodeTree）是一款原生 Android 编程学习应用，以知识树组织内容，以词典、双语示例、终端和 AI 助手形成学习闭环。
 
-- 文档版本：v0.6.0
-- 文档状态：已统一里程碑与 ADR 门禁，修正 P0 依赖与迁移优先级，新增“我的/设置/隐私/关于”、TalkBack 与权限审计任务；17 份源文档、19 份文本工程与设计资产、4 份 PNG 预览统一交付
+- 文档版本：v0.7.0
+- 文档状态：已确定中文名“编程猫”、主题猫“小码”和暖纸/薄荷/珊瑚品牌系统，新增宣传设计规范；18 份源文档、21 份文本工程与设计资产、5 份 PNG 预览统一交付
 - 当前阶段：产品与架构规划，尚未进入编码
 - 默认交付平台：Android 手机
 - 首个里程碑：可离线使用的学习 MVP
@@ -27,8 +27,9 @@
 | [06 测试与验收](docs/06-TESTING-ACCEPTANCE.md) | 测试分层、需求追踪、设备矩阵和发布门禁 | QA（质量保障）与执行 Agent（智能体） |
 | [07 安全、隐私与发布](docs/07-SECURITY-RELEASE.md) | 密钥、终端沙箱、插件安全、权限、发布和回滚 | 安全、QA（质量保障）与发布 Agent（智能体） |
 | [08 GitHub 工作流效率规范](docs/08-GITHUB-WORKFLOW.md) | 分层触发、缓存、并发取消、门禁与国内镜像边界 | RELEASE（发布负责人）/QA（质量保障） |
-| [09 视觉与美术设计规范](docs/09-VISUAL-DESIGN.md) | 墨猫图标、黑灰渐变、设计令牌、云图扩散与视觉验收 | DESIGN（设计负责人）/功能开发 Agent（智能体） |
+| [09 视觉与美术设计规范](docs/09-VISUAL-DESIGN.md) | 编程猫主题猫、暖纸/薄荷/珊瑚品牌、图标、云图扩散与视觉验收 | DESIGN（设计负责人）/功能开发 Agent（智能体） |
 | [10 每次更新条例](docs/10-UPDATE-POLICY.md) | 变更记录、版本规则、资产同步、验证证据与回退 | 全员与协调者 |
+| [11 宣传设计规范](docs/11-PROMOTION-DESIGN.md) | 应用商店、社交媒体、发布会、开屏与分享卡片的版式、文案和导出 | 设计、宣传与发布负责人 |
 | [Agent 派发模板](docs/templates/AGENT_DISPATCH.md) | 生成任务派发上下文与返回要求 | 协调者与执行 Agent（智能体） |
 | [任务卡模板](docs/templates/TASK_CARD.md) | 拆分和认领任务时复制 | 协调者与执行 Agent（智能体） |
 | [交接模板](docs/templates/HANDOFF.md) | 暂停、阻塞、跨 Agent（智能体）交接时复制 | 所有 Agent（智能体） |
@@ -38,7 +39,7 @@
 
 ### 2.1 文档同步
 
-源文档、工程配置、设计文本资产是事实来源；`CodeTree-项目文档合集.md` 由 `scripts/merge_docs.py` 生成，正文为 17 份源文档，附录 A 按原样收录 19 份工程与设计文本文件。4 份 PNG 预览随 `CodeTree-合并文档包.zip` 交付。修改源文件后运行：
+源文档、工程配置、设计文本资产是事实来源；`CodeTree-项目文档合集.md` 由 `scripts/merge_docs.py` 生成，正文为 18 份源文档，附录 A 按原样收录 21 份工程与设计文本文件。5 份 PNG 预览随 `CodeTree-合并文档包.zip` 交付。修改源文件后运行：
 
 ```text
 python3 scripts/merge_docs.py
@@ -49,7 +50,7 @@ python3 scripts/merge_docs.py --check
 
 `CodeTree-合并文档包.zip` 是阅读与归档包，内部保留 `sources/` 和 `github/` 前缀，不能直接作为仓库根推送。仓库根以本仓库目录为准：`.github/`、`docs/`、`scripts/`、`design/` 均在根目录。从阅读包还原仓库时，按 `sources/* → 根`、`github/* → .github/*` 展开，再运行上述校验。
 
-视觉与每次更新条例必须单独复核：
+主题猫、图标与宣传资产必须单独复核：
 
 ```text
 python3 scripts/validate_design.py --self-test

@@ -1,4 +1,4 @@
-# AGENTS.md — CodeTree Agent 强制约束
+# AGENTS.md — 编程猫（CodeTree）Agent 强制约束
 
 本文件适用于整个项目。完整规则见 `docs/03-AGENT-COLLABORATION.md`，任务见 `docs/04-WBS.md`。
 

@@ -30,6 +30,7 @@ SOURCE_ORDER = [
     ("docs/08-GITHUB-WORKFLOW.md", "GitHub 工作流效率规范"),
     ("docs/09-VISUAL-DESIGN.md", "视觉与美术设计规范"),
     ("docs/10-UPDATE-POLICY.md", "每次更新条例"),
+    ("docs/11-PROMOTION-DESIGN.md", "宣传设计规范"),
     ("docs/templates/AGENT_DISPATCH.md", "Agent 派发模板"),
     ("docs/templates/TASK_CARD.md", "任务卡模板"),
     ("docs/templates/HANDOFF.md", "交接模板"),
@@ -51,12 +52,14 @@ ENGINEERING_FILES = [
     ("scripts/validate_workflows.py", "python", "工作流结构与策略校验脚本"),
     ("scripts/validate_design.py", "python", "视觉资产与更新条例校验脚本"),
     ("scripts/requirements-ci.txt", "text", "CI Python 依赖锁定"),
-    ("design/tokens.json", "json", "墨猫视觉设计令牌"),
+    ("design/tokens.json", "json", "编程猫主题猫视觉设计令牌"),
     ("design/icons/codetree-icon.svg", "svg", "黑灰渐变猫主题主图标"),
     ("design/icons/codetree-icon-foreground.svg", "svg", "Android 自适应图标前景"),
     ("design/icons/codetree-icon-mono.svg", "svg", "Android 单色主题图标"),
     ("design/graph/knowledge-cloud.svg", "svg", "知识树云图扩散示意"),
     ("design/visual-language.html", "html", "可交互视觉规范预览页"),
+    ("design/mascot/programming-cat.svg", "svg", "主题猫「小码」矢量母版"),
+    ("design/mascot/programming-cat-sheet.svg", "svg", "主题猫角色设定板"),
 ]
 
 # 二进制预览只进入压缩包，不嵌入 Markdown 代码围栏。
@@ -65,10 +68,11 @@ BINARY_FILES = [
     "design/previews/icon-192.png",
     "design/previews/icon-48.png",
     "design/previews/knowledge-cloud.png",
+    "design/previews/programming-cat-sheet.png",
 ]
 
-EXPECTED_VERSION = "v0.6.0"
-EXPECTED_TASKS = 96
+EXPECTED_VERSION = "v0.7.0"
+EXPECTED_TASKS = 97
 EXPECTED_SECTIONS = len(SOURCE_ORDER)
 
 # 标记以拼接方式构造：附录会收录本脚本源码，完整字面量若出现在源码中，
@@ -198,17 +202,17 @@ def build_document() -> str:
     """按固定顺序生成单文件全量合集。"""
     anchors = {path_text: slug(path_text) for path_text, _ in SOURCE_ORDER}
     parts = [
-        "# CodeTree 项目文档合集",
+        "# 编程猫 CodeTree 项目文档合集",
         "",
-        "> 本合集由 17 份源文档、19 份文本工程与设计资产完整合并而成：正文保留全部内容，跨文档链接转换为章节锚点；附录按原样收录工作流、脚本、设计令牌、SVG 和 HTML 规范页。4 份 PNG 预览随压缩包交付。源文件是事实来源，合集由脚本生成，手工编辑会在下次生成时被覆盖。",
+        f"> 本合集由 {len(SOURCE_ORDER)} 份源文档、{len(ENGINEERING_FILES)} 份文本工程与设计资产完整合并而成：正文保留全部内容，跨文档链接转换为章节锚点；附录按原样收录工作流、脚本、设计令牌、主题猫 SVG 和 HTML 规范页。{len(BINARY_FILES)} 份 PNG 预览随压缩包交付。源文件是事实来源，合集由脚本生成，手工编辑会在下次生成时被覆盖。",
         "",
         "| 项目 | 内容 |",
         "| --- | --- |",
-        f"| 文档版本 | {EXPECTED_VERSION} 墨猫视觉统一版 |",
-        "| 源文档 | 17 份 |",
-        "| 工程与设计附录 | 19 份文本文件（按原样合并） |",
-        "| 二进制视觉预览 | 4 份 PNG（随压缩包交付） |",
-        "| WBS 任务 | 96 个唯一编号 |",
+        f"| 文档版本 | {EXPECTED_VERSION} 编程猫主题猫版 |",
+        f"| 源文档 | {len(SOURCE_ORDER)} 份 |",
+        f"| 工程与设计附录 | {len(ENGINEERING_FILES)} 份文本文件（按原样合并） |",
+        f"| 二进制视觉预览 | {len(BINARY_FILES)} 份 PNG（随压缩包交付） |",
+        f"| WBS 任务 | {EXPECTED_TASKS} 个唯一编号 |",
         "| 推荐阅读 | 执行摘要 → 视觉规范 → 更新条例 → 协作规范 → WBS → 工程与设计附录 |",
         "| 生成方式 | `python3 scripts/merge_docs.py` |",
         "| 校验方式 | `python3 scripts/merge_docs.py --check` |",

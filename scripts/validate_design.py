@@ -17,10 +17,13 @@ MAIN_ICON = DESIGN / "icons/codetree-icon.svg"
 FOREGROUND_ICON = DESIGN / "icons/codetree-icon-foreground.svg"
 MONO_ICON = DESIGN / "icons/codetree-icon-mono.svg"
 CLOUD = DESIGN / "graph/knowledge-cloud.svg"
+MASCOT = DESIGN / "mascot/programming-cat.svg"
+MASCOT_SHEET = DESIGN / "mascot/programming-cat-sheet.svg"
 PREVIEW = DESIGN / "visual-language.html"
 VISUAL_DOC = ROOT / "docs/09-VISUAL-DESIGN.md"
 UPDATE_DOC = ROOT / "docs/10-UPDATE-POLICY.md"
 PNG_SIZES = {"icon-1024.png": 1024, "icon-192.png": 192, "icon-48.png": 48}
+PNG_EXTRA = {"knowledge-cloud.png": (1200, 760), "programming-cat-sheet.png": (1600, 900)}
 
 
 def local_name(tag: str) -> str:
@@ -53,7 +56,7 @@ def parse_svg(path: Path) -> tuple[ET.Element, list[str]]:
     errors: list[str] = []
     if local_name(root.tag) != "svg":
         errors.append(f"{path.name}: 根元素不是 svg")
-    if root.get("viewBox") != "0 0 1024 1024" and path != CLOUD:
+    if root.get("viewBox") != "0 0 1024 1024" and path not in (CLOUD, MASCOT_SHEET):
         errors.append(f"{path.name}: viewBox 必须为 0 0 1024 1024")
     for element in root.iter():
         name = local_name(element.tag)
@@ -106,10 +109,16 @@ def png_size(path: Path) -> tuple[int, int]:
 
 def validate_tokens(data: dict) -> list[str]:
     errors: list[str] = []
-    if data.get("meta", {}).get("documentVersion") != "v0.6.0":
-        errors.append("设计令牌 documentVersion 必须为 v0.6.0")
+    if data.get("meta", {}).get("documentVersion") != "v0.7.0":
+        errors.append("设计令牌 documentVersion 必须为 v0.7.0")
+    brand = data.get("brand", {})
+    if brand.get("nameZh") != "编程猫" or brand.get("mascot") != "小码":
+        errors.append("品牌中文名或主题猫名称不符合规范")
+    mascot_tokens = data.get("color", {}).get("mascot", {})
+    if mascot_tokens.get("mint") != "#8CE8C6" or mascot_tokens.get("coral") != "#FF7A66":
+        errors.append("主题猫薄荷/珊瑚令牌不符合规范")
     icon = data.get("color", {}).get("icon", {})
-    expected = ["#4B4E53", "#24262A", "#0B0C0E"]
+    expected = ["#2B3036", "#171A1E", "#0B0C0E"]
     actual = [icon.get("backgroundStart"), icon.get("backgroundMiddle"), icon.get("backgroundEnd")]
     if actual != expected:
         errors.append("图标底板渐变令牌不符合规范")
@@ -192,7 +201,7 @@ def main() -> int:
         return 1
 
     parsed: dict[Path, ET.Element] = {}
-    for path in (MAIN_ICON, FOREGROUND_ICON, MONO_ICON, CLOUD):
+    for path in (MAIN_ICON, FOREGROUND_ICON, MONO_ICON, CLOUD, MASCOT, MASCOT_SHEET):
         root, svg_errors = parse_svg(path)
         parsed[path] = root
         errors.extend(svg_errors)
@@ -213,10 +222,25 @@ def main() -> int:
         errors.append("自适应前景银色渐变与主图标不一致")
     if not cat_path(main) or len({cat_path(main), cat_path(foreground), cat_path(mono)}) != 1:
         errors.append("主图标、自适应前景和单色层的猫轮廓不一致")
+    for root, label in ((main, "主图标"), (foreground, "自适应前景")):
+        if element_by_id(root, "inner-ear-left") is None or element_by_id(root, "inner-ear-right") is None:
+            errors.append(f"{label}缺少珊瑚色耳内")
+        nose = element_by_id(root, "cat-nose")
+        if nose is None or nose.get("fill") != "#FF7A66":
+            errors.append(f"{label}鼻尖必须使用珊瑚色")
     if element_by_id(mono, "cat-cutouts") is None or "linearGradient" in MONO_ICON.read_text():
         errors.append("单色图标必须具有透明镂空且不包含渐变")
     if "ink-background" in FOREGROUND_ICON.read_text():
         errors.append("自适应前景不应包含不透明底板")
+
+    mascot = parsed.get(MASCOT, ET.Element("svg"))
+    for element_id in ("mascot-body", "mascot-tail", "mascot-eye-left", "mascot-eye-right", "mascot-tail-tip", "inner-ear-left", "inner-ear-right"):
+        if element_by_id(mascot, element_id) is None:
+            errors.append(f"主题猫母版缺少结构：{element_id}")
+    mascot_sheet = parsed.get(MASCOT_SHEET, ET.Element("svg"))
+    for element_id in ("mascot-sheet-root", "brand-color-mint", "brand-color-coral", "brand-color-lemon", "brand-color-ink"):
+        if element_by_id(mascot_sheet, element_id) is None:
+            errors.append(f"主题猫设定板缺少结构：{element_id}")
 
     cloud = parsed.get(CLOUD, ET.Element("svg"))
     for element_id in ("cloud-root", "ring-primary", "ring-secondary", "cloud-edges"):
@@ -236,21 +260,24 @@ def main() -> int:
                 errors.append(f"{name} 尺寸为 {actual}，期望 {(expected, expected)}")
         except (OSError, ValueError) as error:
             errors.append(f"{name} 校验失败：{error}")
-    try:
-        if png_size(DESIGN / "previews/knowledge-cloud.png") != (1200, 760):
-            errors.append("knowledge-cloud.png 尺寸必须为 1200×760")
-    except (OSError, ValueError) as error:
-        errors.append(f"knowledge-cloud.png 校验失败：{error}")
+    for name, expected in PNG_EXTRA.items():
+        path = DESIGN / "previews" / name
+        try:
+            actual = png_size(path)
+            if actual != expected:
+                errors.append(f"{name} 尺寸为 {actual}，期望 {expected}")
+        except (OSError, ValueError) as error:
+            errors.append(f"{name} 校验失败：{error}")
 
-    for marker in ("墨猫", "黑灰渐变", "云图扩散", "稳定布局算法", "减少动效", "美术验收清单"):
+    for marker in ("编程猫", "主题猫", "暖纸", "薄荷", "珊瑚", "云图扩散", "稳定布局算法", "减少动效", "美术验收清单"):
         if marker not in VISUAL_DOC.read_text():
             errors.append(f"视觉规范缺少章节要素：{marker}")
     for marker in ("每次更新必填记录", "标准更新顺序", "图标更新", "云图更新", "完成定义与回退", "validate_design.py"):
         if marker not in UPDATE_DOC.read_text():
             errors.append(f"更新条例缺少章节要素：{marker}")
 
-    print("SVG assets: 4")
-    print("PNG previews: 4")
+    print("SVG assets: 6")
+    print("PNG previews: 5")
     print("Design tokens: 1")
     print("Interactive preview: 1")
     print("Contrast checks: light/dark primary, secondary and focus")

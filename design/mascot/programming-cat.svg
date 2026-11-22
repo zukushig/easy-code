@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">编程猫主题猫「小码」</title>
+  <desc id="desc">墨黑猫身、奶油色口鼻、薄荷色代码眼与珊瑚色耳内的招手主题猫，尾巴末端是一枚知识树叶片。</desc>
+  <defs>
+    <linearGradient id="mascot-ink" x1="12%" y1="0%" x2="88%" y2="100%">
+      <stop offset="0%" stop-color="#2A2D33"/>
+      <stop offset="55%" stop-color="#1A1D22"/>
+      <stop offset="100%" stop-color="#111318"/>
+    </linearGradient>
+    <linearGradient id="mascot-cream" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9EC"/>
+      <stop offset="100%" stop-color="#F0E2C9"/>
+    </linearGradient>
+  </defs>
+  <g id="mascot-body">
+    <path id="mascot-tail" fill="none" stroke="#1A1D22" stroke-width="64" stroke-linecap="round" d="M650 830 C780 900 890 790 840 680 C810 610 740 610 730 670 C720 730 780 750 800 700"/>
+    <circle id="mascot-tail-tip" cx="800" cy="700" r="34" fill="#8CE8C6"/>
+    <path id="mascot-torso" fill="url(#mascot-ink)" d="M512 600 C420 600 350 690 350 800 C350 900 420 960 512 960 C604 960 674 900 674 800 C674 690 604 600 512 600 Z"/>
+    <ellipse id="mascot-paw-left" cx="438" cy="908" rx="66" ry="42" fill="url(#mascot-cream)"/>
+    <ellipse id="mascot-paw-right" cx="586" cy="908" rx="66" ry="42" fill="url(#mascot-cream)"/>
+    <g id="mascot-paw-lines" fill="none" stroke="#1A1D22" stroke-width="7" stroke-linecap="round">
+      <path d="M414 892V920M438 888V924M462 892V920"/>
+      <path d="M562 892V920M586 888V924M610 892V920"/>
+    </g>
+    <path id="ear-outer-left" fill="url(#mascot-ink)" d="M292 330 L352 186 L424 326 Z"/>
+    <path id="ear-outer-right" fill="url(#mascot-ink)" d="M732 330 L672 186 L600 326 Z"/>
+    <path id="mascot-head" fill="url(#mascot-ink)" d="M512 640 C360 640 260 540 260 390 C260 310 295 255 355 280 L410 320 C470 295 554 295 614 320 L669 280 C729 255 764 310 764 390 C764 540 664 640 512 640 Z"/>
+    <path id="inner-ear-left" fill="#FF7A66" d="M326 314 L352 238 L392 312 Z"/>
+    <path id="inner-ear-right" fill="#FF7A66" d="M698 314 L672 238 L632 312 Z"/>
+    <ellipse id="mascot-muzzle" cx="512" cy="530" rx="142" ry="78" fill="url(#mascot-cream)"/>
+    <g id="mascot-eye-left">
+      <ellipse cx="398" cy="420" rx="56" ry="66" fill="#8CE8C6"/>
+      <ellipse cx="398" cy="424" rx="18" ry="40" fill="#16181D"/>
+      <circle cx="382" cy="400" r="12" fill="#FFF9EC"/>
+    </g>
+    <g id="mascot-eye-right">
+      <ellipse cx="626" cy="420" rx="56" ry="66" fill="#8CE8C6"/>
+      <ellipse cx="626" cy="424" rx="18" ry="40" fill="#16181D"/>
+      <circle cx="610" cy="400" r="12" fill="#FFF9EC"/>
+    </g>
+    <path id="mascot-nose" fill="#FF7A66" d="M486 500 Q512 484 538 500 L512 524 Z"/>
+    <path id="mascot-mouth" fill="none" stroke="#1A1D22" stroke-width="9" stroke-linecap="round" d="M512 524V548M512 548C496 566 476 566 462 552M512 548C528 566 548 566 562 552"/>
+    <g id="mascot-whiskers" fill="none" stroke="#FFF9EC" stroke-opacity="0.78" stroke-width="6" stroke-linecap="round">
+      <path d="M370 520L306 504M370 546L304 550"/>
+      <path d="M654 520L718 504M654 546L720 550"/>
+    </g>
+    <path id="mascot-collar" fill="none" stroke="#8CE8C6" stroke-width="16" stroke-linecap="round" d="M414 614Q512 666 610 614"/>
+    <circle id="mascot-tag" cx="512" cy="652" r="24" fill="#FF7A66"/>
+    <path id="mascot-tag-code" fill="none" stroke="#FFF9EC" stroke-width="5" stroke-linecap="round" d="M504 644L494 652L504 660M520 644L530 652L520 660"/>
+  </g>
+</svg>
