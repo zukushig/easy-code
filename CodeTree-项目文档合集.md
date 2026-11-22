@@ -5863,8 +5863,6 @@ PyYAML==6.0.3
   </defs>
   <g id="mascot-sheet-root">
     <rect width="1600" height="900" fill="#F7F5EF"/>
-    <circle cx="1320" cy="120" r="220" fill="#8CE8C6" fill-opacity="0.10"/>
-    <circle cx="1500" cy="780" r="260" fill="#FF7A66" fill-opacity="0.08"/>
     <text x="80" y="96" font-family="DejaVu Sans, sans-serif" font-size="42" font-weight="700" fill="#1B1D21">PROGRAMMING CAT</text>
     <text x="80" y="140" font-family="DejaVu Sans, sans-serif" font-size="18" letter-spacing="3" fill="#5E625F">MASCOT SHEET / CODECAT / v0.7.0</text>
     <line x1="80" y1="164" x2="1520" y2="164" stroke="#D8D0C2" stroke-width="2"/>
