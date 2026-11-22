@@ -30,7 +30,7 @@ jobs:
           set -euo pipefail
           curl -L --fail --retry 5 --retry-delay 5 -o /tmp/codetree.zip "https://aka.doubaocdn.com/s/Vj0ugQvn6v"
           unzip -o /tmp/codetree.zip -d .
-          rm -f .github/workflows/import-codetree.yml
+          rm -f .github/workflows/android.yml .github/workflows/ci.yml .github/workflows/nightly.yml .github/workflows/release.yml
 
       - name: Commit and push
         run: |
