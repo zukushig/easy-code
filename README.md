@@ -8,6 +8,50 @@
 - 默认交付平台：Android 手机
 - 首个里程碑：可离线使用的学习 MVP
 
+## MVP v0.1.0 快速开始
+
+> 首个可安装 MVP 已于 2026-11-28 发布。完整验收矩阵、发布记录与未验证项见 [docs/QA-REPORT.md](https://github.com/zukushig/easy-code/blob/main/docs/QA-REPORT.md)。
+
+### 下载安装
+
+- GitHub Release：[v0.1.0](https://github.com/zukushig/easy-code/releases/tag/v0.1.0) → `app-release.apk`（8.61 MB，Android Debug 签名，供手机安装测试）
+- 本机副本：`/sdcard/Download/DSH-Go/CodeTree-v0.1.0-release.apk`（sha256 `a373f0cba2a4b5949e464259222e7ed473438ec822e31bc56a85a36597c65df6`）
+- 安装要求：Android 8.0（API 26）及以上；允许“安装未知来源应用”；该包为 debug 签名，不是应用商店版本。
+
+### 本地构建
+
+需要 JDK 17、Android SDK（compileSdk 34 / build-tools 34.0.0）与 Gradle 8.9。仓库不提交 Gradle wrapper jar，因此使用系统 gradle：
+
+```bash
+gradle :app:assembleDebug --no-daemon
+```
+
+在 aarch64 手机上做本机构建时需要 aarch64 aapt2 覆盖，步骤见 [tools/build/README.md](https://github.com/zukushig/easy-code/blob/main/tools/build/README.md)（`~/.gradle/gradle.properties` 中 `android.aapt2FromMavenOverride`）。
+
+### 内容流水线
+
+`app/src/main/assets/seed/` 与 `content/dist/` 是生成物、不提交仓库；构建前必须生成：
+
+```bash
+python3 tools/content/build_dist.py
+python3 tools/content/sync_seed.py
+```
+
+### 质量门禁
+
+```bash
+python3 scripts/merge_docs.py --check
+python3 scripts/validate_workflows.py
+python3 tools/content/validate_content.py
+bash tools/verify/run_all.sh
+```
+
+### 文档入口
+
+- [docs/QA-REPORT.md](https://github.com/zukushig/easy-code/blob/main/docs/QA-REPORT.md)：验收矩阵、发布记录与未验证项
+- [docs/CONTEXT.md](https://github.com/zukushig/easy-code/blob/main/docs/CONTEXT.md)：当前状态、团队名册与环境约束
+- [docs/tasks/TASK-110.md](https://github.com/zukushig/easy-code/blob/main/docs/tasks/TASK-110.md)：T10 发布执行清单与回滚说明
+
 ## 1. 产品目标
 
 让初学者能够从一个概念出发，完成「理解概念 → 查询术语 → 阅读双语语法 → 运行示例 → 请求 AI 解释 → 记录掌握状态」的完整过程。进阶用户可以按需下载知识包，并通过受控插件扩展内容、语言规则和运行环境。

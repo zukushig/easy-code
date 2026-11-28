@@ -12,7 +12,7 @@
 | 关联 WBS | CT-800-07/08（可重复构建/发布候选验收）、CT-700-03/04/06（上下文引导/动效/小大屏）、CT-800-09（Beta 可选） |
 | 关联需求 | 全部 P0 需求的最终验收；NFR-003/005/007 |
 | 优先级 | P0 |
-| 状态 | Ready（T9 已完成；debug APK 已产出并校验；待 Lead 推送/首次 CI/tag v0.1.0） |
+| 状态 | Done（2026-11-28 发布 v0.1.0；发布记录见本卡「发布记录」节） |
 | 当前负责人 | lead |
 | 评审人 | architect + qa（发布门禁签字） |
 | 目标里程碑 | M5 |
@@ -123,6 +123,19 @@
 - [ ] `.codepack` 导入成功、损坏包被拒。
 - [ ] Release 资产 sha256 与记录一致。
 - [ ] 失败按回滚步骤执行并记录。
+
+## 发布记录（T10 完成，2026-11-28）
+
+| 项 | 值 |
+| --- | --- |
+| 发布版本 | `v0.1.0`（versionName `0.1.0` / versionCode `1`） |
+| main 提交 | `dfffe97`（MVP 覆盖 main；旧 main 的 CodeTree v0.7.0 文档/设计归档为 tag/分支 `archive-docs-v0.7.0`） |
+| 首次 CI | `CI #10` success / `Android #1` success / `Release #2` success（链接见 `docs/QA-REPORT.md` §3/§9.9） |
+| Release | https://github.com/zukushig/easy-code/releases/tag/v0.1.0 |
+| 产物 | `app-release.apk` 8,610,888 bytes；sha256 `a373f0cba2a4b5949e464259222e7ed473438ec822e31bc56a85a36597c65df6`；`SHA256SUMS` 经 `sha256sum -c` 校验一致 |
+| APK 校验 | 170 entries / 2 dex / seed 14；badging `com.codetree.app` / 0.1.0(1) / minSdk 26 / targetSdk 34 / compileSdk 34；**Android Debug 签名**（正式签名待 CI secrets） |
+| 下载副本 | `/sdcard/Download/DSH-Go/CodeTree-v0.1.0-release.apk` |
+| 回滚 | 删除或标记 Release 为 pre-release；用户卸载重装上一 tag 的 APK；MVP 无 Room，无数据库降级问题 |
 
 ## 可执行验收标准
 
