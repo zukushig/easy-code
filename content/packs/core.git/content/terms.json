@@ -1,0 +1,449 @@
+{
+  "terms": [
+    {
+      "id": "term.git.repository",
+      "termType": "concept",
+      "displayName": {"zh-CN": "仓库", "en": "Repository"},
+      "aliases": [
+        {"text": "仓库", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "repository", "lang": "en", "matchType": "exact"},
+        {"text": "repo", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "仓库是 Git 管理的一个项目目录，包含全部提交历史与分支引用。", "en": "A repository is a project directory tracked by Git, containing all commit history and branch references."},
+      "syntaxRef": "syntax/git.json#repository",
+      "exampleIds": ["example.git.init"],
+      "relatedTermIds": ["term.git.commit", "term.git.branch"],
+      "topicIds": ["git.intro", "git.repo-setup"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.working-tree",
+      "termType": "concept",
+      "displayName": {"zh-CN": "工作区", "en": "Working Tree"},
+      "aliases": [
+        {"text": "工作区", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "working tree", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "工作区是你实际编辑的文件当前内容，可能与最近一次提交不同。", "en": "The working tree is the current content of the files you edit, possibly differing from the last commit."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.status-add-commit"],
+      "relatedTermIds": ["term.git.staging-area", "term.git.commit"],
+      "topicIds": ["git.staging"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.staging-area",
+      "termType": "concept",
+      "displayName": {"zh-CN": "暂存区", "en": "Staging Area"},
+      "aliases": [
+        {"text": "暂存区", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "staging area", "lang": "en", "matchType": "exact"},
+        {"text": "index", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "暂存区（index）记录下一次提交要包含哪些改动；git add 把改动从工作区放入暂存区。", "en": "The staging area (index) records what the next commit will include; git add moves changes from the working tree into it."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.status-add-commit"],
+      "relatedTermIds": ["term.git.working-tree", "term.git.commit"],
+      "topicIds": ["git.staging"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.commit",
+      "termType": "concept",
+      "displayName": {"zh-CN": "提交", "en": "Commit"},
+      "aliases": [
+        {"text": "提交", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "commit", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "提交是仓库历史中的一个快照，包含作者、时间、提交信息与指向父提交的引用。", "en": "A commit is a snapshot in repository history with author, time, message, and a reference to its parent commit."},
+      "syntaxRef": "syntax/git.json#commit",
+      "exampleIds": ["example.git.status-add-commit"],
+      "relatedTermIds": ["term.git.staging-area", "term.git.commit-message", "term.git.branch"],
+      "topicIds": ["git.intro", "git.staging", "git.commits", "git.history"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.commit-message",
+      "termType": "concept",
+      "displayName": {"zh-CN": "提交信息", "en": "Commit Message"},
+      "aliases": [
+        {"text": "提交信息", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "commit message", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "提交信息说明这次改动做了什么、为什么；常见格式是 type: 简短说明。", "en": "A commit message states what changed and why, commonly as type: short summary."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.commit-message"],
+      "relatedTermIds": ["term.git.commit"],
+      "topicIds": ["git.commits"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.branch",
+      "termType": "concept",
+      "displayName": {"zh-CN": "分支", "en": "Branch"},
+      "aliases": [
+        {"text": "分支", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "branch", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "分支是指向某条提交线的可变指针，让不同功能可以并行开发；切换分支会改变工作区内容。", "en": "A branch is a movable pointer to a line of commits, enabling parallel work; switching branches changes the working tree."},
+      "syntaxRef": "syntax/git.json#branch",
+      "exampleIds": ["example.git.branch-switch"],
+      "relatedTermIds": ["term.git.main-branch", "term.git.head", "term.git.merge"],
+      "topicIds": ["git.branches", "git.merging", "git.pull-requests", "git.workflows"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.main-branch",
+      "termType": "concept",
+      "displayName": {"zh-CN": "主分支", "en": "Main Branch"},
+      "aliases": [
+        {"text": "主分支", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "main branch", "lang": "en", "matchType": "exact"},
+        {"text": "main", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "主分支（main 或 master）是团队共享的稳定分支，功能分支最终合并回这里。", "en": "The main branch (main or master) is the team's stable shared branch that feature branches merge back into."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.merge-ff"],
+      "relatedTermIds": ["term.git.branch"],
+      "topicIds": ["git.branches"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.head",
+      "termType": "concept",
+      "displayName": {"zh-CN": "HEAD", "en": "HEAD"},
+      "aliases": [
+        {"text": "HEAD", "lang": "en", "matchType": "exact"},
+        {"text": "当前指针", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "HEAD 指向当前检出的提交或分支，通常表示“你正在哪个提交上工作”。", "en": "HEAD points at the currently checked-out commit or branch, meaning \"which commit you are working on\"."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.conflict"],
+      "relatedTermIds": ["term.git.branch", "term.git.merge"],
+      "topicIds": ["git.branches"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.merge",
+      "termType": "concept",
+      "displayName": {"zh-CN": "合并", "en": "Merge"},
+      "aliases": [
+        {"text": "合并", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "merge", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "合并把一个分支的提交并入当前分支；能快进时直接移动指针，否则创建合并提交。", "en": "Merging brings another branch's commits into the current branch: fast-forward when possible, otherwise create a merge commit."},
+      "syntaxRef": "syntax/git.json#merge",
+      "exampleIds": ["example.git.merge-ff"],
+      "relatedTermIds": ["term.git.branch", "term.git.merge-commit", "term.git.conflict"],
+      "topicIds": ["git.merging", "git.conflicts"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.merge-commit",
+      "termType": "concept",
+      "displayName": {"zh-CN": "合并提交", "en": "Merge Commit"},
+      "aliases": [
+        {"text": "合并提交", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "merge commit", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "合并提交有两个父提交，记录一次真正的三方合并；使用 --no-ff 可强制产生它。", "en": "A merge commit has two parents and records a real three-way merge; --no-ff forces one."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.merge-ff"],
+      "relatedTermIds": ["term.git.merge"],
+      "topicIds": ["git.merging"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.conflict",
+      "termType": "concept",
+      "displayName": {"zh-CN": "冲突", "en": "Conflict"},
+      "aliases": [
+        {"text": "冲突", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "conflict", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "冲突发生在两个分支修改同一文件的同一处且无法自动合并时，需要人工决定保留什么。", "en": "A conflict occurs when two branches change the same place in a file and Git cannot merge automatically; a human decides."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.conflict"],
+      "relatedTermIds": ["term.git.conflict-marker", "term.git.merge"],
+      "topicIds": ["git.conflicts"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.conflict-marker",
+      "termType": "concept",
+      "displayName": {"zh-CN": "冲突标记", "en": "Conflict Marker"},
+      "aliases": [
+        {"text": "冲突标记", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "conflict marker", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "冲突标记是 Git 写入文件的 <<<<<<<、=======、>>>>>>> 三行，分别表示当前分支、分隔线和另一分支的内容。", "en": "Conflict markers are the <<<<<<<, =======, and >>>>>>> lines Git writes to show the current branch, separator, and other branch."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.conflict"],
+      "relatedTermIds": ["term.git.conflict"],
+      "topicIds": ["git.conflicts"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.remote",
+      "termType": "concept",
+      "displayName": {"zh-CN": "远程仓库", "en": "Remote"},
+      "aliases": [
+        {"text": "远程仓库", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "remote", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "远程仓库是托管在服务器上的共享仓库（如 GitHub），用别名（默认 origin）与 URL 登记。", "en": "A remote is a shared repository hosted on a server (e.g. GitHub), registered with a name (origin by default) and URL."},
+      "syntaxRef": "syntax/git.json#remote",
+      "exampleIds": ["example.git.remote-push"],
+      "relatedTermIds": ["term.git.origin", "term.git.push", "term.git.pull"],
+      "topicIds": ["git.remotes", "git.pull-requests"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.origin",
+      "termType": "concept",
+      "displayName": {"zh-CN": "origin", "en": "origin"},
+      "aliases": [
+        {"text": "origin", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "origin 是 git clone 自动创建的默认远程仓库别名。", "en": "origin is the default remote name created automatically by git clone."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.remote-push"],
+      "relatedTermIds": ["term.git.remote"],
+      "topicIds": ["git.remotes"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.clone",
+      "termType": "tool",
+      "displayName": {"zh-CN": "克隆", "en": "Clone"},
+      "aliases": [
+        {"text": "克隆", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "clone", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git clone 把远程仓库完整复制到本地，并自动配置 origin 与默认分支。", "en": "git clone copies a remote repository locally and configures origin plus the default branch."},
+      "syntaxRef": "syntax/git.json#clone",
+      "exampleIds": [],
+      "relatedTermIds": ["term.git.remote", "term.git.origin"],
+      "topicIds": ["git.repo-setup"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.fetch",
+      "termType": "tool",
+      "displayName": {"zh-CN": "获取", "en": "Fetch"},
+      "aliases": [
+        {"text": "获取", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "fetch", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git fetch 只下载远端的新提交和引用，不修改本地分支，是最安全的同步方式。", "en": "git fetch downloads new remote commits and refs without changing local branches, the safest way to sync."},
+      "syntaxRef": "syntax/git.json#fetch",
+      "exampleIds": ["example.git.fetch-pull"],
+      "relatedTermIds": ["term.git.pull", "term.git.remote"],
+      "topicIds": ["git.remotes"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.pull",
+      "termType": "tool",
+      "displayName": {"zh-CN": "拉取", "en": "Pull"},
+      "aliases": [
+        {"text": "拉取", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "pull", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git pull 等价于 fetch 之后再 merge（或 rebase），直接更新当前分支。", "en": "git pull is fetch followed by merge (or rebase), updating the current branch directly."},
+      "syntaxRef": "syntax/git.json#pull",
+      "exampleIds": ["example.git.fetch-pull"],
+      "relatedTermIds": ["term.git.fetch", "term.git.merge"],
+      "topicIds": ["git.remotes"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.push",
+      "termType": "tool",
+      "displayName": {"zh-CN": "推送", "en": "Push"},
+      "aliases": [
+        {"text": "推送", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "push", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git push 把本地提交上传到远程分支；首次可用 -u 建立跟踪关系。", "en": "git push uploads local commits to a remote branch; -u sets up tracking on first push."},
+      "syntaxRef": "syntax/git.json#push",
+      "exampleIds": ["example.git.remote-push"],
+      "relatedTermIds": ["term.git.remote", "term.git.pull-request"],
+      "topicIds": ["git.remotes"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.reset",
+      "termType": "tool",
+      "displayName": {"zh-CN": "重置", "en": "Reset"},
+      "aliases": [
+        {"text": "重置", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "reset", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git reset 移动分支指针：--soft 保留暂存与工作区，--mixed 撤销暂存，--hard 丢弃改动，需谨慎。", "en": "git reset moves the branch pointer: --soft keeps staging and working tree, --mixed unstages, --hard discards changes."},
+      "syntaxRef": "syntax/git.json#reset",
+      "exampleIds": ["example.git.reset-revert"],
+      "relatedTermIds": ["term.git.revert", "term.git.head"],
+      "topicIds": ["git.rollback"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.revert",
+      "termType": "tool",
+      "displayName": {"zh-CN": "还原", "en": "Revert"},
+      "aliases": [
+        {"text": "还原", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "revert", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git revert 生成一个反向提交来抵消指定提交，不重写历史，适合已推送的提交。", "en": "git revert creates an inverse commit that cancels a target commit without rewriting history, suitable for pushed commits."},
+      "syntaxRef": "syntax/git.json#revert",
+      "exampleIds": ["example.git.reset-revert"],
+      "relatedTermIds": ["term.git.reset", "term.git.commit"],
+      "topicIds": ["git.rollback"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.stash",
+      "termType": "tool",
+      "displayName": {"zh-CN": "贮藏", "en": "Stash"},
+      "aliases": [
+        {"text": "贮藏", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "stash", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git stash 把未提交改动临时收起，让工作区变干净；需要时用 git stash pop 恢复。", "en": "git stash shelves uncommitted changes to clean the working tree and restores them with git stash pop."},
+      "syntaxRef": "syntax/git.json#stash",
+      "exampleIds": ["example.git.stash"],
+      "relatedTermIds": ["term.git.working-tree", "term.git.reset"],
+      "topicIds": ["git.rollback"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.tag",
+      "termType": "concept",
+      "displayName": {"zh-CN": "标签", "en": "Tag"},
+      "aliases": [
+        {"text": "标签", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "tag", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "标签给某个提交起固定名字（如 v1.0.0），常用来标记发布版本。", "en": "A tag gives a commit a stable name (e.g. v1.0.0), commonly marking releases."},
+      "syntaxRef": "syntax/git.json#tag",
+      "exampleIds": [],
+      "relatedTermIds": ["term.git.commit"],
+      "topicIds": ["git.workflows"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.pull-request",
+      "termType": "concept",
+      "displayName": {"zh-CN": "拉取请求", "en": "Pull Request"},
+      "aliases": [
+        {"text": "拉取请求", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "pull request", "lang": "en", "matchType": "exact"},
+        {"text": "PR", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "Pull Request 请求把某个分支合并到目标分支，并提供差异、讨论和评审入口。", "en": "A pull request asks to merge one branch into a target branch and provides diffs, discussion, and review."},
+      "syntaxRef": null,
+      "exampleIds": ["example.git.pull-request"],
+      "relatedTermIds": ["term.git.branch", "term.git.remote"],
+      "topicIds": ["git.pull-requests", "git.workflows"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.rebase",
+      "termType": "tool",
+      "displayName": {"zh-CN": "变基", "en": "Rebase"},
+      "aliases": [
+        {"text": "变基", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "rebase", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "git rebase 把当前分支的提交重放到另一分支之上，得到线性历史；会改写提交哈希，不要用于已共享的历史。", "en": "git rebase replays your commits onto another branch for a linear history; it rewrites hashes, so avoid it on shared history."},
+      "syntaxRef": "syntax/git.json#rebase",
+      "exampleIds": [],
+      "relatedTermIds": ["term.git.merge", "term.git.commit"],
+      "topicIds": ["git.branches", "git.workflows"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.gitignore",
+      "termType": "concept",
+      "displayName": {"zh-CN": ".gitignore", "en": ".gitignore"},
+      "aliases": [
+        {"text": ".gitignore", "lang": "en", "matchType": "exact"},
+        {"text": "忽略文件", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": ".gitignore 按模式声明不纳入版本控制的文件，如构建产物、依赖目录和本地密钥。", "en": ".gitignore declares patterns excluded from version control, such as build output, dependencies, and local secrets."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.git.repository", "term.git.commit"],
+      "topicIds": ["git.repo-setup"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.git.diff",
+      "termType": "tool",
+      "displayName": {"zh-CN": "差异", "en": "Diff"},
+      "aliases": [
+        {"text": "差异", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "diff", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "diff 是两次快照之间的逐行差异；git diff 比较工作区与暂存区，git diff --staged 比较暂存区与最新提交。", "en": "A diff is a line-by-line difference between snapshots: git diff compares working tree to staging, --staged compares staging to the last commit."},
+      "syntaxRef": "syntax/git.json#diff",
+      "exampleIds": ["example.git.log-diff"],
+      "relatedTermIds": ["term.git.staging-area", "term.git.commit"],
+      "topicIds": ["git.history"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

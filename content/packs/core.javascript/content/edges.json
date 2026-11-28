@@ -1,0 +1,32 @@
+{
+  "edges": [
+    {"source": "js.getting-started", "target": "js.variables-types", "type": "prerequisite"},
+    {"source": "js.variables-types", "target": "js.operators", "type": "prerequisite"},
+    {"source": "js.operators", "target": "js.control-flow", "type": "prerequisite"},
+    {"source": "js.control-flow", "target": "js.functions", "type": "prerequisite"},
+    {"source": "js.functions", "target": "js.objects", "type": "prerequisite"},
+    {"source": "js.functions", "target": "js.arrays", "type": "prerequisite"},
+    {"source": "js.arrays", "target": "js.array-methods", "type": "prerequisite"},
+    {"source": "js.functions", "target": "js.async.promises", "type": "prerequisite"},
+    {"source": "js.async.promises", "target": "js.async.async-await", "type": "prerequisite"},
+    {"source": "js.objects", "target": "js.modules", "type": "prerequisite"},
+    {"source": "js.objects", "target": "js.dom.overview", "type": "prerequisite"},
+    {"source": "js.functions", "target": "js.errors-debugging", "type": "prerequisite"},
+
+    {"source": "js.variables-types", "target": "js.operators", "type": "related"},
+    {"source": "js.arrays", "target": "js.array-methods", "type": "related"},
+    {"source": "js.async.promises", "target": "js.async.async-await", "type": "related"},
+    {"source": "js.functions", "target": "js.async.promises", "type": "related"},
+    {"source": "js.objects", "target": "js.dom.overview", "type": "related"},
+
+    {"source": "js.functions", "target": "js.array-methods", "type": "appliedIn"},
+    {"source": "js.arrays", "target": "js.array-methods", "type": "appliedIn"},
+    {"source": "js.functions", "target": "js.modules", "type": "appliedIn"},
+    {"source": "js.async.promises", "target": "js.async.async-await", "type": "appliedIn"},
+    {"source": "js.objects", "target": "js.dom.overview", "type": "appliedIn"},
+
+    {"source": "js.variables-types", "target": "js.operators", "type": "confusedWith"},
+    {"source": "js.arrays", "target": "js.objects", "type": "confusedWith"},
+    {"source": "js.async.promises", "target": "js.async.async-await", "type": "confusedWith"}
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "terms": [
+    {
+      "id": "term.ds.array",
+      "termType": "concept",
+      "displayName": {"zh-CN": "数组", "en": "Array"},
+      "aliases": [
+        {"text": "数组", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "array", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "数组把元素连续存放并按下标访问，读取指定下标是 O(1)，但在中间插入或删除需要移动元素。", "en": "An array stores elements contiguously with indexed access; reading an index is O(1), but inserting or deleting in the middle shifts elements."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.array-access"],
+      "relatedTermIds": ["term.ds.dynamic-array", "term.ds.linked-list"],
+      "topicIds": ["ds.overview", "ds.arrays"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.dynamic-array",
+      "termType": "concept",
+      "displayName": {"zh-CN": "动态数组", "en": "Dynamic Array"},
+      "aliases": [
+        {"text": "动态数组", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "dynamic array", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "动态数组在容量不足时按倍数扩容并复制元素，因此尾部追加是均摊 O(1)；Python list 就是动态数组。", "en": "A dynamic array grows by allocating a larger buffer and copying, making append amortized O(1); Python's list is a dynamic array."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.dynamic-append"],
+      "relatedTermIds": ["term.ds.array"],
+      "topicIds": ["ds.arrays", "ds.tradeoffs"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.linked-list",
+      "termType": "concept",
+      "displayName": {"zh-CN": "链表", "en": "Linked List"},
+      "aliases": [
+        {"text": "链表", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "linked list", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "链表由节点通过 next 指针连接，已知位置时插入删除 O(1)，但按下标访问需要 O(n) 遍历。", "en": "A linked list connects nodes through next pointers; insert/delete at a known position is O(1), while indexed access needs O(n) traversal."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.linked-list"],
+      "relatedTermIds": ["term.ds.node", "term.ds.pointer", "term.ds.array"],
+      "topicIds": ["ds.linked-list"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.node",
+      "termType": "concept",
+      "displayName": {"zh-CN": "节点", "en": "Node"},
+      "aliases": [
+        {"text": "节点", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "node", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "节点是链表、树、图的基本单元，通常包含数据值和指向相邻节点的引用。", "en": "A node is the basic unit of lists, trees, and graphs, usually holding a value plus references to neighbors."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.linked-list"],
+      "relatedTermIds": ["term.ds.linked-list", "term.ds.tree"],
+      "topicIds": ["ds.linked-list"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.pointer",
+      "termType": "concept",
+      "displayName": {"zh-CN": "指针/引用", "en": "Pointer / Reference"},
+      "aliases": [
+        {"text": "指针", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "引用", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "pointer", "lang": "en", "matchType": "exact"},
+        {"text": "reference", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "指针（引用）保存另一个对象的位置；链式结构通过修改引用改变连接关系，而不是移动数据本身。", "en": "A pointer (reference) holds the location of another object; linked structures change connections by rewiring references instead of moving data."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.linked-list"],
+      "relatedTermIds": ["term.ds.node", "term.ds.linked-list"],
+      "topicIds": ["ds.linked-list"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.stack",
+      "termType": "concept",
+      "displayName": {"zh-CN": "栈", "en": "Stack"},
+      "aliases": [
+        {"text": "栈", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "stack", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "栈只允许在顶部压入（push）和弹出（pop），遵循后进先出；用于撤销、括号匹配和调用栈。", "en": "A stack allows push and pop only at the top (LIFO), used for undo, bracket matching, and call stacks."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.stack"],
+      "relatedTermIds": ["term.ds.lifo", "term.ds.queue"],
+      "topicIds": ["ds.stack"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.lifo",
+      "termType": "concept",
+      "displayName": {"zh-CN": "后进先出", "en": "LIFO"},
+      "aliases": [
+        {"text": "后进先出", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "LIFO", "lang": "en", "matchType": "abbr"},
+        {"text": "last in first out", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "LIFO（Last In First Out）表示最后加入的元素最先被取出，是栈的顺序语义。", "en": "LIFO (Last In First Out) means the most recently added item leaves first, the ordering of a stack."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.stack"],
+      "relatedTermIds": ["term.ds.stack", "term.ds.fifo"],
+      "topicIds": ["ds.stack"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.queue",
+      "termType": "concept",
+      "displayName": {"zh-CN": "队列", "en": "Queue"},
+      "aliases": [
+        {"text": "队列", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "queue", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "队列在队尾入队、队头出队，遵循先进先出；适合任务调度与广度优先遍历。", "en": "A queue enqueues at the back and dequeues at the front (FIFO), fitting task scheduling and breadth-first traversal."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.queue"],
+      "relatedTermIds": ["term.ds.fifo", "term.ds.deque", "term.ds.stack"],
+      "topicIds": ["ds.queue"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.fifo",
+      "termType": "concept",
+      "displayName": {"zh-CN": "先进先出", "en": "FIFO"},
+      "aliases": [
+        {"text": "先进先出", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "FIFO", "lang": "en", "matchType": "abbr"},
+        {"text": "first in first out", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "FIFO（First In First Out）表示最先加入的元素最先被取出，是队列的顺序语义。", "en": "FIFO (First In First Out) means the earliest added item leaves first, the ordering of a queue."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.queue"],
+      "relatedTermIds": ["term.ds.queue", "term.ds.lifo"],
+      "topicIds": ["ds.queue"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.deque",
+      "termType": "concept",
+      "displayName": {"zh-CN": "双端队列", "en": "Deque"},
+      "aliases": [
+        {"text": "双端队列", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "deque", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "双端队列允许在两端 O(1) 插入和删除，既能当队列也能当栈；Python 中是 collections.deque。", "en": "A deque supports O(1) insert/remove at both ends, usable as a queue or a stack; in Python it is collections.deque."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.queue"],
+      "relatedTermIds": ["term.ds.queue", "term.ds.fifo"],
+      "topicIds": ["ds.queue"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.hash-table",
+      "termType": "concept",
+      "displayName": {"zh-CN": "哈希表", "en": "Hash Table"},
+      "aliases": [
+        {"text": "哈希表", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "hash table", "lang": "en", "matchType": "exact"},
+        {"text": "hash map", "lang": "en", "matchType": "exact"},
+        {"text": "散列表", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "哈希表用哈希函数把键映射到桶，平均 O(1) 完成查找、插入、删除；冲突与扩容影响实际性能。", "en": "A hash table maps keys to buckets via a hash function, averaging O(1) lookup, insert, and delete; collisions and resizing affect real performance."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.hash-count"],
+      "relatedTermIds": ["term.ds.hash-function", "term.ds.collision", "term.ds.load-factor"],
+      "topicIds": ["ds.hash-table", "ds.tradeoffs"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.hash-function",
+      "termType": "concept",
+      "displayName": {"zh-CN": "哈希函数", "en": "Hash Function"},
+      "aliases": [
+        {"text": "哈希函数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "hash function", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "哈希函数把任意键转成固定范围的整数（桶下标）；好的哈希函数应分布均匀、计算快速。", "en": "A hash function turns a key into a bounded integer (bucket index); a good one distributes evenly and computes fast."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.hash-count"],
+      "relatedTermIds": ["term.ds.hash-table", "term.ds.collision"],
+      "topicIds": ["ds.hash-table"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.collision",
+      "termType": "concept",
+      "displayName": {"zh-CN": "碰撞", "en": "Collision"},
+      "aliases": [
+        {"text": "碰撞", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "collision", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "碰撞指两个不同的键被哈希到同一个桶；常用链地址法或开放寻址法处理。", "en": "A collision means two different keys hash to the same bucket; chaining or open addressing resolve it."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.ds.hash-table", "term.ds.hash-function"],
+      "topicIds": ["ds.hash-table"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.load-factor",
+      "termType": "concept",
+      "displayName": {"zh-CN": "负载因子", "en": "Load Factor"},
+      "aliases": [
+        {"text": "负载因子", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "load factor", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "负载因子 = 元素数量 / 桶数量；过高会加剧碰撞，通常在阈值处扩容并重新哈希。", "en": "Load factor = items / buckets; too high increases collisions, so tables resize and rehash at a threshold."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.ds.hash-table", "term.ds.collision"],
+      "topicIds": ["ds.hash-table"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.tree",
+      "termType": "concept",
+      "displayName": {"zh-CN": "树", "en": "Tree"},
+      "aliases": [
+        {"text": "树", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "tree", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "树是无环的层级结构：一个根节点、若干子节点，叶子没有子节点；用于目录、DOM、组织架构等。", "en": "A tree is an acyclic hierarchy: one root, child nodes, and childless leaves; used for directories, the DOM, and org charts."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.tree-traversal"],
+      "relatedTermIds": ["term.ds.root", "term.ds.leaf", "term.ds.binary-tree"],
+      "topicIds": ["ds.tree"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.root",
+      "termType": "concept",
+      "displayName": {"zh-CN": "根节点", "en": "Root"},
+      "aliases": [
+        {"text": "根节点", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "root", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "根节点是树中没有父节点的起始节点，从它出发可以到达所有其他节点。", "en": "The root is the tree's starting node with no parent; all other nodes are reachable from it."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.tree-traversal"],
+      "relatedTermIds": ["term.ds.tree", "term.ds.leaf"],
+      "topicIds": ["ds.tree"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.leaf",
+      "termType": "concept",
+      "displayName": {"zh-CN": "叶节点", "en": "Leaf"},
+      "aliases": [
+        {"text": "叶节点", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "leaf", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "叶节点是没有子节点的节点，通常是树的末端，例如目录树里的文件。", "en": "A leaf has no children and usually ends a branch, such as a file in a directory tree."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.tree-traversal"],
+      "relatedTermIds": ["term.ds.tree", "term.ds.root"],
+      "topicIds": ["ds.tree"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.binary-tree",
+      "termType": "concept",
+      "displayName": {"zh-CN": "二叉树", "en": "Binary Tree"},
+      "aliases": [
+        {"text": "二叉树", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "binary tree", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "二叉树是每个节点最多有两个子节点的树，左右子节点有位置区分。", "en": "A binary tree allows at most two children per node, with distinct left and right positions."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.tree-traversal"],
+      "relatedTermIds": ["term.ds.tree", "term.ds.bst"],
+      "topicIds": ["ds.tree"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.bst",
+      "termType": "concept",
+      "displayName": {"zh-CN": "二叉搜索树", "en": "Binary Search Tree (BST)"},
+      "aliases": [
+        {"text": "二叉搜索树", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "BST", "lang": "en", "matchType": "abbr"},
+        {"text": "binary search tree", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "BST 满足：左子树所有值小于根、右子树所有值大于根；平均查找 O(log n)，退化时 O(n)。", "en": "A BST has all left-subtree values smaller and right-subtree values larger than the root; average lookup O(log n), O(n) when skewed."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.bst-search"],
+      "relatedTermIds": ["term.ds.binary-tree", "term.ds.tree-traversal"],
+      "topicIds": ["ds.bst"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.tree-traversal",
+      "termType": "concept",
+      "displayName": {"zh-CN": "树遍历", "en": "Tree Traversal"},
+      "aliases": [
+        {"text": "树遍历", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "tree traversal", "lang": "en", "matchType": "exact"},
+        {"text": "DFS", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "树遍历是按某种顺序访问所有节点：深度优先（前/中/后序）用递归或栈，广度优先用队列。", "en": "Tree traversal visits all nodes in an order: depth-first (pre/in/post) with recursion or a stack, breadth-first with a queue."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.tree-traversal"],
+      "relatedTermIds": ["term.ds.tree", "term.ds.bst"],
+      "topicIds": ["ds.tree", "ds.bst"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.graph",
+      "termType": "concept",
+      "displayName": {"zh-CN": "图", "en": "Graph"},
+      "aliases": [
+        {"text": "图", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "graph", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "图由顶点和边组成，可表示网络、依赖、社交关系；遍历需要 visited 标记防止绕圈。", "en": "A graph consists of vertices and edges, modeling networks, dependencies, and social relations; traversal needs visited marks to avoid loops."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.graph-bfs"],
+      "relatedTermIds": ["term.ds.adjacency-list", "term.ds.adjacency-matrix", "term.ds.directed-graph"],
+      "topicIds": ["ds.graph"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.adjacency-list",
+      "termType": "concept",
+      "displayName": {"zh-CN": "邻接表", "en": "Adjacency List"},
+      "aliases": [
+        {"text": "邻接表", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "adjacency list", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "邻接表为每个顶点保存其邻居列表，空间 O(V+E)，适合稀疏图。", "en": "An adjacency list stores a neighbor list per vertex in O(V+E) space, fitting sparse graphs."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.adjacency-list"],
+      "relatedTermIds": ["term.ds.graph", "term.ds.adjacency-matrix"],
+      "topicIds": ["ds.graph"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.adjacency-matrix",
+      "termType": "concept",
+      "displayName": {"zh-CN": "邻接矩阵", "en": "Adjacency Matrix"},
+      "aliases": [
+        {"text": "邻接矩阵", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "adjacency matrix", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "邻接矩阵用 V×V 的表格表示边，判断两点是否相连 O(1)，空间 O(V²)，适合稠密图。", "en": "An adjacency matrix uses a V×V table: edge checks are O(1) but space is O(V²), fitting dense graphs."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.ds.graph", "term.ds.adjacency-list"],
+      "topicIds": ["ds.graph"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.directed-graph",
+      "termType": "concept",
+      "displayName": {"zh-CN": "有向图", "en": "Directed Graph"},
+      "aliases": [
+        {"text": "有向图", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "directed graph", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "有向图的边有方向（A→B 不等于 B→A），适合表示依赖、单向通路；无向图的边是双向的。", "en": "Directed graph edges have direction (A→B differs from B→A), fitting dependencies and one-way links; undirected edges are mutual."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.adjacency-list"],
+      "relatedTermIds": ["term.ds.graph", "term.ds.adjacency-list"],
+      "topicIds": ["ds.graph"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.sorting",
+      "termType": "concept",
+      "displayName": {"zh-CN": "排序", "en": "Sorting"},
+      "aliases": [
+        {"text": "排序", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "sorting", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "排序把元素按比较顺序重排；不同算法在复杂度、稳定性、额外空间上各有取舍。", "en": "Sorting reorders elements by a comparison order; algorithms trade off complexity, stability, and extra space."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.bubble-sort"],
+      "relatedTermIds": ["term.ds.stable-sort", "term.ds.binary-search"],
+      "topicIds": ["ds.sorting"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.stable-sort",
+      "termType": "concept",
+      "displayName": {"zh-CN": "稳定排序", "en": "Stable Sort"},
+      "aliases": [
+        {"text": "稳定排序", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "stable sort", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "稳定排序保证相等元素的相对顺序不变；Python 的 sorted 与 Java 的归并排序是稳定的。", "en": "A stable sort preserves the relative order of equal elements; Python's sorted and Java's merge sort are stable."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.ds.sorting"],
+      "topicIds": ["ds.sorting"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.ds.binary-search",
+      "termType": "concept",
+      "displayName": {"zh-CN": "二分查找", "en": "Binary Search"},
+      "aliases": [
+        {"text": "二分查找", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "binary search", "lang": "en", "matchType": "exact"},
+        {"text": "折半查找", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "二分查找在有序数据上每次把区间减半，复杂度 O(log n)；维护 low/high 边界是易错点。", "en": "Binary search halves the range each step on sorted data in O(log n); maintaining low/high bounds is the classic pitfall."},
+      "syntaxRef": null,
+      "exampleIds": ["example.ds.binary-search"],
+      "relatedTermIds": ["term.ds.sorting"],
+      "topicIds": ["ds.searching"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "language": "javascript",
+  "displayName": {"zh-CN": "JavaScript", "en": "JavaScript"},
+  "version": "1.0.0",
+  "keywords": ["as", "async", "await", "break", "case", "catch", "class", "const", "continue", "debugger", "default", "delete", "do", "else", "export", "extends", "false", "finally", "for", "from", "function", "get", "if", "import", "in", "instanceof", "let", "new", "null", "of", "return", "set", "static", "super", "switch", "this", "throw", "true", "try", "typeof", "undefined", "var", "void", "while", "with", "yield"],
+  "builtins": ["console", "JSON", "Math", "Object", "Array", "String", "Number", "Boolean", "Promise", "Map", "Set", "Date", "setTimeout", "setInterval", "parseInt"],
+  "lineComment": "//",
+  "blockComment": ["/*", "*/"],
+  "stringDelims": ["'", "\"", "`"],
+  "brackets": [["(", ")"], ["[", "]"], ["{", "}"]],
+  "diagnostics": [
+    {
+      "id": "js.use-strict-equality",
+      "pattern": "(?:^|[^=!<>])==(?!=)",
+      "message": {"zh-CN": "使用了 ==，建议改为 === 以避免隐式类型转换。", "en": "Use === instead of == to avoid implicit type coercion."},
+      "severity": "warning",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "== 会先做类型转换再比较；=== 同时比较类型和值。", "en": "== coerces types before comparing; === compares both type and value."}
+    },
+    {
+      "id": "js.var-declaration",
+      "pattern": "\\bvar\\s+[A-Za-z_$]",
+      "message": {"zh-CN": "var 是函数作用域且会被提升，建议用 let 或 const。", "en": "var is function-scoped and hoisted; prefer let or const."},
+      "severity": "warning",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "需要重新赋值用 let，不会重新赋值用 const。", "en": "Use let when reassigning and const otherwise."}
+    },
+    {
+      "id": "js.assignment-in-condition",
+      "pattern": "^\\s*(?:if|while)\\s*\\([^=!<>]*=[^=]",
+      "message": {"zh-CN": "条件中出现了赋值 =，可能想写比较 == 或 ===。", "en": "An assignment = appears inside a condition; did you mean == or ===?"},
+      "severity": "error",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "条件里比较应使用 ===，赋值应单独一行。", "en": "Compare with === in conditions and assign on its own line."}
+    },
+    {
+      "id": "js.promise-without-catch",
+      "pattern": "\\.then\\s*\\([^)]*\\)\\s*;",
+      "message": {"zh-CN": "Promise 只写了 then，没有 catch；失败时会产生未处理的 rejection。", "en": "A Promise chain has then but no catch; failures become unhandled rejections."},
+      "severity": "warning",
+      "fix": null,
+      "hint": {"zh-CN": "在链末加 .catch((error) => {...}) 或使用 try/await。", "en": "Add .catch((error) => {...}) at the end or use await with try."}
+    },
+    {
+      "id": "js.missing-braces",
+      "pattern": "^\\s*(?:if|for|while)\\s*\\([^)]*\\)\\s*[^{\\s]",
+      "message": {"zh-CN": "建议给 if/for/while 加花括号，即使只有一条语句。", "en": "Add braces to if/for/while even for a single statement."},
+      "severity": "warning",
+      "fix": null,
+      "hint": {"zh-CN": "花括号能避免缩进误导带来的 bug。", "en": "Braces prevent bugs caused by misleading indentation."}
+    }
+  ],
+  "completions": [
+    {
+      "when": "word",
+      "items": [
+        {"text": "console.log(", "detail": "输出到控制台", "insertText": "console.log()"},
+        {"text": "const", "detail": "声明常量", "insertText": "const "},
+        {"text": "let", "detail": "声明可重新赋值的变量", "insertText": "let "},
+        {"text": "function", "detail": "定义函数", "insertText": "function () {}"},
+        {"text": "async", "detail": "异步函数", "insertText": "async function () {}"},
+        {"text": "await", "detail": "等待 Promise", "insertText": "await "},
+        {"text": "import", "detail": "导入模块", "insertText": "import "},
+        {"text": "export", "detail": "导出模块成员", "insertText": "export "}
+      ]
+    }
+  ]
+}

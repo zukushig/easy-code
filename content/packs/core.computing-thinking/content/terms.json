@@ -1,0 +1,421 @@
+{
+  "terms": [
+    {
+      "id": "term.thinking.computational-thinking",
+      "termType": "concept",
+      "displayName": {"zh-CN": "计算思维", "en": "Computational Thinking"},
+      "aliases": [
+        {"text": "计算思维", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "computational thinking", "lang": "en", "matchType": "exact"},
+        {"text": "jisuansiwei", "lang": "zh-CN", "matchType": "pinyin"}
+      ],
+      "definitions": {"zh-CN": "计算思维是把问题转化为可由人或机器执行的步骤的思考方式，包含抽象、分解、模式识别与算法设计。", "en": "Computational thinking turns a problem into steps a human or machine can execute, using abstraction, decomposition, pattern recognition, and algorithm design."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.abstraction"],
+      "relatedTermIds": ["term.thinking.abstraction", "term.thinking.decomposition", "term.thinking.algorithm"],
+      "topicIds": ["thinking.overview", "thinking.abstraction"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.abstraction",
+      "termType": "concept",
+      "displayName": {"zh-CN": "抽象", "en": "Abstraction"},
+      "aliases": [
+        {"text": "抽象", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "abstraction", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "抽象是忽略与目标无关的细节、只保留关键特征，用函数或接口隐藏实现。", "en": "Abstraction hides irrelevant details while keeping key features, typically behind a function or interface."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.abstraction"],
+      "relatedTermIds": ["term.thinking.decomposition", "term.thinking.computational-thinking"],
+      "topicIds": ["thinking.abstraction", "thinking.overview", "thinking.pattern-recognition"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.decomposition",
+      "termType": "concept",
+      "displayName": {"zh-CN": "分解", "en": "Decomposition"},
+      "aliases": [
+        {"text": "分解", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "decomposition", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "分解是把大问题拆成更小、可独立解决和验证的子问题。", "en": "Decomposition breaks a large problem into smaller sub-problems that can be solved and verified separately."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.decomposition"],
+      "relatedTermIds": ["term.thinking.abstraction", "term.thinking.specification"],
+      "topicIds": ["thinking.decomposition"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.pattern-recognition",
+      "termType": "concept",
+      "displayName": {"zh-CN": "模式识别", "en": "Pattern Recognition"},
+      "aliases": [
+        {"text": "模式识别", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "pattern recognition", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "模式识别是在多个具体问题中发现重复出现的结构，从而用统一的方法解决它们。", "en": "Pattern recognition finds recurring structures across concrete problems so one general solution can handle them."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.pattern-recognition"],
+      "relatedTermIds": ["term.thinking.abstraction"],
+      "topicIds": ["thinking.pattern-recognition"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.specification",
+      "termType": "concept",
+      "displayName": {"zh-CN": "规格", "en": "Specification"},
+      "aliases": [
+        {"text": "规格", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "specification", "lang": "en", "matchType": "exact"},
+        {"text": "spec", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "规格用输入、输出、约束和成功标准精确描述一段程序“应该做什么”，是判断对错的前提。", "en": "A specification precisely states a program's inputs, outputs, constraints, and success criteria; it is the basis for judging correctness."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.thinking.correctness", "term.thinking.edge-case"],
+      "topicIds": ["thinking.problem-formulation", "thinking.decomposition"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.algorithm",
+      "termType": "concept",
+      "displayName": {"zh-CN": "算法", "en": "Algorithm"},
+      "aliases": [
+        {"text": "算法", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "algorithm", "lang": "en", "matchType": "exact"},
+        {"text": "suanfa", "lang": "zh-CN", "matchType": "pinyin"}
+      ],
+      "definitions": {"zh-CN": "算法是有限、确定、可执行且会终止的步骤序列，对相同输入给出相同输出。", "en": "An algorithm is a finite, deterministic, executable, terminating sequence of steps that yields the same output for the same input."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.algorithm-pseudocode"],
+      "relatedTermIds": ["term.thinking.pseudocode", "term.thinking.flowchart", "term.thinking.complexity"],
+      "topicIds": ["thinking.algorithm", "thinking.overview"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.pseudocode",
+      "termType": "concept",
+      "displayName": {"zh-CN": "伪代码", "en": "Pseudocode"},
+      "aliases": [
+        {"text": "伪代码", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "pseudocode", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "伪代码用接近自然语言的分步描述表达算法，不要求符合具体语言语法，但必须无歧义。", "en": "Pseudocode expresses an algorithm in near-natural-language steps; it need not follow real syntax but must be unambiguous."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.algorithm-pseudocode"],
+      "relatedTermIds": ["term.thinking.algorithm", "term.thinking.flowchart"],
+      "topicIds": ["thinking.pseudocode", "thinking.algorithm"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.flowchart",
+      "termType": "concept",
+      "displayName": {"zh-CN": "流程图", "en": "Flowchart"},
+      "aliases": [
+        {"text": "流程图", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "flowchart", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "流程图用图形符号表示步骤、判断分支和循环，便于检查控制流是否完整。", "en": "A flowchart uses diagram symbols for steps, decisions, and loops, making control flow easy to review."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.flowchart"],
+      "relatedTermIds": ["term.thinking.algorithm", "term.thinking.pseudocode"],
+      "topicIds": ["thinking.pseudocode", "thinking.algorithm"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.enumeration",
+      "termType": "concept",
+      "displayName": {"zh-CN": "枚举", "en": "Enumeration"},
+      "aliases": [
+        {"text": "枚举", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "enumeration", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "枚举是逐一检查所有可能情况来求解，简单可靠，但在情况很多时可能很慢。", "en": "Enumeration checks all possible cases one by one; simple and reliable, but slow when there are many cases."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.thinking.brute-force", "term.thinking.algorithm"],
+      "topicIds": ["thinking.algorithm"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.brute-force",
+      "termType": "concept",
+      "displayName": {"zh-CN": "暴力枚举", "en": "Brute Force"},
+      "aliases": [
+        {"text": "暴力枚举", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "brute force", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "暴力枚举用最直接的方式尝试所有可能，通常容易写对，但复杂度可能很高。", "en": "Brute force tries every possibility directly; simple to get right, but possibly very expensive."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.enumeration-brute"],
+      "relatedTermIds": ["term.thinking.enumeration", "term.thinking.complexity"],
+      "topicIds": ["thinking.complexity"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.divide-and-conquer",
+      "termType": "concept",
+      "displayName": {"zh-CN": "分治", "en": "Divide and Conquer"},
+      "aliases": [
+        {"text": "分治", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "divide and conquer", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "分治把问题分成若干更小的子问题，分别求解后合并结果；递归是实现分治的常见手段。", "en": "Divide and conquer splits a problem into smaller sub-problems, solves them, and combines the results; recursion is a common implementation."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.divide-conquer"],
+      "relatedTermIds": ["term.thinking.recursion", "term.thinking.base-case"],
+      "topicIds": ["thinking.recursion"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.complexity",
+      "termType": "concept",
+      "displayName": {"zh-CN": "复杂度", "en": "Complexity"},
+      "aliases": [
+        {"text": "复杂度", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "complexity", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "复杂度描述输入规模 n 增大时算法消耗（时间或空间）如何增长，常用 O 记号表示数量级。", "en": "Complexity describes how an algorithm's cost (time or space) grows with input size n, usually written in O notation."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.complexity"],
+      "relatedTermIds": ["term.thinking.big-o", "term.thinking.tradeoff"],
+      "topicIds": ["thinking.complexity"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.big-o",
+      "termType": "concept",
+      "displayName": {"zh-CN": "大 O 记号", "en": "Big-O Notation"},
+      "aliases": [
+        {"text": "大 O 记号", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "big-o", "lang": "en", "matchType": "exact"},
+        {"text": "O(n)", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "大 O 记号表示复杂度的数量级，例如 O(1) 常数、O(n) 线性、O(n²) 平方，忽略常数系数。", "en": "Big-O expresses order of growth, e.g. O(1) constant, O(n) linear, O(n²) quadratic, ignoring constant factors."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.complexity"],
+      "relatedTermIds": ["term.thinking.complexity"],
+      "topicIds": ["thinking.complexity"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.recursion",
+      "termType": "concept",
+      "displayName": {"zh-CN": "递归", "en": "Recursion"},
+      "aliases": [
+        {"text": "递归", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "recursion", "lang": "en", "matchType": "exact"},
+        {"text": "digui", "lang": "zh-CN", "matchType": "pinyin"}
+      ],
+      "definitions": {"zh-CN": "递归是函数调用自身来解决规模更小的同类问题，必须存在终止条件。", "en": "Recursion is a function calling itself on a smaller instance of the same problem; a base case is mandatory."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.recursion"],
+      "relatedTermIds": ["term.thinking.base-case", "term.thinking.divide-and-conquer"],
+      "topicIds": ["thinking.recursion"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.base-case",
+      "termType": "concept",
+      "displayName": {"zh-CN": "终止条件", "en": "Base Case"},
+      "aliases": [
+        {"text": "终止条件", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "base case", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "终止条件是递归中不再继续调用、直接返回结果的最小情况，没有它递归不会停止。", "en": "A base case is the smallest situation that returns directly without recursing; without it recursion never stops."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.recursion"],
+      "relatedTermIds": ["term.thinking.recursion"],
+      "topicIds": ["thinking.recursion"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.state",
+      "termType": "concept",
+      "displayName": {"zh-CN": "状态", "en": "State"},
+      "aliases": [
+        {"text": "状态", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "state", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "状态是系统在某一时刻的情况摘要，例如“空闲”“运行中”“已完成”。", "en": "A state summarizes a system's situation at a point in time, such as idle, running, or done."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.state"],
+      "relatedTermIds": ["term.thinking.state-machine"],
+      "topicIds": ["thinking.state"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.state-machine",
+      "termType": "concept",
+      "displayName": {"zh-CN": "状态机", "en": "State Machine"},
+      "aliases": [
+        {"text": "状态机", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "state machine", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "状态机由状态集合、事件和状态转移规则组成，用来描述和测试有明确阶段的流程。", "en": "A state machine consists of a state set, events, and transition rules, used to describe and test staged flows."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.state"],
+      "relatedTermIds": ["term.thinking.state"],
+      "topicIds": ["thinking.state"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.tradeoff",
+      "termType": "concept",
+      "displayName": {"zh-CN": "权衡", "en": "Trade-off"},
+      "aliases": [
+        {"text": "权衡", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "trade-off", "lang": "en", "matchType": "exact"},
+        {"text": "tradeoff", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "权衡是在多个互相牵制的目标（速度、内存、可读性、成本）之间做选择，没有单一最优解。", "en": "A trade-off is a choice among competing goals (speed, memory, readability, cost); there is no single best answer."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.tradeoffs"],
+      "relatedTermIds": ["term.thinking.complexity", "term.thinking.memoization"],
+      "topicIds": ["thinking.tradeoffs"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.memoization",
+      "termType": "concept",
+      "displayName": {"zh-CN": "记忆化", "en": "Memoization"},
+      "aliases": [
+        {"text": "记忆化", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "memoization", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "记忆化把函数已经算过的结果缓存起来，下次相同输入直接返回，用空间换时间。", "en": "Memoization caches computed results so repeated inputs return immediately, trading space for time."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.thinking.tradeoff", "term.thinking.recursion"],
+      "topicIds": ["thinking.tradeoffs"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.heuristic",
+      "termType": "concept",
+      "displayName": {"zh-CN": "启发式方法", "en": "Heuristic"},
+      "aliases": [
+        {"text": "启发式方法", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "heuristic", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "启发式方法用经验规则快速给出“足够好”的解，不保证最优，但通常更快更简单。", "en": "A heuristic uses experience-based rules to get a good-enough answer quickly; it does not guarantee optimality."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.thinking.tradeoff", "term.thinking.complexity"],
+      "topicIds": ["thinking.tradeoffs"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.edge-case",
+      "termType": "concept",
+      "displayName": {"zh-CN": "边界情况", "en": "Edge Case"},
+      "aliases": [
+        {"text": "边界情况", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "edge case", "lang": "en", "matchType": "exact"},
+        {"text": "边界值", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "边界情况是输入接近范围边缘的特殊值，如空列表、0、最大值、重复值，最容易暴露错误。", "en": "An edge case is an input at the boundary, such as an empty list, zero, the maximum value, or duplicates, where bugs most often appear."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.verification"],
+      "relatedTermIds": ["term.thinking.verification", "term.thinking.correctness"],
+      "topicIds": ["thinking.verification", "thinking.problem-formulation"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.invariant",
+      "termType": "concept",
+      "displayName": {"zh-CN": "不变量", "en": "Invariant"},
+      "aliases": [
+        {"text": "不变量", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "invariant", "lang": "en", "matchType": "exact"},
+        {"text": "loop invariant", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "不变量是在循环每轮开始时都必须成立的条件，用来推理循环是否正确。", "en": "An invariant is a condition that must hold at the start of every loop iteration, used to reason about loop correctness."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.thinking.correctness", "term.thinking.algorithm"],
+      "topicIds": ["thinking.verification"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.correctness",
+      "termType": "concept",
+      "displayName": {"zh-CN": "正确性", "en": "Correctness"},
+      "aliases": [
+        {"text": "正确性", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "correctness", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "正确性指程序对所有合法输入都符合规格；通常用测试覆盖典型、边界与非法输入来验证。", "en": "Correctness means a program matches its specification for all valid inputs, usually verified by covering typical, boundary, and invalid cases."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.verification"],
+      "relatedTermIds": ["term.thinking.specification", "term.thinking.edge-case"],
+      "topicIds": ["thinking.verification", "thinking.problem-formulation"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.thinking.verification",
+      "termType": "concept",
+      "displayName": {"zh-CN": "验证", "en": "Verification"},
+      "aliases": [
+        {"text": "验证", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "verification", "lang": "en", "matchType": "exact"},
+        {"text": "testing", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "验证是用可重复的检查证明程序符合规格，包括自动化测试、手工边界用例与代码审查。", "en": "Verification uses repeatable checks to show a program matches its spec, including automated tests, manual edge cases, and review."},
+      "syntaxRef": null,
+      "exampleIds": ["example.thinking.verification"],
+      "relatedTermIds": ["term.thinking.correctness", "term.thinking.edge-case"],
+      "topicIds": ["thinking.verification"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

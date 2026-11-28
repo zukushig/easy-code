@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 深色启动窗口：与 Compose 深色背景一致，避免冷启动白闪。 -->
+<resources>
+    <style name="Theme.CodeTree" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#FF000000</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

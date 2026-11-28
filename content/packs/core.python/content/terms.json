@@ -1,0 +1,503 @@
+{
+  "terms": [
+    {
+      "id": "term.python.interpreter",
+      "termType": "tool",
+      "displayName": {"zh-CN": "解释器", "en": "Interpreter"},
+      "aliases": [
+        {"text": "解释器", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "interpreter", "lang": "en", "matchType": "exact"},
+        {"text": "python3", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "解释器逐行读取并执行 Python 代码，遇到错误会立即停止并给出 Traceback。", "en": "The interpreter reads and runs Python code line by line; on an error it stops and prints a traceback."},
+      "syntaxRef": "syntax/python.json#interpreter",
+      "exampleIds": ["example.python.hello"],
+      "relatedTermIds": ["term.python.indentation"],
+      "topicIds": ["python.getting-started", "python.modules"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.indentation",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "缩进", "en": "Indentation"},
+      "aliases": [
+        {"text": "缩进", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "indentation", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "Python 用缩进表示代码块，同一块必须一致；社区约定用 4 个空格。", "en": "Python uses indentation to delimit blocks; it must be consistent within a block, and four spaces is the convention."},
+      "syntaxRef": "syntax/python.json#indentation",
+      "exampleIds": ["example.python.if-elif"],
+      "relatedTermIds": ["term.python.interpreter"],
+      "topicIds": ["python.getting-started"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.variable",
+      "termType": "concept",
+      "displayName": {"zh-CN": "变量", "en": "Variable"},
+      "aliases": [
+        {"text": "变量", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "variable", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "变量是引用某个对象的名字；赋值把名字绑定到值，之后可以重新绑定到别的值。", "en": "A variable is a name bound to an object; assignment binds the name to a value and can rebind it later."},
+      "syntaxRef": "syntax/python.json#variable",
+      "exampleIds": ["example.python.variables"],
+      "relatedTermIds": ["term.python.int", "term.python.mutability"],
+      "topicIds": ["python.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.int",
+      "termType": "concept",
+      "displayName": {"zh-CN": "整数", "en": "Integer (int)"},
+      "aliases": [
+        {"text": "整数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "int", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "int 表示整数，Python 的整数没有固定位宽上限；// 得到整除，% 得到余数。", "en": "int represents arbitrary-precision integers; // is floor division and % is remainder."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.int-float"],
+      "relatedTermIds": ["term.python.float"],
+      "topicIds": ["python.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.float",
+      "termType": "concept",
+      "displayName": {"zh-CN": "浮点数", "en": "Float"},
+      "aliases": [
+        {"text": "浮点数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "float", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "float 表示小数，采用二进制浮点近似，因此 0.1 + 0.2 不一定等于 0.3，比较时要注意精度。", "en": "float represents decimals with binary floating-point approximation, so 0.1 + 0.2 may not equal 0.3; compare with care."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.variables"],
+      "relatedTermIds": ["term.python.int"],
+      "topicIds": ["python.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.str",
+      "termType": "concept",
+      "displayName": {"zh-CN": "字符串", "en": "String"},
+      "aliases": [
+        {"text": "字符串", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "str", "lang": "en", "matchType": "abbr"},
+        {"text": "string", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "str 是不可变的文本序列，可用单引号或双引号创建，支持索引、切片与 f-string 格式化。", "en": "str is an immutable text sequence, created with single or double quotes and supporting indexing, slicing, and f-strings."},
+      "syntaxRef": "syntax/python.json#string",
+      "exampleIds": ["example.python.string-slice"],
+      "relatedTermIds": ["term.python.f-string", "term.python.slicing"],
+      "topicIds": ["python.variables-types", "python.strings"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.bool",
+      "termType": "concept",
+      "displayName": {"zh-CN": "布尔值", "en": "Boolean (bool)"},
+      "aliases": [
+        {"text": "布尔值", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "bool", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "bool 只有 True / False 两个值，条件表达式和比较运算的结果都是布尔值。", "en": "bool has only True and False; conditions and comparisons evaluate to booleans."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.variables"],
+      "relatedTermIds": ["term.python.if"],
+      "topicIds": ["python.variables-types", "python.control-flow.if"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.none",
+      "termType": "concept",
+      "displayName": {"zh-CN": "None", "en": "None"},
+      "aliases": [
+        {"text": "None", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "none", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "None 表示“没有值”，常用于函数无返回值或可选参数默认值；判断时用 is None。", "en": "None represents the absence of a value, common for functions without a return or optional parameters; test with is None."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.python.def", "term.python.return"],
+      "topicIds": ["python.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.list",
+      "termType": "concept",
+      "displayName": {"zh-CN": "列表", "en": "List"},
+      "aliases": [
+        {"text": "列表", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "list", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "list 是有序、可变的集合，用 [] 创建，可追加、删除、排序并按索引访问。", "en": "list is an ordered, mutable collection created with [], supporting append, remove, sort, and indexed access."},
+      "syntaxRef": "syntax/python.json#list",
+      "exampleIds": ["example.python.list-basics"],
+      "relatedTermIds": ["term.python.dict", "term.python.tuple", "term.python.set"],
+      "topicIds": ["python.lists"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.dict",
+      "termType": "concept",
+      "displayName": {"zh-CN": "字典", "en": "Dictionary (dict)"},
+      "aliases": [
+        {"text": "字典", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "dict", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "dict 保存键值映射，平均 O(1) 查找；键必须可哈希，从 Python 3.7 起保持插入顺序。", "en": "dict maps keys to values with average O(1) lookup; keys must be hashable and insertion order is preserved since Python 3.7."},
+      "syntaxRef": "syntax/python.json#dict",
+      "exampleIds": ["example.python.dict-basics"],
+      "relatedTermIds": ["term.python.list", "term.python.mutability"],
+      "topicIds": ["python.dicts"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.tuple",
+      "termType": "concept",
+      "displayName": {"zh-CN": "元组", "en": "Tuple"},
+      "aliases": [
+        {"text": "元组", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "tuple", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "tuple 是有序但不可变的序列，适合表示不应被修改的组合值，如坐标 (x, y)。", "en": "A tuple is an ordered immutable sequence, suited to value bundles that should not change, such as (x, y)."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.tuple-set"],
+      "relatedTermIds": ["term.python.list", "term.python.mutability"],
+      "topicIds": ["python.lists"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.set",
+      "termType": "concept",
+      "displayName": {"zh-CN": "集合", "en": "Set"},
+      "aliases": [
+        {"text": "集合", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "set", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "set 是无序、元素唯一的集合，适合去重和成员判断（in），元素必须可哈希。", "en": "A set is unordered with unique elements, good for deduplication and membership tests (in); elements must be hashable."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.tuple-set"],
+      "relatedTermIds": ["term.python.list", "term.python.dict"],
+      "topicIds": ["python.lists"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.slicing",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "切片", "en": "Slicing"},
+      "aliases": [
+        {"text": "切片", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "slicing", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "切片用 seq[start:stop:step] 取出子序列，包含 start、不包含 stop；省略边界时取到头。", "en": "Slicing uses seq[start:stop:step] to take a subsequence, inclusive of start and exclusive of stop; omitted bounds run to the end."},
+      "syntaxRef": "syntax/python.json#slicing",
+      "exampleIds": ["example.python.string-slice"],
+      "relatedTermIds": ["term.python.str", "term.python.list"],
+      "topicIds": ["python.strings", "python.lists"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.f-string",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "f-string", "en": "f-string"},
+      "aliases": [
+        {"text": "f-string", "lang": "en", "matchType": "exact"},
+        {"text": "f 字符串", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "f-string 是带 f 前缀的字符串，花括号里的表达式会被求值并插入文本，是 Python 3.6+ 推荐的格式化方式。", "en": "An f-string has an f prefix; expressions inside braces are evaluated and inserted, the recommended formatting style since Python 3.6."},
+      "syntaxRef": "syntax/python.json#f-string",
+      "exampleIds": ["example.python.f-string"],
+      "relatedTermIds": ["term.python.str"],
+      "topicIds": ["python.strings"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.if",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "if 语句", "en": "if statement"},
+      "aliases": [
+        {"text": "if 语句", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "if", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "if 语句根据条件选择分支，可搭配 elif 与 else；头部行以冒号结尾，分支体必须缩进。", "en": "An if statement branches on a condition, optionally with elif and else; the header ends with a colon and the body is indented."},
+      "syntaxRef": "syntax/python.json#if",
+      "exampleIds": ["example.python.if-elif"],
+      "relatedTermIds": ["term.python.bool", "term.python.while"],
+      "topicIds": ["python.control-flow.if"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.for",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "for 语句", "en": "for statement"},
+      "aliases": [
+        {"text": "for 语句", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "for", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "for 语句遍历可迭代对象，循环变量依次取每个元素；遍历次数由对象决定。", "en": "A for statement iterates over an iterable, binding the loop variable to each element in turn."},
+      "syntaxRef": "syntax/python.json#for",
+      "exampleIds": ["example.python.for-range"],
+      "relatedTermIds": ["term.python.while", "term.python.range", "term.python.list-comprehension"],
+      "topicIds": ["python.control-flow.for-loop", "python.comprehensions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.while",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "while 语句", "en": "while statement"},
+      "aliases": [
+        {"text": "while 语句", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "while", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "while 语句在条件为真时重复执行循环体；循环体必须推动条件走向假，否则会死循环。", "en": "A while statement repeats its body while the condition is true; the body must move the condition toward false or the loop never ends."},
+      "syntaxRef": "syntax/python.json#while",
+      "exampleIds": ["example.python.while-loop"],
+      "relatedTermIds": ["term.python.for", "term.python.if"],
+      "topicIds": ["python.control-flow.while-loop"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.range",
+      "termType": "api",
+      "displayName": {"zh-CN": "range", "en": "range"},
+      "aliases": [
+        {"text": "range", "lang": "en", "matchType": "exact"},
+        {"text": "range()", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "range(start, stop, step) 产生惰性数字序列，包含 start、不包含 stop，常用于 for 循环计数。", "en": "range(start, stop, step) lazily yields numbers, including start and excluding stop, commonly used for counting loops."},
+      "syntaxRef": "syntax/python.json#range",
+      "exampleIds": ["example.python.for-range"],
+      "relatedTermIds": ["term.python.for"],
+      "topicIds": ["python.control-flow.for-loop"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.def",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "def 定义函数", "en": "def statement"},
+      "aliases": [
+        {"text": "定义函数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "def", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "def 关键字定义函数：函数名、参数列表、冒号，然后是缩进的函数体。", "en": "def defines a function: the name, parameter list, colon, then an indented body."},
+      "syntaxRef": "syntax/python.json#def",
+      "exampleIds": ["example.python.function-return"],
+      "relatedTermIds": ["term.python.return", "term.python.none"],
+      "topicIds": ["python.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.return",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "return", "en": "return"},
+      "aliases": [
+        {"text": "return", "lang": "en", "matchType": "exact"},
+        {"text": "返回", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "return 结束函数并把一个值交回调用方；没有 return 或 return 后无值，函数返回 None。", "en": "return ends a function and hands a value back to the caller; without it, or with no value, the function returns None."},
+      "syntaxRef": "syntax/python.json#return",
+      "exampleIds": ["example.python.function-return"],
+      "relatedTermIds": ["term.python.def", "term.python.none"],
+      "topicIds": ["python.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.default-argument",
+      "termType": "concept",
+      "displayName": {"zh-CN": "默认参数", "en": "Default Argument"},
+      "aliases": [
+        {"text": "默认参数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "default argument", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "默认参数在函数定义时给定默认值，调用时不传该参数就使用默认值；默认值不要用可变对象。", "en": "A default argument has a value used when the caller omits it; avoid mutable objects as defaults."},
+      "syntaxRef": "syntax/python.json#default-argument",
+      "exampleIds": ["example.python.default-args"],
+      "relatedTermIds": ["term.python.def", "term.python.keyword-argument"],
+      "topicIds": ["python.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.keyword-argument",
+      "termType": "concept",
+      "displayName": {"zh-CN": "关键字参数", "en": "Keyword Argument"},
+      "aliases": [
+        {"text": "关键字参数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "keyword argument", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "调用时用 name=value 形式传参，参数按名字匹配，顺序可以不同，可读性更好。", "en": "Passing name=value matches parameters by name, so order does not matter and calls stay readable."},
+      "syntaxRef": "syntax/python.json#keyword-argument",
+      "exampleIds": ["example.python.default-args"],
+      "relatedTermIds": ["term.python.default-argument"],
+      "topicIds": ["python.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.list-comprehension",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "列表推导式", "en": "List Comprehension"},
+      "aliases": [
+        {"text": "列表推导式", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "list comprehension", "lang": "en", "matchType": "exact"},
+        {"text": "推导式", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "列表推导式用 [表达式 for 变量 in 可迭代 if 条件] 一步构造列表，适合简单的映射与过滤。", "en": "A list comprehension builds a list with [expr for item in iterable if condition], fitting simple mapping and filtering."},
+      "syntaxRef": "syntax/python.json#comprehension",
+      "exampleIds": ["example.python.comprehension"],
+      "relatedTermIds": ["term.python.for", "term.python.list"],
+      "topicIds": ["python.comprehensions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.exception",
+      "termType": "concept",
+      "displayName": {"zh-CN": "异常", "en": "Exception"},
+      "aliases": [
+        {"text": "异常", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "exception", "lang": "en", "matchType": "exact"},
+        {"text": "error", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "异常是运行时错误对象，如 ValueError、ZeroDivisionError；未被捕获时程序中断并输出 Traceback。", "en": "An exception is a runtime error object such as ValueError or ZeroDivisionError; uncaught it stops the program with a traceback."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.try-except"],
+      "relatedTermIds": ["term.python.try-except"],
+      "topicIds": ["python.exceptions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.try-except",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "try / except", "en": "try / except"},
+      "aliases": [
+        {"text": "try except", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "try / except", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "try 包住可能出错的代码，except 捕获指定类型的异常并处理；可选的 finally 总是执行。", "en": "try wraps risky code, except handles a named exception type, and optional finally always runs."},
+      "syntaxRef": "syntax/python.json#try-except",
+      "exampleIds": ["example.python.try-except"],
+      "relatedTermIds": ["term.python.exception", "term.python.with"],
+      "topicIds": ["python.exceptions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.with",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "with 语句", "en": "with statement"},
+      "aliases": [
+        {"text": "with 语句", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "with", "lang": "en", "matchType": "exact"},
+        {"text": "context manager", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "with 语句在代码块结束时自动调用清理逻辑（如关闭文件），即使中途抛异常也不会泄漏资源。", "en": "with runs cleanup automatically at block exit (e.g. closing a file), even when an exception interrupts the block."},
+      "syntaxRef": "syntax/python.json#with",
+      "exampleIds": ["example.python.with-file"],
+      "relatedTermIds": ["term.python.try-except", "term.python.import"],
+      "topicIds": ["python.files"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.module",
+      "termType": "concept",
+      "displayName": {"zh-CN": "模块", "en": "Module"},
+      "aliases": [
+        {"text": "模块", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "module", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "模块是一个 .py 文件，把变量、函数、类组织成可被其他代码导入的单元。", "en": "A module is a .py file that groups variables, functions, and classes into a unit other code can import."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.import-module"],
+      "relatedTermIds": ["term.python.import"],
+      "topicIds": ["python.modules"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.import",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "import", "en": "import"},
+      "aliases": [
+        {"text": "import", "lang": "en", "matchType": "exact"},
+        {"text": "导入", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "import 引入模块或模块成员；import math 用 math.sqrt，from math import sqrt 直接使用 sqrt。", "en": "import loads a module or its members: import math uses math.sqrt, while from math import sqrt uses sqrt directly."},
+      "syntaxRef": "syntax/python.json#import",
+      "exampleIds": ["example.python.import-module"],
+      "relatedTermIds": ["term.python.module"],
+      "topicIds": ["python.modules"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.python.mutability",
+      "termType": "concept",
+      "displayName": {"zh-CN": "可变性", "en": "Mutability"},
+      "aliases": [
+        {"text": "可变性", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "mutability", "lang": "en", "matchType": "exact"},
+        {"text": "mutable", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "list、dict、set 可变，修改会影响所有指向同一对象的变量；str、tuple、int 不可变，修改会创建新对象。", "en": "list, dict, and set are mutable, so changes are visible through every reference; str, tuple, and int are immutable and changes create new objects."},
+      "syntaxRef": null,
+      "exampleIds": ["example.python.mutability"],
+      "relatedTermIds": ["term.python.list", "term.python.tuple"],
+      "topicIds": ["python.variables-types", "python.lists", "python.dicts"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

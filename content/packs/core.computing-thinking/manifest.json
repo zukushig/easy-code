@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "packId": "core.computing-thinking",
+  "packType": "knowledge",
+  "version": "1.0.0",
+  "title": {
+    "zh-CN": "计算思维",
+    "en": "Computational Thinking"
+  },
+  "defaultLocale": "zh-CN",
+  "locales": ["zh-CN", "en"],
+  "minAppVersion": "0.1.0",
+  "pluginApiVersion": 1,
+  "entry": "content/topics.json",
+  "dependencies": [],
+  "files": []
+}

@@ -1,0 +1,33 @@
+{
+  "edges": [
+    {"source": "python.getting-started", "target": "python.variables-types", "type": "prerequisite"},
+    {"source": "python.variables-types", "target": "python.strings", "type": "prerequisite"},
+    {"source": "python.strings", "target": "python.control-flow.if", "type": "prerequisite"},
+    {"source": "python.control-flow.if", "target": "python.control-flow.while-loop", "type": "prerequisite"},
+    {"source": "python.control-flow.while-loop", "target": "python.control-flow.for-loop", "type": "prerequisite"},
+    {"source": "python.control-flow.for-loop", "target": "python.lists", "type": "prerequisite"},
+    {"source": "python.lists", "target": "python.dicts", "type": "prerequisite"},
+    {"source": "python.dicts", "target": "python.functions", "type": "prerequisite"},
+    {"source": "python.functions", "target": "python.comprehensions", "type": "prerequisite"},
+    {"source": "python.functions", "target": "python.exceptions", "type": "prerequisite"},
+    {"source": "python.exceptions", "target": "python.files", "type": "prerequisite"},
+    {"source": "python.functions", "target": "python.modules", "type": "prerequisite"},
+    {"source": "python.files", "target": "python.modules", "type": "prerequisite"},
+
+    {"source": "python.strings", "target": "python.lists", "type": "related"},
+    {"source": "python.lists", "target": "python.dicts", "type": "related"},
+    {"source": "python.control-flow.for-loop", "target": "python.comprehensions", "type": "related"},
+    {"source": "python.exceptions", "target": "python.files", "type": "related"},
+    {"source": "python.functions", "target": "python.modules", "type": "related"},
+
+    {"source": "python.strings", "target": "python.lists", "type": "appliedIn"},
+    {"source": "python.functions", "target": "python.modules", "type": "appliedIn"},
+    {"source": "python.comprehensions", "target": "python.lists", "type": "appliedIn"},
+    {"source": "python.exceptions", "target": "python.files", "type": "appliedIn"},
+    {"source": "python.dicts", "target": "python.functions", "type": "appliedIn"},
+
+    {"source": "python.control-flow.for-loop", "target": "python.control-flow.while-loop", "type": "confusedWith"},
+    {"source": "python.lists", "target": "python.dicts", "type": "confusedWith"},
+    {"source": "python.strings", "target": "python.lists", "type": "confusedWith"}
+  ]
+}

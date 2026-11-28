@@ -1,0 +1,241 @@
+{
+  "examples": [
+    {
+      "id": "example.basic.variable-assign",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "变量赋值与读取", "en": "Assigning and reading variables"},
+      "explanation": {"zh-CN": "给三个变量分别赋值，再用 print 一次输出。print 的多个参数之间会自动加一个空格。", "en": "Assign three variables and print them at once. print separates multiple arguments with a single space."},
+      "code": "age = 18\nprice = 9.9\nname = \"CodeTree\"\nprint(age, price, name)",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "变量名 age", "en": "Variable name age"}},
+        {"start": 9, "end": 14, "note": {"zh-CN": "第二行重新给 price 赋值", "en": "The second line assigns a new value to price"}}
+      ],
+      "expectedOutput": "18 9.9 CodeTree",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.type-inspect",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "用 type() 查看类型", "en": "Inspecting types with type()"},
+      "explanation": {"zh-CN": "四个变量分别是整数、浮点数、字符串、布尔值；type(x) 返回这个值的类型对象，print 会显示成 <class '...'>。", "en": "The four variables are an integer, a float, a string, and a boolean; type(x) returns the type object and print shows it as <class '...'>."},
+      "code": "count = 3\nratio = 0.5\ntext = \"hello\"\nflag = True\nprint(type(count), type(ratio), type(text), type(flag))",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "count 是整数 int", "en": "count is an int"}},
+        {"start": 10, "end": 15, "note": {"zh-CN": "ratio 是浮点数 float", "en": "ratio is a float"}}
+      ],
+      "expectedOutput": "<class 'int'> <class 'float'> <class 'str'> <class 'bool'>",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.division",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "除法运算符的区别", "en": "Differences between division operators"},
+      "explanation": {"zh-CN": "/ 得到浮点结果（即使能整除），// 做向下取整的整除，% 求余数。", "en": "/ produces a float even when divisible, // is floor division, and % gives the remainder."},
+      "code": "print(7 / 2)\nprint(7 // 2)\nprint(7 % 2)",
+      "annotations": [
+        {"start": 8, "end": 9, "note": {"zh-CN": "/ 是浮点除法", "en": "/ is float division"}},
+        {"start": 21, "end": 23, "note": {"zh-CN": "// 是向下取整的整除", "en": "// is floor division"}}
+      ],
+      "expectedOutput": "3.5\n3\n1",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.if-grade",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "用 if / elif / else 判断成绩", "en": "Grade decision with if / elif / else"},
+      "explanation": {"zh-CN": "条件从上到下依次判断，第一个为真的分支执行后其余分支跳过。85 分不满足 >= 90，但满足 >= 60，所以输出“合格”。", "en": "Conditions are checked top to bottom; the first true branch runs and the rest are skipped. 85 fails >= 90 but passes >= 60, so \"合格\" is printed."},
+      "code": "score = 85\nif score >= 90:\n    print(\"优秀\")\nelif score >= 60:\n    print(\"合格\")\nelse:\n    print(\"不及格\")",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "待判断的分数变量", "en": "The score variable being tested"}},
+        {"start": 11, "end": 13, "note": {"zh-CN": "if 行末必须有冒号，下一行要缩进", "en": "The if line needs a trailing colon and the next line is indented"}}
+      ],
+      "expectedOutput": "合格",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.for-sum",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "for 循环累加", "en": "Accumulating with a for loop"},
+      "explanation": {"zh-CN": "range(1, 5) 依次产生 1、2、3、4（不含 5）。每次迭代把当前值加到 total 上，循环结束后输出 10。", "en": "range(1, 5) yields 1, 2, 3, 4 (excluding 5). Each iteration adds the current value to total, so 10 is printed after the loop."},
+      "code": "total = 0\nfor number in range(1, 5):\n    total = total + number\nprint(total)",
+      "annotations": [
+        {"start": 10, "end": 13, "note": {"zh-CN": "for 循环遍历 range 产生的数字", "en": "A for loop over numbers produced by range"}},
+        {"start": 24, "end": 29, "note": {"zh-CN": "range 的结束值不包含在内", "en": "range excludes its end value"}}
+      ],
+      "expectedOutput": "10",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.while-countdown",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "while 倒计时", "en": "Countdown with while"},
+      "explanation": {"zh-CN": "只要 count > 0 就继续循环；每次循环把 count 减 1，条件最终会变成 False，循环因此结束（否则会死循环）。", "en": "The loop continues while count > 0; each iteration subtracts 1 so the condition eventually becomes False and the loop ends (otherwise it would be infinite)."},
+      "code": "count = 3\nwhile count > 0:\n    print(count)\n    count = count - 1\nprint(\"done\")",
+      "annotations": [
+        {"start": 10, "end": 15, "note": {"zh-CN": "while 条件为真时重复执行循环体", "en": "The body repeats while the condition is true"}}
+      ],
+      "expectedOutput": "3\n2\n1\ndone",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.function-return",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "定义函数并返回值", "en": "Defining a function with a return value"},
+      "explanation": {"zh-CN": "def 定义函数 add，参数 a、b 在函数内是局部变量；return 把计算结果交回调用处，result 收到 5。", "en": "def defines add; parameters a and b are local to the function. return hands the result back to the caller, so result gets 5."},
+      "code": "def add(a, b):\n    return a + b\n\nresult = add(2, 3)\nprint(result)",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "def 开始定义函数", "en": "def starts a function definition"}},
+        {"start": 15, "end": 21, "note": {"zh-CN": "return 把结果带回调用处", "en": "return sends the result back to the caller"}}
+      ],
+      "expectedOutput": "5",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.function-params",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "函数参数与默认值", "en": "Function parameters and defaults"},
+      "explanation": {"zh-CN": "name = \"CodeTree\" 是默认参数：不传值时使用它；传入 \"Ada\" 时使用传入值。代码为阅读示例，仅做静态检查。", "en": "name = \"CodeTree\" is a default parameter used when no argument is passed; passing \"Ada\" overrides it. This is a read-only example, statically checked only."},
+      "code": "function greet(name = \"CodeTree\") {\n  return \"Hello, \" + name;\n}\nconsole.log(greet());\nconsole.log(greet(\"Ada\"));",
+      "annotations": [
+        {"start": 0, "end": 8, "note": {"zh-CN": "function 关键字", "en": "The function keyword"}},
+        {"start": 15, "end": 19, "note": {"zh-CN": "参数 name 带默认值", "en": "Parameter name with a default value"}}
+      ],
+      "expectedOutput": "Hello, CodeTree\nHello, Ada",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.array-index",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "数组索引访问", "en": "Accessing array elements by index"},
+      "explanation": {"zh-CN": "索引从 0 开始，colors[0] 是第一个元素；索引 -1 表示最后一个元素。", "en": "Indices start at 0, so colors[0] is the first element; index -1 means the last element."},
+      "code": "colors = [\"red\", \"green\", \"blue\"]\nprint(colors[0])\nprint(colors[-1])",
+      "annotations": [
+        {"start": 0, "end": 6, "note": {"zh-CN": "保存三个字符串的数组", "en": "An array holding three strings"}},
+        {"start": 40, "end": 46, "note": {"zh-CN": "索引 0 取第一个元素", "en": "Index 0 reads the first element"}}
+      ],
+      "expectedOutput": "red\nblue",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.array-loop",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "遍历数组", "en": "Traversing an array"},
+      "explanation": {"zh-CN": "for number in numbers 直接依次取出数组中的每个值，number 依次是 10、20、30。", "en": "for number in numbers takes each value in order, so number becomes 10, then 20, then 30."},
+      "code": "numbers = [10, 20, 30]\nfor number in numbers:\n    print(number)",
+      "annotations": [
+        {"start": 23, "end": 26, "note": {"zh-CN": "for 直接遍历数组元素", "en": "for iterates over the array elements directly"}}
+      ],
+      "expectedOutput": "10\n20\n30",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.string-format",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "用 f-string 拼文本", "en": "Building text with an f-string"},
+      "explanation": {"zh-CN": "字符串前的 f 表示 f-string，花括号里的变量会被替换成它的值：name 变成 Ada，age 变成 36。", "en": "The f prefix marks an f-string: variables inside braces are replaced by their values, so name becomes Ada and age becomes 36."},
+      "code": "name = \"Ada\"\nage = 36\nprint(f\"{name} is {age} years old\")",
+      "annotations": [
+        {"start": 0, "end": 4, "note": {"zh-CN": "字符串变量 name", "en": "The string variable name"}},
+        {"start": 28, "end": 29, "note": {"zh-CN": "f 前缀表示 f-string", "en": "The f prefix marks an f-string"}}
+      ],
+      "expectedOutput": "Ada is 36 years old",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.try-except",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "try / except 捕获异常", "en": "Catching an exception with try / except"},
+      "explanation": {"zh-CN": "int(\"abc\") 无法转换，会抛出 ValueError；except ValueError 捕获它并执行提示，程序不会崩溃。", "en": "int(\"abc\") cannot convert and raises ValueError; except ValueError catches it, so the program prints a message instead of crashing."},
+      "code": "try:\n    number = int(\"abc\")\nexcept ValueError:\n    print(\"输入不是数字\")",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "try 里放可能出错的代码", "en": "Put risky code inside try"}},
+        {"start": 29, "end": 35, "note": {"zh-CN": "except 指定要捕获的异常类型", "en": "except names the exception type to catch"}}
+      ],
+      "expectedOutput": "输入不是数字",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.off-by-one",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "最后一个索引是 len - 1", "en": "The last index is len - 1"},
+      "explanation": {"zh-CN": "数组长度是 3，合法索引只有 0、1、2。用 len(items) 当索引（即 3）会越界，正确写法是 len(items) - 1。", "en": "The array has length 3, so valid indices are only 0, 1, 2. Using len(items) (= 3) as an index is out of range; the correct value is len(items) - 1."},
+      "code": "items = [\"a\", \"b\", \"c\"]\nwrong_last = len(items)\nright_last = len(items) - 1\nprint(wrong_last, right_last)",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "三个元素的数组", "en": "An array with three elements"}},
+        {"start": 24, "end": 34, "note": {"zh-CN": "差一错误：用长度当索引会越界", "en": "Off-by-one: using the length as an index is out of range"}}
+      ],
+      "expectedOutput": "3 2",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.precedence",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "运算符优先级", "en": "Operator precedence"},
+      "explanation": {"zh-CN": "乘法先于加法：2 + 3 * 4 = 14。括号可以改变顺序：(2 + 3) * 4 = 20。", "en": "Multiplication binds tighter than addition: 2 + 3 * 4 = 14. Parentheses change the order: (2 + 3) * 4 = 20."},
+      "code": "result = 2 + 3 * 4\nprint(result)\nprint((2 + 3) * 4)",
+      "annotations": [
+        {"start": 11, "end": 12, "note": {"zh-CN": "加法优先级低于乘法", "en": "Addition binds looser than multiplication"}},
+        {"start": 33, "end": 34, "note": {"zh-CN": "括号强制先算 2 + 3", "en": "Parentheses force 2 + 3 first"}}
+      ],
+      "expectedOutput": "14\n20",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.pseudocode",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "求最大值的伪代码", "en": "Pseudocode for finding the maximum"},
+      "explanation": {"zh-CN": "这是伪代码，不是可执行程序，仅阅读：先用第一个元素初始化 max，再逐个比较，遇到更大的就更新。", "en": "This is pseudocode, not an executable program; read-only: initialize max with the first element, compare each item, and update when a larger one appears."},
+      "code": "算法：求列表中最大值\n1. 设 max = 列表[0]\n2. 对列表中每个元素 x：\n   如果 x > max，则 max = x\n3. 输出 max",
+      "annotations": [
+        {"start": 0, "end": 2, "note": {"zh-CN": "用自然语言描述算法步骤", "en": "Algorithm steps in natural language"}},
+        {"start": 16, "end": 19, "note": {"zh-CN": "max 始终保存目前见过的最大值", "en": "max always holds the largest value seen so far"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.basic.scope-local",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "局部变量与全局变量", "en": "Local versus global variables"},
+      "explanation": {"zh-CN": "函数里的 message = \"local\" 创建的是局部变量，函数内 print 输出 local；函数外的 message 仍是 global。", "en": "message = \"local\" inside the function creates a local variable, so the inner print shows local; the outer message stays global."},
+      "code": "message = \"global\"\n\ndef show():\n    message = \"local\"\n    print(message)\n\nshow()\nprint(message)",
+      "annotations": [
+        {"start": 0, "end": 7, "note": {"zh-CN": "全局变量 message", "en": "The global message variable"}},
+        {"start": 20, "end": 23, "note": {"zh-CN": "def 定义的函数有独立作用域", "en": "A function defined with def has its own scope"}}
+      ],
+      "expectedOutput": "local\nglobal",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    }
+  ]
+}

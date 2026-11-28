@@ -1,0 +1,251 @@
+{
+  "topics": [
+    {
+      "id": "js.getting-started",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "第一个 JavaScript 程序", "en": "Your First JavaScript Program"},
+      "summary": {"zh-CN": "JavaScript 可在浏览器或 Node.js 中运行；console.log 输出信息，let/const 声明变量。", "en": "JavaScript runs in browsers or Node.js; console.log prints and let/const declare variables."},
+      "objectives": {
+        "zh-CN": ["用 console.log 输出内容", "区分 let 与 const 的使用场景", "说明浏览器与 Node.js 运行环境的差别"],
+        "en": ["Print with console.log", "Decide between let and const", "Explain browser versus Node.js runtime differences"]
+      },
+      "contentRef": "content/topics.json#js.getting-started",
+      "termIds": ["term.js.runtime", "term.js.let", "term.js.const"],
+      "exampleIds": ["example.js.hello"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "用 const 声明一个问候语变量，用 console.log 输出；再尝试重新赋值，观察报错。", "en": "Declare a greeting with const and print it; then try reassigning it and observe the error."},
+        "hint": {"zh-CN": "const 声明的变量不能重新赋值；需要重新赋值时改用 let。", "en": "const bindings cannot be reassigned; use let when reassignment is needed."}
+      }
+    },
+    {
+      "id": "js.variables-types",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "变量与类型", "en": "Variables and Types"},
+      "summary": {"zh-CN": "JS 是动态类型语言：string、number、boolean、null、undefined、object 等；typeof 可查看类型。", "en": "JS is dynamically typed: string, number, boolean, null, undefined, object, etc.; typeof reveals a value's type."},
+      "objectives": {
+        "zh-CN": ["声明并区分 let / const / var", "说出至少 5 种基本类型", "用 typeof 检查值并解释 null 的特殊行为"],
+        "en": ["Declare variables with let / const / var", "Name at least five primitive types", "Check values with typeof and explain the null quirk"]
+      },
+      "contentRef": "content/topics.json#js.variables-types",
+      "termIds": ["term.js.let", "term.js.const", "term.js.var", "term.js.string", "term.js.number", "term.js.boolean", "term.js.null", "term.js.undefined", "term.js.template-literal"],
+      "exampleIds": ["example.js.types", "example.js.template-literal"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "创建字符串、数字、布尔、undefined、null 五个变量，用 typeof 分别输出类型。", "en": "Create string, number, boolean, undefined, and null variables and print each typeof."},
+        "hint": {"zh-CN": "typeof null 返回 \"object\"，这是历史遗留行为，需要特别注意。", "en": "typeof null returns \"object\" — a historical quirk worth remembering."}
+      }
+    },
+    {
+      "id": "js.operators",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "运算符与比较", "en": "Operators and Comparison"},
+      "summary": {"zh-CN": "JS 有算术、比较、逻辑运算符；优先用 === / !== 避免隐式类型转换。", "en": "JS has arithmetic, comparison, and logical operators; prefer === / !== to avoid implicit coercion."},
+      "objectives": {
+        "zh-CN": ["说明 == 与 === 的区别", "用逻辑运算符组合条件", "解释 truthy / falsy 的常见值"],
+        "en": ["Explain == versus ===", "Combine conditions with logical operators", "Explain common truthy and falsy values"]
+      },
+      "contentRef": "content/topics.json#js.operators",
+      "termIds": ["term.js.operator", "term.js.truthy-falsy"],
+      "exampleIds": ["example.js.operators"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "预测 1 == \"1\"、1 === \"1\"、0 == false、null == undefined 的结果，再用代码验证。", "en": "Predict 1 == \"1\", 1 === \"1\", 0 == false, and null == undefined, then verify with code."},
+        "hint": {"zh-CN": "== 会做类型转换；=== 要求类型相同；null == undefined 为 true。", "en": "== coerces; === requires the same type; null == undefined is true."}
+      }
+    },
+    {
+      "id": "js.control-flow",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "条件与循环", "en": "Conditionals and Loops"},
+      "summary": {"zh-CN": "if / else 按条件分支，for / while 重复执行；循环变量与边界决定是否越界。", "en": "if / else branches on conditions, for / while repeat work; loop variables and bounds decide correctness."},
+      "objectives": {
+        "zh-CN": ["写 if / else if / else 多分支", "用 for 循环遍历数组", "识别循环边界错误"],
+        "en": ["Write if / else if / else branches", "Iterate arrays with for", "Spot loop boundary errors"]
+      },
+      "contentRef": "content/topics.json#js.control-flow",
+      "termIds": ["term.js.truthy-falsy", "term.js.operator"],
+      "exampleIds": ["example.js.if-else", "example.js.for-loop"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用 for 循环输出 1 到 3，并改成 while 循环实现同样输出。", "en": "Print 1 through 3 with a for loop, then rewrite it with a while loop."},
+        "hint": {"zh-CN": "for 的循环变量要正确初始化、判断和自增；while 里别忘了手动自增。", "en": "Initialize, test, and update the for counter; update it manually in while."}
+      }
+    },
+    {
+      "id": "js.functions",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "函数与闭包", "en": "Functions and Closures"},
+      "summary": {"zh-CN": "函数可以声明、表达式化或写成箭头函数并作为值传递；闭包让内部函数记住外层变量。", "en": "Functions can be declared, expressed, or written as arrows and passed around; closures let inner functions remember outer variables."},
+      "objectives": {
+        "zh-CN": ["用 function 与箭头函数各写一个函数", "把函数作为参数传给另一个函数", "解释闭包如何保存状态"],
+        "en": ["Write functions with function declarations and arrows", "Pass a function as an argument", "Explain how closures keep state"]
+      },
+      "contentRef": "content/topics.json#js.functions",
+      "termIds": ["term.js.function", "term.js.arrow-function", "term.js.closure", "term.js.callback"],
+      "exampleIds": ["example.js.function-decl", "example.js.arrow-function", "example.js.closure"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "写一个 makeAdder(x) 返回函数，使 makeAdder(3)(4) 等于 7。", "en": "Write makeAdder(x) returning a function so that makeAdder(3)(4) equals 7."},
+        "hint": {"zh-CN": "外层函数接收 x，返回的箭头函数闭包捕获 x，参数 y 相加。", "en": "The outer function takes x; the returned arrow closes over x and adds y."}
+      }
+    },
+    {
+      "id": "js.objects",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "对象", "en": "Objects"},
+      "summary": {"zh-CN": "对象用键值对组织数据，可点号或方括号访问；JSON 是对象/数组的文本表示。", "en": "Objects organize data as key-value pairs, accessed by dot or bracket notation; JSON is a text form of objects/arrays."},
+      "objectives": {
+        "zh-CN": ["创建对象并读写属性", "区分解构赋值与普通赋值", "用 JSON.stringify / JSON.parse 序列化与反序列化"],
+        "en": ["Create objects and read/write properties", "Distinguish destructuring from plain assignment", "Serialize with JSON.stringify / JSON.parse"]
+      },
+      "contentRef": "content/topics.json#js.objects",
+      "termIds": ["term.js.object", "term.js.json"],
+      "exampleIds": ["example.js.object", "example.js.json"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "创建对象 { name: \"Ada\", age: 36 }，用解构取出两个字段并输出；再用 JSON.stringify 转成文本。", "en": "Create { name: \"Ada\", age: 36 }, destructure both fields and print them, then convert it to text with JSON.stringify."},
+        "hint": {"zh-CN": "解构写作 const { name, age } = person；JSON.stringify 返回字符串。", "en": "Destructure with const { name, age } = person; JSON.stringify returns a string."}
+      }
+    },
+    {
+      "id": "js.arrays",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "数组", "en": "Arrays"},
+      "summary": {"zh-CN": "数组按索引存放多个值，索引从 0 开始；push 追加、length 取长度、join 拼接文本。", "en": "Arrays store values by 0-based index; push appends, length counts, and join builds text."},
+      "objectives": {
+        "zh-CN": ["创建数组并按索引访问", "用 push / length / join 处理数组", "遍历数组并处理每个元素"],
+        "en": ["Create arrays and access by index", "Use push / length / join", "Iterate and process every element"]
+      },
+      "contentRef": "content/topics.json#js.arrays",
+      "termIds": ["term.js.array"],
+      "exampleIds": ["example.js.array-basics"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "创建 [1, 2, 3]，追加 4，输出长度、第二项和用 \"-\" 连接后的字符串。", "en": "Create [1, 2, 3], append 4, then print the length, the second item, and a join with \"-\"."},
+        "hint": {"zh-CN": "push 返回新长度；fruits[1] 是第二项；[1,2,3].join(\"-\") 得到 \"1-2-3\"。", "en": "push returns the new length; arr[1] is the second item; join(\"-\") gives \"1-2-3\"."}
+      }
+    },
+    {
+      "id": "js.array-methods",
+      "domain": "javascript",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "数组方法", "en": "Array Methods"},
+      "summary": {"zh-CN": "map / filter / reduce 用函数式方式转换、筛选、汇总数组，避免手写索引循环。", "en": "map / filter / reduce transform, select, and aggregate arrays functionally, avoiding manual index loops."},
+      "objectives": {
+        "zh-CN": ["用 map 转换每个元素", "用 filter 保留满足条件的元素", "用 reduce 汇总成一个值"],
+        "en": ["Transform items with map", "Keep matching items with filter", "Aggregate to one value with reduce"]
+      },
+      "contentRef": "content/topics.json#js.array-methods",
+      "termIds": ["term.js.map", "term.js.filter", "term.js.reduce", "term.js.callback"],
+      "exampleIds": ["example.js.array-methods"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "把 [1, 2, 3, 4] 用 map 变成平方数组、用 filter 保留偶数、用 reduce 求和。", "en": "For [1, 2, 3, 4], use map to square, filter to keep evens, and reduce to sum."},
+        "hint": {"zh-CN": "map 返回新数组；filter 的回调返回布尔；reduce 需要初始值 0。", "en": "map returns a new array; filter's callback returns a boolean; reduce needs an initial 0."}
+      }
+    },
+    {
+      "id": "js.async.promises",
+      "domain": "javascript",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "异步与 Promise", "en": "Async and Promises"},
+      "summary": {"zh-CN": "Promise 表示未来完成的结果，then 处理成功、catch 处理失败；回调风格容易嵌套过深。", "en": "A Promise represents a future result: then handles success and catch handles failure; callback style nests deeply."},
+      "objectives": {
+        "zh-CN": ["说明 Promise 的三种状态", "用 then / catch 处理结果", "解释为什么链式调用优于嵌套回调"],
+        "en": ["Name the three Promise states", "Handle results with then / catch", "Explain why chains beat nested callbacks"]
+      },
+      "contentRef": "content/topics.json#js.async.promises",
+      "termIds": ["term.js.promise", "term.js.callback"],
+      "exampleIds": ["example.js.promise"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "写一个返回 Promise 的函数，1 秒后 resolve(\"ok\")，并用 then / catch 输出结果。", "en": "Write a function returning a Promise that resolves to \"ok\" after 1 second, and print it via then / catch."},
+        "hint": {"zh-CN": "new Promise((resolve, reject) => {...}) 是常见写法；别忘了 catch。", "en": "new Promise((resolve, reject) => {...}) is the usual form; include catch."}
+      }
+    },
+    {
+      "id": "js.async.async-await",
+      "domain": "javascript",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "async / await", "en": "async / await"},
+      "summary": {"zh-CN": "async 函数总是返回 Promise，await 在函数内等待 Promise 结果，让异步代码读起来像同步代码。", "en": "An async function always returns a Promise; await pauses inside it for a Promise, making async code read synchronously."},
+      "objectives": {
+        "zh-CN": ["把 Promise 链改写为 async / await", "用 try / catch 处理 await 的失败", "说明 await 只能在 async 函数中使用"],
+        "en": ["Rewrite a Promise chain with async / await", "Handle await failures with try / catch", "Explain that await only works in async functions"]
+      },
+      "contentRef": "content/topics.json#js.async.async-await",
+      "termIds": ["term.js.async", "term.js.await", "term.js.promise"],
+      "exampleIds": ["example.js.async-await"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "把 Promise.resolve(42).then(v => console.log(v)) 改写成 async / await 版本。", "en": "Rewrite Promise.resolve(42).then(v => console.log(v)) using async / await."},
+        "hint": {"zh-CN": "函数加 async，内部 const value = await Promise.resolve(42);。", "en": "Mark the function async and use const value = await Promise.resolve(42);."}
+      }
+    },
+    {
+      "id": "js.modules",
+      "domain": "javascript",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "模块", "en": "Modules"},
+      "summary": {"zh-CN": "ES Module 用 export 导出、import 引入，让代码按文件拆分并显式声明依赖。", "en": "ES modules use export and import to split code by file with explicit dependencies."},
+      "objectives": {
+        "zh-CN": ["写出 export 与 import 语句", "区默认导出与命名导出", "说明模块带来的作用域隔离"],
+        "en": ["Write export and import statements", "Distinguish default from named exports", "Explain module scope isolation"]
+      },
+      "contentRef": "content/topics.json#js.modules",
+      "termIds": ["term.js.module", "term.js.import-export"],
+      "exampleIds": ["example.js.modules"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "把两个加法函数放到 math.js 命名导出，在 main.js 中导入并调用。", "en": "Put two addition helpers in math.js as named exports and import/call them in main.js."},
+        "hint": {"zh-CN": "导出 export function add(...)；导入 import { add } from \"./math.js\"。", "en": "Export with export function add(...); import with import { add } from \"./math.js\"."}
+      }
+    },
+    {
+      "id": "js.dom.overview",
+      "domain": "javascript",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "DOM 概览", "en": "DOM Overview"},
+      "summary": {"zh-CN": "浏览器把 HTML 解析成 DOM 树，JS 通过 document 查询和修改节点，通过事件响应用户操作。", "en": "Browsers parse HTML into a DOM tree; JS queries and modifies nodes through document and reacts via events."},
+      "objectives": {
+        "zh-CN": ["用 document.querySelector 选中元素", "说明事件监听的作用", "指出修改 textContent 与 innerHTML 的风险差别"],
+        "en": ["Select an element with document.querySelector", "Explain event listeners", "Compare the risks of textContent versus innerHTML"]
+      },
+      "contentRef": "content/topics.json#js.dom.overview",
+      "termIds": ["term.js.dom", "term.js.event"],
+      "exampleIds": ["example.js.dom"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "描述：点击 #save 按钮后，把按钮文字改成 Saved 需要哪几步？", "en": "Describe the steps needed to change a #save button's text to Saved when it is clicked."},
+        "hint": {"zh-CN": "querySelector 选中 → addEventListener 监听 click → 回调里改 textContent。", "en": "querySelector, addEventListener on click, then change textContent in the callback."}
+      }
+    },
+    {
+      "id": "js.errors-debugging",
+      "domain": "javascript",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "错误与调试", "en": "Errors and Debugging"},
+      "summary": {"zh-CN": "用 throw 主动抛错，用 try / catch 捕获；调试时先看控制台报错的位置和类型。", "en": "Throw errors deliberately and catch with try / catch; when debugging, start from the console error's type and location."},
+      "objectives": {
+        "zh-CN": ["用 try / catch 捕获运行时错误", "读懂常见错误类型（TypeError、SyntaxError）", "用 console.log 或断点定位问题"],
+        "en": ["Catch runtime errors with try / catch", "Recognize common error types (TypeError, SyntaxError)", "Locate problems with console.log or breakpoints"]
+      },
+      "contentRef": "content/topics.json#js.errors-debugging",
+      "termIds": ["term.js.try-catch"],
+      "exampleIds": ["example.js.try-catch"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "写一段 try / catch：JSON.parse(\"bad\") 抛 SyntaxError 时输出错误名。", "en": "Write try / catch that prints the error name when JSON.parse(\"bad\") throws SyntaxError."},
+        "hint": {"zh-CN": "catch (error) 里用 error.name 获取 \"SyntaxError\"。", "en": "In catch (error), error.name is \"SyntaxError\"."}
+      }
+    }
+  ]
+}

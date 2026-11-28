@@ -1,0 +1,16 @@
+// 任务专用初始化脚本：Central 与 Google Maven 分别设置，保留项目原有仓库与校验元数据。
+// Maven 镜像不作用于 Gradle Wrapper 分发包与 Android SDK 组件下载。
+settingsEvaluated { settings ->
+    settings.pluginManagement.repositories {
+        maven { url = uri('https://maven.aliyun.com/repository/google') }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    settings.dependencyResolutionManagement.repositories {
+        maven { url = uri('https://maven.aliyun.com/repository/central') }
+        maven { url = uri('https://maven.aliyun.com/repository/google') }
+        google()
+        mavenCentral()
+    }
+}

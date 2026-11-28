@@ -1,0 +1,443 @@
+{
+  "terms": [
+    {
+      "id": "term.basic.variable",
+      "termType": "concept",
+      "displayName": {"zh-CN": "变量", "en": "Variable"},
+      "aliases": [
+        {"text": "变量", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "variable", "lang": "en", "matchType": "exact"},
+        {"text": "bianliang", "lang": "zh-CN", "matchType": "pinyin"}
+      ],
+      "definitions": {"zh-CN": "变量是程序中给一个值起的名字，赋值语句把值存进变量，之后可以用这个名字读取或更新它。", "en": "A variable is a name for a value in a program; an assignment statement stores a value under that name so later code can read or update it."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.variable-assign"],
+      "relatedTermIds": ["term.basic.value", "term.basic.data-type"],
+      "topicIds": ["basics.variables", "basics.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.value",
+      "termType": "concept",
+      "displayName": {"zh-CN": "值", "en": "Value"},
+      "aliases": [
+        {"text": "值", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "value", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "值是程序实际处理的数据，例如数字 42、文本 \"Ada\"、布尔值 True；每个值都有类型。", "en": "A value is the actual data a program works with, such as the number 42, the text \"Ada\", or the boolean True; every value has a type."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.type-inspect"],
+      "relatedTermIds": ["term.basic.variable", "term.basic.data-type"],
+      "topicIds": ["basics.variables", "basics.data-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.data-type",
+      "termType": "concept",
+      "displayName": {"zh-CN": "数据类型", "en": "Data Type"},
+      "aliases": [
+        {"text": "数据类型", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "data type", "lang": "en", "matchType": "exact"},
+        {"text": "type", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "数据类型规定一个值属于哪一类（整数、浮点、字符串、布尔等），决定它能参与哪些运算以及如何显示。", "en": "A data type classifies a value (integer, float, string, boolean, ...) and determines which operations are valid and how it is displayed."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.type-inspect"],
+      "relatedTermIds": ["term.basic.value", "term.basic.casting", "term.basic.variable"],
+      "topicIds": ["basics.data-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.casting",
+      "termType": "concept",
+      "displayName": {"zh-CN": "类型转换", "en": "Type Conversion"},
+      "aliases": [
+        {"text": "类型转换", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "casting", "lang": "en", "matchType": "exact"},
+        {"text": "type conversion", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "类型转换把值从一种类型变成另一种，例如 int(\"42\") 把字符串变成整数；转换可能失败，需要处理异常。", "en": "Type conversion turns a value of one type into another, e.g. int(\"42\") converts text to an integer; conversion can fail and should be handled."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.basic.data-type"],
+      "topicIds": ["basics.data-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.operator",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "运算符", "en": "Operator"},
+      "aliases": [
+        {"text": "运算符", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "operator", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "运算符是对值执行计算的符号，例如 + - * / 做算术，> == 做比较，and or not 做逻辑组合。", "en": "An operator is a symbol that computes on values: + - * / for arithmetic, > == for comparison, and and/or/not for logic."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.division"],
+      "relatedTermIds": ["term.basic.expression", "term.basic.operator-precedence"],
+      "topicIds": ["basics.operators"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.expression",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "表达式", "en": "Expression"},
+      "aliases": [
+        {"text": "表达式", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "expression", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "表达式由值、变量和运算符组成，会被求值成一个结果，例如 2 + 3 * 4 的结果是 14。", "en": "An expression combines values, variables, and operators and evaluates to a single result, e.g. 2 + 3 * 4 evaluates to 14."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.precedence"],
+      "relatedTermIds": ["term.basic.operator", "term.basic.operator-precedence"],
+      "topicIds": ["basics.operators"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.boolean",
+      "termType": "concept",
+      "displayName": {"zh-CN": "布尔值", "en": "Boolean"},
+      "aliases": [
+        {"text": "布尔值", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "boolean", "lang": "en", "matchType": "exact"},
+        {"text": "bool", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "布尔值只有 True 和 False 两种，通常由比较运算或逻辑运算产生，是 if 和 while 判断的依据。", "en": "A boolean has exactly two values, True and False, usually produced by comparisons or logic; if and while decisions rely on it."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.if-grade"],
+      "relatedTermIds": ["term.basic.conditional"],
+      "topicIds": ["basics.operators", "basics.conditionals"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.conditional",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "条件语句", "en": "Conditional Statement"},
+      "aliases": [
+        {"text": "条件语句", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "conditional", "lang": "en", "matchType": "exact"},
+        {"text": "if statement", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "条件语句根据布尔条件选择执行哪一段代码，常见形式是 if / elif / else。", "en": "A conditional statement runs one branch of code depending on a boolean condition, commonly written as if / elif / else."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.if-grade"],
+      "relatedTermIds": ["term.basic.boolean", "term.basic.loop"],
+      "topicIds": ["basics.conditionals"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.loop",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "循环", "en": "Loop"},
+      "aliases": [
+        {"text": "循环", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "loop", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "循环让一段代码重复执行：for 常用于已知次数或遍历集合，while 在条件成立时持续执行。", "en": "A loop repeats a block of code: for is common for known counts or traversing collections, while repeats as long as a condition holds."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.for-sum", "example.basic.while-countdown"],
+      "relatedTermIds": ["term.basic.iteration", "term.basic.conditional", "term.basic.off-by-one"],
+      "topicIds": ["basics.loops"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.iteration",
+      "termType": "concept",
+      "displayName": {"zh-CN": "迭代", "en": "Iteration"},
+      "aliases": [
+        {"text": "迭代", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "iteration", "lang": "en", "matchType": "exact"},
+        {"text": "遍历", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "迭代是逐项处理一组数据的过程；循环体每执行一次就是一次迭代。", "en": "Iteration is processing a collection item by item; each execution of the loop body is one iteration."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.array-loop"],
+      "relatedTermIds": ["term.basic.loop", "term.basic.array"],
+      "topicIds": ["basics.loops", "basics.arrays"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.function",
+      "termType": "concept",
+      "displayName": {"zh-CN": "函数", "en": "Function"},
+      "aliases": [
+        {"text": "函数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "function", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "函数把一段逻辑封装成可重复调用的单元，通过参数接收输入、通过返回值给出结果。", "en": "A function packages logic into a reusable unit: parameters carry input in, and a return value carries the result out."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.function-return"],
+      "relatedTermIds": ["term.basic.parameter", "term.basic.return-value", "term.basic.scope"],
+      "topicIds": ["basics.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.parameter",
+      "termType": "concept",
+      "displayName": {"zh-CN": "参数", "en": "Parameter"},
+      "aliases": [
+        {"text": "参数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "parameter", "lang": "en", "matchType": "exact"},
+        {"text": "argument", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "参数是函数定义里的输入名字；调用时传入的具体值称为实参，函数体用形参来使用这些值。", "en": "A parameter is an input name in a function definition; the concrete value passed at the call site is the argument, and the body uses the parameter to access it."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.function-params"],
+      "relatedTermIds": ["term.basic.function", "term.basic.return-value"],
+      "topicIds": ["basics.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.return-value",
+      "termType": "concept",
+      "displayName": {"zh-CN": "返回值", "en": "Return Value"},
+      "aliases": [
+        {"text": "返回值", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "return value", "lang": "en", "matchType": "exact"},
+        {"text": "return", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "返回值是函数执行结束后交回给调用者的结果；没有返回值时函数返回 None（Python）或 undefined（JavaScript）。", "en": "A return value is the result a function hands back to its caller; without one, a function returns None in Python or undefined in JavaScript."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.function-return"],
+      "relatedTermIds": ["term.basic.function", "term.basic.parameter"],
+      "topicIds": ["basics.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.array",
+      "termType": "concept",
+      "displayName": {"zh-CN": "数组", "en": "Array"},
+      "aliases": [
+        {"text": "数组", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "array", "lang": "en", "matchType": "exact"},
+        {"text": "列表", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "数组按顺序保存多个值，每个值有一个从 0 开始的索引；Python 中对应 list，JavaScript 中是 Array。", "en": "An array stores multiple values in order, each with a 0-based index; it is a list in Python and an Array in JavaScript."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.array-index"],
+      "relatedTermIds": ["term.basic.index", "term.basic.iteration"],
+      "topicIds": ["basics.arrays"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.index",
+      "termType": "concept",
+      "displayName": {"zh-CN": "索引", "en": "Index"},
+      "aliases": [
+        {"text": "索引", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "下标", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "index", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "索引是元素在数组或字符串中的位置编号，从 0 开始；访问不存在的索引会抛出越界错误。", "en": "An index is an element's position number in an array or string, starting at 0; accessing an index that does not exist raises an out-of-range error."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.array-index", "example.basic.off-by-one"],
+      "relatedTermIds": ["term.basic.array", "term.basic.string"],
+      "topicIds": ["basics.arrays", "basics.strings-io"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.string",
+      "termType": "concept",
+      "displayName": {"zh-CN": "字符串", "en": "String"},
+      "aliases": [
+        {"text": "字符串", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "string", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "字符串是文本数据，由引号包围；可以拼接、切片，也可以用 f-string 把变量的值嵌入文本。", "en": "A string is text data inside quotes; it can be concatenated, sliced, and combined with variable values through f-strings."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.string-format"],
+      "relatedTermIds": ["term.basic.index"],
+      "topicIds": ["basics.strings-io"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.scope",
+      "termType": "concept",
+      "displayName": {"zh-CN": "作用域", "en": "Scope"},
+      "aliases": [
+        {"text": "作用域", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "scope", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "作用域是名字可见的代码范围；函数内部创建的变量通常是局部变量，函数外的同名变量不受影响。", "en": "Scope is the region where a name is visible; variables created inside a function are usually local, and a same-named outer variable is unaffected."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.scope-local"],
+      "relatedTermIds": ["term.basic.function", "term.basic.variable"],
+      "topicIds": ["basics.scope"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.exception",
+      "termType": "concept",
+      "displayName": {"zh-CN": "异常", "en": "Exception"},
+      "aliases": [
+        {"text": "异常", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "exception", "lang": "en", "matchType": "exact"},
+        {"text": "error", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "异常是程序运行时发生的错误状态，未被处理会中断程序；try / except 可以捕获异常并给出提示。", "en": "An exception is an error state raised while a program runs; unhandled it stops the program, while try / except can catch it and respond."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.try-except"],
+      "relatedTermIds": ["term.basic.debugging", "term.basic.scope"],
+      "topicIds": ["basics.errors"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.syntax",
+      "termType": "concept",
+      "displayName": {"zh-CN": "语法", "en": "Syntax"},
+      "aliases": [
+        {"text": "语法", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "syntax", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "语法是一门语言允许的书写规则，例如 Python 用缩进表示代码块、if 行末必须有冒号。", "en": "Syntax is the set of writing rules a language allows, e.g. Python uses indentation for blocks and requires a colon at the end of an if line."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.basic.statement", "term.basic.comment"],
+      "topicIds": ["basics.reading-code"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.statement",
+      "termType": "concept",
+      "displayName": {"zh-CN": "语句", "en": "Statement"},
+      "aliases": [
+        {"text": "语句", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "statement", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "语句是程序里执行一个动作的完整指令，例如赋值、print 输出、if 分支；表达式只是语句的一部分。", "en": "A statement is a complete instruction that performs an action, such as an assignment, a print call, or an if branch; an expression is only part of a statement."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.if-grade"],
+      "relatedTermIds": ["term.basic.syntax"],
+      "topicIds": ["basics.conditionals", "basics.reading-code"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.pseudocode",
+      "termType": "concept",
+      "displayName": {"zh-CN": "伪代码", "en": "Pseudocode"},
+      "aliases": [
+        {"text": "伪代码", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "pseudocode", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "伪代码用接近自然语言的步骤描述算法，不要求符合某门语言的语法，用来先想清逻辑再写代码。", "en": "Pseudocode describes an algorithm in near-natural-language steps without a specific language's syntax, so the logic is clear before coding."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.pseudocode"],
+      "relatedTermIds": ["term.basic.statement", "term.basic.comment"],
+      "topicIds": ["basics.reading-code"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.debugging",
+      "termType": "tool",
+      "displayName": {"zh-CN": "调试", "en": "Debugging"},
+      "aliases": [
+        {"text": "调试", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "debugging", "lang": "en", "matchType": "exact"},
+        {"text": "debug", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "调试是用证据定位并修复错误的过程：先复现问题，再用打印或断点缩小范围，最后验证修复。", "en": "Debugging locates and fixes bugs with evidence: reproduce the problem, narrow it with prints or breakpoints, then verify the fix."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.off-by-one"],
+      "relatedTermIds": ["term.basic.exception", "term.basic.off-by-one"],
+      "topicIds": ["basics.debugging"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.off-by-one",
+      "termType": "concept",
+      "displayName": {"zh-CN": "差一错误", "en": "Off-by-one Error"},
+      "aliases": [
+        {"text": "差一错误", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "off-by-one", "lang": "en", "matchType": "exact"},
+        {"text": "off by one", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "差一错误是边界判断多算或少算了一个，例如长度为 n 的数组最后一个合法索引是 n-1，而不是 n。", "en": "An off-by-one error is a boundary that is one too high or too low; for an array of length n the last valid index is n-1, not n."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.off-by-one"],
+      "relatedTermIds": ["term.basic.loop", "term.basic.index"],
+      "topicIds": ["basics.loops", "basics.debugging"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.operator-precedence",
+      "termType": "concept",
+      "displayName": {"zh-CN": "运算符优先级", "en": "Operator Precedence"},
+      "aliases": [
+        {"text": "运算符优先级", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "precedence", "lang": "en", "matchType": "exact"},
+        {"text": "优先级", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "运算符优先级规定表达式中先算哪一步：括号最高，然后乘除，最后加减；不确定时用括号最安全。", "en": "Operator precedence decides evaluation order: parentheses first, then multiplication/division, then addition/subtraction; add parentheses when unsure."},
+      "syntaxRef": null,
+      "exampleIds": ["example.basic.precedence"],
+      "relatedTermIds": ["term.basic.operator", "term.basic.expression"],
+      "topicIds": ["basics.operators"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.basic.comment",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "注释", "en": "Comment"},
+      "aliases": [
+        {"text": "注释", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "comment", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "注释是写给读代码的人看的说明，不参与执行；Python 用 #，JavaScript 用 // 和 /* */。", "en": "Comments explain code to human readers and are not executed; Python uses #, JavaScript uses // and /* */."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.basic.syntax"],
+      "topicIds": ["basics.reading-code"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

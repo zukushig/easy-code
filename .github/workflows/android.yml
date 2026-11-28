@@ -1,0 +1,146 @@
+name: Android
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'core/**'
+      - 'feature/**'
+      - 'runtime/**'
+      - 'plugin-api/**'
+      - 'content/**'
+      - 'tools/content/**'
+      - 'gradle/**'
+      - '.github/actions/setup-android/**'
+      - '*.gradle'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - 'settings.gradle*'
+      - 'gradlew'
+      - 'gradlew.bat'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'core/**'
+      - 'feature/**'
+      - 'runtime/**'
+      - 'plugin-api/**'
+      - 'content/**'
+      - 'tools/content/**'
+      - 'gradle/**'
+      - '.github/actions/setup-android/**'
+      - '*.gradle'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - 'settings.gradle*'
+      - 'gradlew'
+      - 'gradlew.bat'
+  workflow_dispatch:
+    inputs:
+      use-cn-mirrors:
+        description: '启用按仓库分别设置的国内 Maven 镜像'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  jvm-tests:
+    name: 纯 JVM 核心逻辑单元测试
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK、Android SDK 与 Gradle 缓存
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+          use-cn-mirrors: ${{ inputs.use-cn-mirrors || false }}
+
+      - name: 运行纯 JVM 单测（领域引擎 / 插件 API / 安全运行时）
+        run: >-
+          gradle :core:domain:test :plugin-api:test :runtime:safe-shell:test
+          --no-daemon --stacktrace
+
+      - name: 上传测试报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jvm-test-reports-${{ github.sha }}
+          path: |
+            **/build/reports/tests/**
+            **/build/test-results/**
+          retention-days: 7
+          if-no-files-found: warn
+
+  assemble:
+    name: 构建 Debug APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK、Android SDK 与 Gradle 缓存
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+          use-cn-mirrors: ${{ inputs.use-cn-mirrors || false }}
+
+      - name: 生成内容分发产物与内置种子（二进制不入库，构建前生成）
+        run: |
+          python3 tools/content/build_dist.py
+          python3 tools/content/sync_seed.py
+
+      - name: 构建 Debug APK（使用 setup-gradle 提供的 gradle 8.9，不依赖 wrapper jar）
+        run: gradle :app:assembleDebug --no-daemon --stacktrace
+
+      - name: 校验 APK 结构（classes.dex / manifest / zip 完整性）
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import glob
+          import hashlib
+          import sys
+          import zipfile
+
+          apks = sorted(glob.glob("app/build/outputs/apk/debug/*.apk"))
+          if not apks:
+              sys.exit("未找到 Debug APK")
+          path = apks[0]
+          data = open(path, "rb").read()
+          with zipfile.ZipFile(path) as archive:
+              damaged = archive.testzip()
+              if damaged:
+                  sys.exit(f"APK zip 成员损坏: {damaged}")
+              names = archive.namelist()
+          if not any(name.endswith(".dex") for name in names):
+              sys.exit("APK 缺少 classes.dex")
+          if "AndroidManifest.xml" not in names:
+              sys.exit("APK 缺少 AndroidManifest.xml")
+          print("APK:", path)
+          print("size_bytes:", len(data))
+          print("sha256:", hashlib.sha256(data).hexdigest())
+          print("entries:", len(names))
+          PY
+
+      - name: 上传 Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk-${{ github.sha }}
+          path: app/build/outputs/apk/debug/*.apk
+          retention-days: 14
+          if-no-files-found: error

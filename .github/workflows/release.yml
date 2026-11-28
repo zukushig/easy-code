@@ -1,0 +1,115 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '发布版本号，需与 APK 的 versionName 一致（例如 v0.1.0）'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: 发布前门禁
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 Python（固定版本并缓存依赖）
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: scripts/requirements-ci.txt
+
+      - name: 安装固定版本校验依赖
+        run: python3 -m pip install -r scripts/requirements-ci.txt
+
+      - name: 生成文档合集与内容产物（压缩包/种子为二进制，不提交仓库）
+        run: |
+          python3 scripts/merge_docs.py
+          python3 tools/content/build_dist.py
+          python3 tools/content/sync_seed.py
+
+      - name: 发布前静态校验
+        run: |
+          python3 scripts/merge_docs.py --check
+          python3 scripts/validate_workflows.py
+          python3 tools/content/validate_content.py
+
+  build:
+    name: 构建发布 APK 并上传
+    needs: [verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment: release
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || inputs.version }}
+    steps:
+      - name: 浅检出
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 准备 JDK、Android SDK 与 Gradle 缓存
+        uses: ./.github/actions/setup-android
+        with:
+          java-version: '17'
+
+      - name: 生成内容分发产物与内置种子（二进制不入库，构建前生成）
+        run: |
+          python3 tools/content/build_dist.py
+          python3 tools/content/sync_seed.py
+
+      - name: 构建 Release APK（使用 setup-gradle 提供的 gradle 8.9；当前 debug 签名，供手机安装测试）
+        run: gradle :app:assembleRelease --no-daemon --stacktrace
+
+      - name: 收集 APK 并生成 SHA256SUMS
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t apks < <(find app/build/outputs/apk/release -name '*.apk' -type f | sort)
+          if [ "${#apks[@]}" -eq 0 ]; then
+            echo "未找到 Release APK"
+            exit 1
+          fi
+          mkdir -p release-out
+          cp "${apks[@]}" release-out/
+          ( cd release-out && sha256sum ./*.apk > SHA256SUMS && cat SHA256SUMS )
+          ls -l release-out
+
+      - name: 上传发布制品（Artifact）
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk-${{ github.ref_name || inputs.version }}
+          path: |
+            release-out/*.apk
+            release-out/SHA256SUMS
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: 创建或更新 GitHub Release（仅 tag 触发）
+        if: github.ref_type == 'tag'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release view "$RELEASE_TAG" > /dev/null 2>&1 || \
+            gh release create "$RELEASE_TAG" --title "CodeTree $RELEASE_TAG" --generate-notes --verify-tag
+          gh release upload "$RELEASE_TAG" release-out/*.apk release-out/SHA256SUMS --clobber

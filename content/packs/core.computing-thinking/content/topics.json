@@ -1,0 +1,232 @@
+{
+  "topics": [
+    {
+      "id": "thinking.overview",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "计算思维概览", "en": "Computational Thinking Overview"},
+      "summary": {"zh-CN": "计算思维是把问题变成可执行步骤的思考方式，核心工具是抽象、分解、模式识别和算法设计。", "en": "Computational thinking turns a problem into executable steps; its core tools are abstraction, decomposition, pattern recognition, and algorithm design."},
+      "objectives": {
+        "zh-CN": ["说出计算思维的四个核心工具", "用“输入—处理—输出”描述一个日常问题", "区分“会写代码”和“会把问题想清楚”"],
+        "en": ["Name the four core tools of computational thinking", "Describe a daily problem as input, process, output", "Tell apart writing code from thinking a problem through"]
+      },
+      "contentRef": "content/topics.json#thinking.overview",
+      "termIds": ["term.thinking.computational-thinking", "term.thinking.algorithm", "term.thinking.abstraction"],
+      "exampleIds": ["example.thinking.abstraction", "example.thinking.algorithm-pseudocode"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "把“把大象放进冰箱”分解成 3 个可执行步骤，并指出每一步的输入和输出。", "en": "Decompose \"put an elephant into a fridge\" into three executable steps and state the input and output of each."},
+        "hint": {"zh-CN": "日常笑话其实就是分解：开门、放入、关门，每步都有对象和结果。", "en": "The old joke is decomposition: open, put in, close — each step has an object and a result."}
+      }
+    },
+    {
+      "id": "thinking.problem-formulation",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "问题定义与规格", "en": "Problem Formulation and Specification"},
+      "summary": {"zh-CN": "在写代码之前说清输入、输出、约束和成功标准，能避免大量返工。", "en": "Define inputs, outputs, constraints, and success criteria before coding to avoid rework."},
+      "objectives": {
+        "zh-CN": ["写出一个函数的输入、输出与约束", "列出至少 2 个边界情况", "用规格说明判断实现是否“正确”"],
+        "en": ["Write down a function's inputs, outputs, and constraints", "List at least two edge cases", "Judge correctness against a specification"]
+      },
+      "contentRef": "content/topics.json#thinking.problem-formulation",
+      "termIds": ["term.thinking.specification", "term.thinking.correctness", "term.thinking.edge-case"],
+      "exampleIds": ["example.thinking.verification"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "为“判断一个整数是否为偶数”写规格：输入范围、输出、0 和负数时分别返回什么。", "en": "Write the spec for \"is this integer even\": input range, output, and what happens for 0 and negative numbers."},
+        "hint": {"zh-CN": "偶数定义对负数和 0 也成立；可以用 n % 2 == 0 作为判定。", "en": "Evenness also holds for 0 and negatives; n % 2 == 0 works as the test."}
+      }
+    },
+    {
+      "id": "thinking.decomposition",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "分解", "en": "Decomposition"},
+      "summary": {"zh-CN": "把大问题拆成更小、彼此可独立解决和验证的子问题。", "en": "Break a big problem into smaller sub-problems that can be solved and verified independently."},
+      "objectives": {
+        "zh-CN": ["把一个功能拆成 2~4 个可独立实现的子任务", "说明子任务之间的输入输出关系", "识别哪些子任务可以并行进行"],
+        "en": ["Split a feature into 2-4 independently implementable subtasks", "Describe the input/output links between subtasks", "Identify subtasks that can proceed in parallel"]
+      },
+      "contentRef": "content/topics.json#thinking.decomposition",
+      "termIds": ["term.thinking.decomposition", "term.thinking.specification"],
+      "exampleIds": ["example.thinking.decomposition"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "把“搜索并打开一篇笔记”分解为子任务，并标出哪些可以并行。", "en": "Decompose \"search for and open a note\" into subtasks and mark which can run in parallel."},
+        "hint": {"zh-CN": "可以分成：读取搜索词、查询索引、展示结果、打开详情；查询前后有依赖。", "en": "For example: read query, search index, show results, open detail; the search steps are ordered."}
+      }
+    },
+    {
+      "id": "thinking.abstraction",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "抽象", "en": "Abstraction"},
+      "summary": {"zh-CN": "抽象是忽略细节、保留关键特征，用函数或接口把“做什么”和“怎么做”分开。", "en": "Abstraction keeps key features and hides details, separating what something does from how it does it via functions or interfaces."},
+      "objectives": {
+        "zh-CN": ["为一段逻辑设计一个只暴露必要输入的接口", "说明抽象如何减少调用方的认知负担", "区分“接口”和“实现”"],
+        "en": ["Design an interface that exposes only necessary inputs", "Explain how abstraction reduces cognitive load", "Distinguish an interface from its implementation"]
+      },
+      "contentRef": "content/topics.json#thinking.abstraction",
+      "termIds": ["term.thinking.abstraction", "term.thinking.computational-thinking"],
+      "exampleIds": ["example.thinking.abstraction"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "为“计算圆面积”设计一个函数签名，并说明调用方需要知道什么、不需要知道什么。", "en": "Design a function signature for \"circle area\" and explain what the caller needs to know and does not."},
+        "hint": {"zh-CN": "调用方只需要半径和结果；π 的精度、公式细节属于实现。", "en": "The caller needs a radius and a result; pi precision and the formula belong to the implementation."}
+      }
+    },
+    {
+      "id": "thinking.pattern-recognition",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "模式识别", "en": "Pattern Recognition"},
+      "summary": {"zh-CN": "找出重复出现的结构，用循环、函数或数据结构把重复变成可复用的模式。", "en": "Spot repeated structures and turn repetition into reusable patterns via loops, functions, or data structures."},
+      "objectives": {
+        "zh-CN": ["从多个例子中找出共同的重复结构", "判断该重复适合用循环还是函数消除", "说明模式识别与抽象的关系"],
+        "en": ["Find a shared repeated structure across examples", "Decide whether a loop or a function removes the repetition", "Explain how pattern recognition relates to abstraction"]
+      },
+      "contentRef": "content/topics.json#thinking.pattern-recognition",
+      "termIds": ["term.thinking.pattern-recognition", "term.thinking.abstraction"],
+      "exampleIds": ["example.thinking.pattern-recognition"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "观察三个“求平均分”的手写计算，找出共同的重复结构，并改写成循环。", "en": "Look at three manual average calculations, find the shared structure, and rewrite it as a loop."},
+        "hint": {"zh-CN": "共同结构是“累加所有分数，再除以个数”；这就是求和模式。", "en": "The shared structure is \"add all scores, then divide by the count\" — a summation pattern."}
+      }
+    },
+    {
+      "id": "thinking.algorithm",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "算法", "en": "Algorithms"},
+      "summary": {"zh-CN": "算法是有限、确定、可执行并会终止的步骤序列；同样的输入必须得到同样的输出。", "en": "An algorithm is a finite, deterministic, executable sequence of steps that terminates; the same input must produce the same output."},
+      "objectives": {
+        "zh-CN": ["写出一个满足“有限、确定、终止”的算法", "用输入输出例子验证算法", "区分算法与实现代码"],
+        "en": ["Write an algorithm that is finite, deterministic, and terminating", "Validate an algorithm with input/output examples", "Distinguish an algorithm from its implementation"]
+      },
+      "contentRef": "content/topics.json#thinking.algorithm",
+      "termIds": ["term.thinking.algorithm", "term.thinking.pseudocode", "term.thinking.flowchart", "term.thinking.enumeration"],
+      "exampleIds": ["example.thinking.algorithm-pseudocode", "example.thinking.flowchart"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "为“在列表中查找某个值”写出算法步骤，并说明找不到时返回什么。", "en": "Write algorithm steps for \"find a value in a list\" and state what is returned when it is absent."},
+        "hint": {"zh-CN": "从第一个元素开始逐个比较，找到就返回索引，遍历结束仍没有就返回 -1 或 None。", "en": "Compare elements in order, return the index when found, otherwise -1 or None after the scan."}
+      }
+    },
+    {
+      "id": "thinking.pseudocode",
+      "domain": "computing-thinking",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "伪代码与流程图", "en": "Pseudocode and Flowcharts"},
+      "summary": {"zh-CN": "伪代码用自然语言步骤描述控制流，流程图用图形表示分支与循环；两者都服务于“先想清楚”。", "en": "Pseudocode describes control flow in near-natural language, while flowcharts show branches and loops visually; both help think first."},
+      "objectives": {
+        "zh-CN": ["把一段伪代码翻译成可运行代码", "把含分支和循环的逻辑画成流程图（文字版）", "说明伪代码不需要语法正确但必须无歧义"],
+        "en": ["Translate pseudocode into runnable code", "Sketch a branch-and-loop logic as a text flowchart", "Explain that pseudocode need not be syntactically valid but must be unambiguous"]
+      },
+      "contentRef": "content/topics.json#thinking.pseudocode",
+      "termIds": ["term.thinking.pseudocode", "term.thinking.flowchart"],
+      "exampleIds": ["example.thinking.algorithm-pseudocode", "example.thinking.flowchart"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "把“登录校验”的伪代码改写成流程图（文字版），至少包含两个“否”分支。", "en": "Turn the login-check pseudocode into a text flowchart with at least two \"no\" branches."},
+        "hint": {"zh-CN": "每个判断画成“条件？”，两个出口分别是“是”和“否”。", "en": "Draw each decision as \"condition?\" with yes and no exits."}
+      }
+    },
+    {
+      "id": "thinking.complexity",
+      "domain": "computing-thinking",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "复杂度直觉", "en": "Complexity Intuition"},
+      "summary": {"zh-CN": "复杂度关注输入变大时操作次数如何增长；先关注最坏情况与数量级，再谈常数优化。", "en": "Complexity asks how the number of operations grows with input size; focus on worst case and order of growth before constant tuning."},
+      "objectives": {
+        "zh-CN": ["用 n 描述一段简单循环的执行次数", "区分 O(1)、O(n)、O(n²) 的直觉差别", "说明为什么最坏情况常被用作比较标准"],
+        "en": ["Describe a simple loop's operation count with n", "Distinguish O(1), O(n), O(n²) intuitively", "Explain why worst case is often used for comparison"]
+      },
+      "contentRef": "content/topics.json#thinking.complexity",
+      "termIds": ["term.thinking.complexity", "term.thinking.big-o", "term.thinking.brute-force"],
+      "exampleIds": ["example.thinking.complexity", "example.thinking.enumeration-brute"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "比较“直接取数组第 k 个元素”和“线性查找一个值”在最坏情况下的操作次数，用 O 记号表示。", "en": "Compare worst-case operations for \"read array element k\" and \"linear search a value\", expressed in O notation."},
+        "hint": {"zh-CN": "取下标只需要一次操作；线性查找最坏要看完全部 n 个元素。", "en": "An index read is one operation; linear search may inspect all n elements."}
+      }
+    },
+    {
+      "id": "thinking.recursion",
+      "domain": "computing-thinking",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "递归思维", "en": "Recursive Thinking"},
+      "summary": {"zh-CN": "递归把问题拆成同类但更小的子问题，必须有终止条件，否则会无限递归。", "en": "Recursion solves a problem by reducing it to a smaller instance of the same problem; a base case is required or it never stops."},
+      "objectives": {
+        "zh-CN": ["写出递归函数并指定 base case", "用“规模变小”说明递归一定会结束", "区分递归与分治的关系"],
+        "en": ["Write a recursive function with a base case", "Show that recursion terminates because the input shrinks", "Explain how recursion relates to divide and conquer"]
+      },
+      "contentRef": "content/topics.json#thinking.recursion",
+      "termIds": ["term.thinking.recursion", "term.thinking.base-case", "term.thinking.divide-and-conquer"],
+      "exampleIds": ["example.thinking.recursion", "example.thinking.divide-conquer"],
+      "estimatedMinutes": 30,
+      "exercise": {
+        "prompt": {"zh-CN": "手算 factorial(4) 的递归调用过程，并说明哪一步触发 base case。", "en": "Trace factorial(4) by hand and say which call reaches the base case."},
+        "hint": {"zh-CN": "factorial(4) → 4 * factorial(3) → … → factorial(1) 返回 1。", "en": "factorial(4) -> 4 * factorial(3) -> ... -> factorial(1) returns 1."}
+      }
+    },
+    {
+      "id": "thinking.state",
+      "domain": "computing-thinking",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "状态与状态机", "en": "State and State Machines"},
+      "summary": {"zh-CN": "状态描述系统当前处于什么情况，事件触发状态转移；状态机让复杂流程变得可枚举、可测试。", "en": "A state describes the current situation of a system and events trigger transitions; a state machine makes complex flows enumerable and testable."},
+      "objectives": {
+        "zh-CN": ["列出一个小系统的状态集合", "为每个事件定义状态转移", "发现非法事件在状态机中应如何处理"],
+        "en": ["List the state set of a small system", "Define transitions per event", "Decide how illegal events are handled"]
+      },
+      "contentRef": "content/topics.json#thinking.state",
+      "termIds": ["term.thinking.state", "term.thinking.state-machine"],
+      "exampleIds": ["example.thinking.state"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "为“下载任务”画出状态机：未开始、下载中、暂停、完成、失败，并列出触发事件。", "en": "Model a download task state machine: not started, downloading, paused, done, failed, and list the events."},
+        "hint": {"zh-CN": "事件包括 start、pause、resume、finish、fail；注意哪些状态不能直接到哪些状态。", "en": "Events include start, pause, resume, finish, fail; note which transitions are illegal."}
+      }
+    },
+    {
+      "id": "thinking.tradeoffs",
+      "domain": "computing-thinking",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "权衡与空间换时间", "en": "Trade-offs and Space-Time Trade-offs"},
+      "summary": {"zh-CN": "工程里没有免费午餐：用更多内存换更快查询、或用更多计算换更少存储，要按场景选择。", "en": "Engineering has no free lunch: trade memory for faster lookup or computation for less storage, choosing by scenario."},
+      "objectives": {
+        "zh-CN": ["举例说明空间换时间与时间换空间", "说明缓存/记忆化的收益与代价", "在给定约束下选择更合适的方案"],
+        "en": ["Give an example of trading space for time and vice versa", "Explain the benefit and cost of caching or memoization", "Pick a better option under given constraints"]
+      },
+      "contentRef": "content/topics.json#thinking.tradeoffs",
+      "termIds": ["term.thinking.tradeoff", "term.thinking.memoization", "term.thinking.heuristic"],
+      "exampleIds": ["example.thinking.tradeoffs"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "对“频繁按名字查询用户”的场景，比较“每次遍历列表”和“先用字典建索引”两种方案。", "en": "For frequent user lookup by name, compare \"scan the list each time\" with \"build a dictionary index first\"."},
+        "hint": {"zh-CN": "字典多占内存但查询是 O(1)；列表省内存但每次 O(n)。", "en": "A dictionary costs memory but gives O(1) lookup; a list saves memory but costs O(n) each time."}
+      }
+    },
+    {
+      "id": "thinking.verification",
+      "domain": "computing-thinking",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "验证与边界用例", "en": "Verification and Edge Cases"},
+      "summary": {"zh-CN": "验证不是“跑通一次”，而是用正常、边界和异常输入证明行为符合规格。", "en": "Verification is not \"it ran once\": use normal, boundary, and invalid inputs to show behavior matches the spec."},
+      "objectives": {
+        "zh-CN": ["为一段逻辑列出正常、边界、异常三类用例", "解释空输入与重复值为什么必须测试", "用不变量帮助检查循环是否正确"],
+        "en": ["List normal, boundary, and invalid cases for a piece of logic", "Explain why empty input and duplicate values must be tested", "Use invariants to check loop correctness"]
+      },
+      "contentRef": "content/topics.json#thinking.verification",
+      "termIds": ["term.thinking.edge-case", "term.thinking.invariant", "term.thinking.correctness", "term.thinking.verification"],
+      "exampleIds": ["example.thinking.verification"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "为“求平均值”函数列出至少 4 个测试用例，并写出每个用例的预期结果。", "en": "List at least four test cases for an \"average\" function with expected results."},
+        "hint": {"zh-CN": "覆盖：普通列表、空列表、单元素、包含负数或重复值。", "en": "Cover a normal list, an empty list, a single element, and negatives or duplicates."}
+      }
+    }
+  ]
+}

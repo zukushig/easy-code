@@ -1,0 +1,232 @@
+{
+  "topics": [
+    {
+      "id": "basics.variables",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "变量与赋值", "en": "Variables and Assignment"},
+      "summary": {"zh-CN": "变量是给数据起的名字；赋值把值存进变量，之后可以用名字读取或更新它。", "en": "A variable names a piece of data. Assignment stores a value under that name so later code can read or update it."},
+      "objectives": {
+        "zh-CN": ["说清变量名、值、赋值语句三者的关系", "用赋值语句保存数据并更新变量", "解释“更新变量”为什么不是数学等式"],
+        "en": ["Explain how a variable name, a value, and an assignment statement relate", "Store data in variables and update them", "Explain why updating a variable is not a mathematical equation"]
+      },
+      "contentRef": "content/topics.json#basics.variables",
+      "termIds": ["term.basic.variable", "term.basic.value", "term.basic.data-type"],
+      "exampleIds": ["example.basic.variable-assign", "example.basic.type-inspect"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "声明变量 age = 18 和 name = \"Ada\"，然后让 age 增加 1，最后分两行输出 age 和 name。", "en": "Declare age = 18 and name = \"Ada\", increase age by 1, then print age and name on separate lines."},
+        "hint": {"zh-CN": "更新变量写成 age = age + 1；print 一次输出一个值就是一行。", "en": "Update with age = age + 1; one print call per value gives one line each."}
+      }
+    },
+    {
+      "id": "basics.data-types",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "数据类型", "en": "Data Types"},
+      "summary": {"zh-CN": "整数、浮点数、字符串、布尔值是最常用的四类数据；类型决定一个值能做什么操作。", "en": "Integers, floats, strings, and booleans are the four most common kinds of data; the type decides which operations make sense."},
+      "objectives": {
+        "zh-CN": ["识别整数、浮点数、字符串、布尔值", "用 type() 查看值的类型", "说明类型转换（如 int 与 str）的使用场景与风险"],
+        "en": ["Identify integers, floats, strings, and booleans", "Inspect a value's type with type()", "Explain when and why to convert between types such as int and str"]
+      },
+      "contentRef": "content/topics.json#basics.data-types",
+      "termIds": ["term.basic.data-type", "term.basic.value", "term.basic.casting"],
+      "exampleIds": ["example.basic.type-inspect", "example.basic.division"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "创建 3 个不同类型的变量（整数、字符串、布尔值），用 print(type(x)) 分别输出它们的类型。", "en": "Create three variables with different types (int, string, boolean) and print each type with print(type(x))."},
+        "hint": {"zh-CN": "type(42) 返回 <class 'int'>；布尔值写 True 或 False。", "en": "type(42) returns <class 'int'>; booleans are written True or False."}
+      }
+    },
+    {
+      "id": "basics.operators",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "运算符与表达式", "en": "Operators and Expressions"},
+      "summary": {"zh-CN": "运算符把值组合成表达式；理解算术、比较、逻辑运算符和优先级就能读懂大部分简单语句。", "en": "Operators combine values into expressions. Arithmetic, comparison, and logical operators plus precedence cover most simple statements."},
+      "objectives": {
+        "zh-CN": ["使用算术运算符 + - * / // % 计算", "用比较运算符得到布尔值", "说明括号与优先级如何改变结果"],
+        "en": ["Compute with arithmetic operators + - * / // %", "Use comparison operators to produce booleans", "Explain how parentheses and precedence change a result"]
+      },
+      "contentRef": "content/topics.json#basics.operators",
+      "termIds": ["term.basic.operator", "term.basic.expression", "term.basic.operator-precedence", "term.basic.boolean"],
+      "exampleIds": ["example.basic.division", "example.basic.precedence"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "不运行代码，算出 result = 10 - 2 * 3 + (10 - 2) * 3 的结果，然后用代码验证。", "en": "Without running it, compute result = 10 - 2 * 3 + (10 - 2) * 3, then verify with code."},
+        "hint": {"zh-CN": "先算括号，再乘除，最后加减。", "en": "Parentheses first, then multiplication/division, then addition/subtraction."}
+      }
+    },
+    {
+      "id": "basics.conditionals",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "条件分支", "en": "Conditionals"},
+      "summary": {"zh-CN": "if / elif / else 让程序按条件选择执行路径；条件本身是一个布尔表达式。", "en": "if / elif / else lets a program choose a path based on a condition, which is a boolean expression."},
+      "objectives": {
+        "zh-CN": ["写出带 if / else 的分支", "用比较运算构造条件", "判断一个条件在给定输入下走哪条分支"],
+        "en": ["Write if / else branches", "Build conditions from comparison operators", "Predict which branch runs for a given input"]
+      },
+      "contentRef": "content/topics.json#basics.conditionals",
+      "termIds": ["term.basic.conditional", "term.basic.boolean", "term.basic.statement"],
+      "exampleIds": ["example.basic.if-grade"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "写一个成绩判断：90 分及以上输出“优秀”，60 到 89 输出“合格”，低于 60 输出“不及格”。", "en": "Write grade logic: 90+ prints \"优秀\", 60-89 prints \"合格\", below 60 prints \"不及格\"."},
+        "hint": {"zh-CN": "从高到低判断，第一个条件不成立再看下一个；注意 if 行末的冒号。", "en": "Check from the highest score down; every if/elif line needs a trailing colon."}
+      }
+    },
+    {
+      "id": "basics.loops",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "循环", "en": "Loops"},
+      "summary": {"zh-CN": "循环重复执行一段代码；for 适合已知次数或遍历集合，while 适合条件成立就继续。", "en": "Loops repeat code. Use for when the count or collection is known; use while while a condition holds."},
+      "objectives": {
+        "zh-CN": ["用 for 遍历一组数据", "用 while 写条件循环并避免死循环", "识别循环边界（off-by-one）错误"],
+        "en": ["Traverse data with for", "Write condition loops with while and avoid infinite loops", "Recognize off-by-one boundary errors"]
+      },
+      "contentRef": "content/topics.json#basics.loops",
+      "termIds": ["term.basic.loop", "term.basic.iteration", "term.basic.off-by-one"],
+      "exampleIds": ["example.basic.for-sum", "example.basic.while-countdown", "example.basic.array-loop"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "用 for 循环计算 1 到 10 的和，并输出结果。", "en": "Use a for loop to sum 1 through 10 and print the result."},
+        "hint": {"zh-CN": "range(1, 11) 产生 1 到 10；准备一个 total 变量在循环里累加。", "en": "range(1, 11) produces 1..10; keep a total variable and add inside the loop."}
+      }
+    },
+    {
+      "id": "basics.functions",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "函数", "en": "Functions"},
+      "summary": {"zh-CN": "函数把一段逻辑封装成可重复调用的单元，通过参数接收输入、通过返回值给出结果。", "en": "A function packages logic into a reusable unit, taking input through parameters and giving a result through its return value."},
+      "objectives": {
+        "zh-CN": ["定义并调用一个函数", "用参数把数据传进函数", "用 return 把结果带出函数"],
+        "en": ["Define and call a function", "Pass data in through parameters", "Return a result with return"]
+      },
+      "contentRef": "content/topics.json#basics.functions",
+      "termIds": ["term.basic.function", "term.basic.parameter", "term.basic.return-value", "term.basic.variable"],
+      "exampleIds": ["example.basic.function-return", "example.basic.function-params"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "写函数 max_of_two(a, b) 返回较大的数，并分别用 (3, 5) 和 (8, 2) 调用验证。", "en": "Write max_of_two(a, b) returning the larger number; verify it with (3, 5) and (8, 2)."},
+        "hint": {"zh-CN": "函数体里用 if 比较 a 和 b，记得 return；调用结果可以放进 print。", "en": "Compare a and b with if inside the function and return; print the call result."}
+      }
+    },
+    {
+      "id": "basics.arrays",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "数组与集合", "en": "Arrays and Collections"},
+      "summary": {"zh-CN": "数组按顺序保存多个值，用从 0 开始的索引访问其中一项。", "en": "An array stores multiple values in order, and a 0-based index accesses one item."},
+      "objectives": {
+        "zh-CN": ["创建数组并读取指定位置的值", "说明为什么第一个元素索引是 0", "遍历数组处理每一项"],
+        "en": ["Create arrays and read the value at a position", "Explain why the first element's index is 0", "Traverse an array to process every item"]
+      },
+      "contentRef": "content/topics.json#basics.arrays",
+      "termIds": ["term.basic.array", "term.basic.index", "term.basic.iteration"],
+      "exampleIds": ["example.basic.array-index", "example.basic.array-loop"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "创建数组 words = [\"a\", \"b\", \"c\"]，输出第一个元素和最后一个元素。", "en": "Create words = [\"a\", \"b\", \"c\"] and print the first and last elements."},
+        "hint": {"zh-CN": "第一个是 words[0]；最后一个可以用 words[-1]，也可以用 len(words) - 1。", "en": "The first is words[0]; the last can be words[-1] or words[len(words) - 1]."}
+      }
+    },
+    {
+      "id": "basics.scope",
+      "domain": "programming-basics",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "作用域", "en": "Scope"},
+      "summary": {"zh-CN": "作用域决定一个名字在哪些代码里可见；函数内部创建的变量通常只在函数内部有效。", "en": "Scope decides where a name is visible; variables created inside a function usually exist only inside it."},
+      "objectives": {
+        "zh-CN": ["区分局部变量与全局变量", "预测同名变量在不同作用域下的取值", "说明为什么应尽量少用全局可变状态"],
+        "en": ["Distinguish local from global variables", "Predict which value a same-named variable has in each scope", "Explain why global mutable state should be minimized"]
+      },
+      "contentRef": "content/topics.json#basics.scope",
+      "termIds": ["term.basic.scope", "term.basic.variable", "term.basic.function"],
+      "exampleIds": ["example.basic.scope-local"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "阅读 scope-local 示例，先预测两行输出，再运行验证；然后解释为什么第二行不是 local。", "en": "Read the scope-local example, predict both output lines, run it to verify, then explain why the second line is not local."},
+        "hint": {"zh-CN": "函数里的 message = \"local\" 创建的是局部变量，不会改外面的 message。", "en": "message = \"local\" inside the function creates a local variable and does not change the outer message."}
+      }
+    },
+    {
+      "id": "basics.strings-io",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "字符串与输入输出", "en": "Strings and I/O"},
+      "summary": {"zh-CN": "字符串是文本数据；print 输出、input 读取、f-string 或拼接把值放进文本。", "en": "Strings hold text; print writes output, input reads it, and f-strings or concatenation put values into text."},
+      "objectives": {
+        "zh-CN": ["创建字符串并读取其中字符", "用 f-string 把变量插入文本", "区分“显示给用户”和“程序内部值”"],
+        "en": ["Create strings and read characters from them", "Interpolate variables into text with f-strings", "Distinguish user-facing output from internal values"]
+      },
+      "contentRef": "content/topics.json#basics.strings-io",
+      "termIds": ["term.basic.string", "term.basic.index"],
+      "exampleIds": ["example.basic.string-format"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用 f-string 输出一行：姓名: Ada, 年龄: 36（name、age 用变量）。", "en": "Use an f-string to print: 姓名: Ada, 年龄: 36 (with name and age variables)."},
+        "hint": {"zh-CN": "f\"...{name}...{age}...\" 会把变量值替换进去。", "en": "f\"...{name}...{age}...\" substitutes variable values into the text."}
+      }
+    },
+    {
+      "id": "basics.errors",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "错误处理基础", "en": "Error Handling Basics"},
+      "summary": {"zh-CN": "程序出错时通常会抛出异常；try / except 可以捕获异常并给出可读的提示。", "en": "When something goes wrong a program usually raises an exception; try / except catches it and can produce a readable message."},
+      "objectives": {
+        "zh-CN": ["读懂一个常见异常信息", "用 try / except 捕获指定异常", "说明捕获后如何给用户清晰反馈"],
+        "en": ["Read a common exception message", "Catch a specific exception with try / except", "Explain how to give clear feedback after catching"]
+      },
+      "contentRef": "content/topics.json#basics.errors",
+      "termIds": ["term.basic.exception", "term.basic.scope"],
+      "exampleIds": ["example.basic.try-except"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用 try / except ValueError 处理 int(\"abc\")，失败时输出“输入不是数字”，成功时输出转换结果。", "en": "Handle int(\"abc\") with try / except ValueError, printing \"输入不是数字\" on failure and the converted value on success."},
+        "hint": {"zh-CN": "把 int(\"abc\") 放进 try；except ValueError: 后面写失败提示。", "en": "Put int(\"abc\") in try; write the failure message under except ValueError:"}
+      }
+    },
+    {
+      "id": "basics.debugging",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "初识调试", "en": "Debugging Basics"},
+      "summary": {"zh-CN": "调试是有证据地定位错误：先复现，再缩小范围，最后用最小改动验证。", "en": "Debugging locates a bug with evidence: reproduce it, narrow the range, then verify with the smallest change."},
+      "objectives": {
+        "zh-CN": ["复现一个错误并记录输入与输出", "用打印或断点缩小问题范围", "用一个最小例子验证修复"],
+        "en": ["Reproduce an error and record input and output", "Use prints or breakpoints to narrow the problem", "Verify a fix with a minimal example"]
+      },
+      "contentRef": "content/topics.json#basics.debugging",
+      "termIds": ["term.basic.debugging", "term.basic.exception", "term.basic.off-by-one"],
+      "exampleIds": ["example.basic.off-by-one"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "阅读 off-by-one 示例，指出 wrong_last 为什么是错的，并写出正确的“最后一个索引”表达式。", "en": "Read the off-by-one example, explain why wrong_last is wrong, and write the correct expression for the last index."},
+        "hint": {"zh-CN": "长度为 n 的数组，合法索引是 0 到 n-1。", "en": "For an array of length n, valid indices are 0 through n-1."}
+      }
+    },
+    {
+      "id": "basics.reading-code",
+      "domain": "programming-basics",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "读懂代码与伪代码", "en": "Reading Code and Pseudocode"},
+      "summary": {"zh-CN": "读代码是按执行顺序还原数据变化；伪代码用接近自然语言的步骤描述算法，便于先想清再写代码。", "en": "Reading code means reconstructing how data changes in execution order; pseudocode describes an algorithm in near-natural-language steps before writing code."},
+      "objectives": {
+        "zh-CN": ["按执行顺序追踪变量的值", "区分语句、注释与伪代码", "把一段伪代码翻译成代码或自然语言"],
+        "en": ["Track variable values in execution order", "Distinguish statements, comments, and pseudocode", "Translate pseudocode into code or plain language"]
+      },
+      "contentRef": "content/topics.json#basics.reading-code",
+      "termIds": ["term.basic.syntax", "term.basic.statement", "term.basic.pseudocode", "term.basic.comment"],
+      "exampleIds": ["example.basic.pseudocode"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "阅读“求列表最大值”的伪代码，逐步写出 max 在每一步的值（假设列表是 [3, 9, 2]）。", "en": "Read the \"find the maximum\" pseudocode and write the value of max after each step for the list [3, 9, 2]."},
+        "hint": {"zh-CN": "先令 max = 3；遇到 9 时更新，遇到 2 时不更新。", "en": "Start with max = 3; update at 9; leave it unchanged at 2."}
+      }
+    }
+  ]
+}

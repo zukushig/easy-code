@@ -1,0 +1,35 @@
+{
+  "edges": [
+    {"source": "git.intro", "target": "git.repo-setup", "type": "prerequisite"},
+    {"source": "git.repo-setup", "target": "git.staging", "type": "prerequisite"},
+    {"source": "git.staging", "target": "git.commits", "type": "prerequisite"},
+    {"source": "git.commits", "target": "git.history", "type": "prerequisite"},
+    {"source": "git.commits", "target": "git.branches", "type": "prerequisite"},
+    {"source": "git.branches", "target": "git.merging", "type": "prerequisite"},
+    {"source": "git.merging", "target": "git.conflicts", "type": "prerequisite"},
+    {"source": "git.commits", "target": "git.remotes", "type": "prerequisite"},
+    {"source": "git.branches", "target": "git.remotes", "type": "prerequisite"},
+    {"source": "git.history", "target": "git.rollback", "type": "prerequisite"},
+    {"source": "git.commits", "target": "git.pull-requests", "type": "prerequisite"},
+    {"source": "git.branches", "target": "git.workflows", "type": "prerequisite"},
+    {"source": "git.pull-requests", "target": "git.workflows", "type": "prerequisite"},
+    {"source": "git.remotes", "target": "git.workflows", "type": "prerequisite"},
+
+    {"source": "git.staging", "target": "git.commits", "type": "related"},
+    {"source": "git.branches", "target": "git.merging", "type": "related"},
+    {"source": "git.merging", "target": "git.conflicts", "type": "related"},
+    {"source": "git.history", "target": "git.rollback", "type": "related"},
+    {"source": "git.pull-requests", "target": "git.workflows", "type": "related"},
+    {"source": "git.remotes", "target": "git.workflows", "type": "related"},
+
+    {"source": "git.staging", "target": "git.commits", "type": "appliedIn"},
+    {"source": "git.branches", "target": "git.merging", "type": "appliedIn"},
+    {"source": "git.conflicts", "target": "git.merging", "type": "appliedIn"},
+    {"source": "git.remotes", "target": "git.pull-requests", "type": "appliedIn"},
+    {"source": "git.workflows", "target": "git.pull-requests", "type": "appliedIn"},
+
+    {"source": "git.merging", "target": "git.conflicts", "type": "confusedWith"},
+    {"source": "git.remotes", "target": "git.pull-requests", "type": "confusedWith"},
+    {"source": "git.branches", "target": "git.workflows", "type": "confusedWith"}
+  ]
+}

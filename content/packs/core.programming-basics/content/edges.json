@@ -1,0 +1,31 @@
+{
+  "edges": [
+    {"source": "basics.variables", "target": "basics.data-types", "type": "prerequisite"},
+    {"source": "basics.data-types", "target": "basics.operators", "type": "prerequisite"},
+    {"source": "basics.operators", "target": "basics.conditionals", "type": "prerequisite"},
+    {"source": "basics.conditionals", "target": "basics.loops", "type": "prerequisite"},
+    {"source": "basics.loops", "target": "basics.functions", "type": "prerequisite"},
+    {"source": "basics.functions", "target": "basics.arrays", "type": "prerequisite"},
+    {"source": "basics.arrays", "target": "basics.strings-io", "type": "prerequisite"},
+    {"source": "basics.strings-io", "target": "basics.errors", "type": "prerequisite"},
+    {"source": "basics.errors", "target": "basics.debugging", "type": "prerequisite"},
+    {"source": "basics.functions", "target": "basics.scope", "type": "prerequisite"},
+    {"source": "basics.scope", "target": "basics.errors", "type": "prerequisite"},
+    {"source": "basics.debugging", "target": "basics.reading-code", "type": "prerequisite"},
+
+    {"source": "basics.data-types", "target": "basics.operators", "type": "related"},
+    {"source": "basics.arrays", "target": "basics.strings-io", "type": "related"},
+    {"source": "basics.errors", "target": "basics.debugging", "type": "related"},
+    {"source": "basics.conditionals", "target": "basics.loops", "type": "related"},
+    {"source": "basics.functions", "target": "basics.scope", "type": "related"},
+
+    {"source": "basics.variables", "target": "basics.functions", "type": "appliedIn"},
+    {"source": "basics.operators", "target": "basics.conditionals", "type": "appliedIn"},
+    {"source": "basics.errors", "target": "basics.reading-code", "type": "appliedIn"},
+    {"source": "basics.scope", "target": "basics.debugging", "type": "appliedIn"},
+
+    {"source": "basics.variables", "target": "basics.data-types", "type": "confusedWith"},
+    {"source": "basics.loops", "target": "basics.arrays", "type": "confusedWith"},
+    {"source": "basics.conditionals", "target": "basics.loops", "type": "confusedWith"}
+  ]
+}

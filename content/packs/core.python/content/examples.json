@@ -1,0 +1,271 @@
+{
+  "examples": [
+    {
+      "id": "example.python.hello",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "Hello, Python", "en": "Hello, Python"},
+      "explanation": {"zh-CN": "print 是内置函数，把字符串输出到终端；解释器从上到下逐行执行。", "en": "print is a built-in that writes its argument to the terminal; the interpreter runs lines top to bottom."},
+      "code": "print(\"Hello, CodeTree\")",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "调用内置函数 print", "en": "Call the built-in print"}}
+      ],
+      "expectedOutput": "Hello, CodeTree",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.variables",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "变量与基本类型", "en": "Variables and basic types"},
+      "explanation": {"zh-CN": "name 是字符串，age 是整数，height 是浮点数，is_ready 是布尔值；print 用空格分隔多个参数。", "en": "name is a string, age an int, height a float, and is_ready a bool; print separates multiple arguments with spaces."},
+      "code": "name = \"Ada\"\nage = 36\nheight = 1.68\nis_ready = True\nprint(name, age, height, is_ready)",
+      "annotations": [
+        {"start": 0, "end": 4, "note": {"zh-CN": "字符串变量", "en": "A string variable"}},
+        {"start": 36, "end": 44, "note": {"zh-CN": "布尔值变量首字母大写 True", "en": "A boolean variable, capital T in True"}}
+      ],
+      "expectedOutput": "Ada 36 1.68 True",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.int-float",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "整数与浮点运算", "en": "Integer and float arithmetic"},
+      "explanation": {"zh-CN": "/ 返回浮点结果，// 向下取整整除，% 取余，** 是幂运算：7 ** 2 = 49。", "en": "/ returns a float, // is floor division, % is remainder, and ** is exponentiation: 7 ** 2 = 49."},
+      "code": "a = 7\nb = 2\nprint(a / b)\nprint(a // b)\nprint(a % b)\nprint(a ** b)",
+      "annotations": [
+        {"start": 0, "end": 1, "note": {"zh-CN": "整数变量 a", "en": "Integer variable a"}},
+        {"start": 33, "end": 35, "note": {"zh-CN": "// 是整除，结果向下取整", "en": "// is floor division"}}
+      ],
+      "expectedOutput": "3.5\n3\n1\n49",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.string-slice",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "字符串索引与切片", "en": "String indexing and slicing"},
+      "explanation": {"zh-CN": "text[0] 取第一个字符；text[0:4] 取前 4 个字符（不含索引 4）；text[-3:] 取最后 3 个字符。", "en": "text[0] is the first character; text[0:4] takes the first four (index 4 excluded); text[-3:] takes the last three."},
+      "code": "text = \"CodeTree\"\nprint(text[0])\nprint(text[0:4])\nprint(text[-3:])\nprint(text.upper())",
+      "annotations": [
+        {"start": 0, "end": 4, "note": {"zh-CN": "字符串变量", "en": "The string variable"}},
+        {"start": 43, "end": 48, "note": {"zh-CN": "切片 [start:stop]，不含 stop", "en": "Slice [start:stop], stop excluded"}}
+      ],
+      "expectedOutput": "C\nCode\nree\nCODETREE",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.list-basics",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "列表的创建与修改", "en": "Creating and modifying lists"},
+      "explanation": {"zh-CN": "append 在末尾追加元素；len 返回元素个数；索引 1 取第二个元素。", "en": "append adds to the end; len gives the item count; index 1 reads the second element."},
+      "code": "fruits = [\"apple\", \"banana\"]\nfruits.append(\"cherry\")\nprint(fruits)\nprint(len(fruits))\nprint(fruits[1])",
+      "annotations": [
+        {"start": 0, "end": 6, "note": {"zh-CN": "列表变量", "en": "The list variable"}},
+        {"start": 36, "end": 42, "note": {"zh-CN": "append 原地修改列表", "en": "append mutates the list in place"}}
+      ],
+      "expectedOutput": "['apple', 'banana', 'cherry']\n3\nbanana",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.dict-basics",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "字典的读写与 get", "en": "Reading and writing dictionaries"},
+      "explanation": {"zh-CN": "用 d[key] 读写；get(key, default) 在键不存在时返回默认值而不是抛异常；新增键按插入顺序出现在末尾。", "en": "Use d[key] to read or write; get(key, default) avoids a KeyError; new keys appear at the end in insertion order."},
+      "code": "person = {\"name\": \"Ada\", \"age\": 36}\nprint(person[\"name\"])\nprint(person.get(\"city\", \"unknown\"))\nperson[\"city\"] = \"Beijing\"\nprint(person)",
+      "annotations": [
+        {"start": 0, "end": 6, "note": {"zh-CN": "字典变量", "en": "The dictionary variable"}},
+        {"start": 71, "end": 74, "note": {"zh-CN": "get 安全读取缺失键", "en": "get reads a missing key safely"}}
+      ],
+      "expectedOutput": "Ada\nunknown\n{'name': 'Ada', 'age': 36, 'city': 'Beijing'}",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.if-elif",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "多分支成绩判断", "en": "Multi-branch grade check"},
+      "explanation": {"zh-CN": "72 不满足 >= 90，满足 >= 60，因此 level 变成 B；分支体必须缩进。", "en": "72 fails >= 90 but satisfies >= 60, so level becomes B; branch bodies must be indented."},
+      "code": "score = 72\nif score >= 90:\n    level = \"A\"\nelif score >= 60:\n    level = \"B\"\nelse:\n    level = \"C\"\nprint(level)",
+      "annotations": [
+        {"start": 11, "end": 13, "note": {"zh-CN": "if 条件不成立时继续检查 elif", "en": "If this condition fails, elif is checked"}},
+        {"start": 43, "end": 47, "note": {"zh-CN": "elif 按书序继续判断", "en": "elif continues the check in order"}}
+      ],
+      "expectedOutput": "B",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.for-range",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "for 循环与 range", "en": "for loops with range"},
+      "explanation": {"zh-CN": "range(1, 6) 产生 1、2、3、4、5，循环累加得到 15；range 不包含结束值 6。", "en": "range(1, 6) yields 1, 2, 3, 4, 5 and the loop accumulates 15; range excludes the end value 6."},
+      "code": "total = 0\nfor number in range(1, 6):\n    total += number\nprint(total)",
+      "annotations": [
+        {"start": 10, "end": 13, "note": {"zh-CN": "for 循环遍历 range", "en": "A for loop over range"}},
+        {"start": 24, "end": 29, "note": {"zh-CN": "range 结束值不包含在序列中", "en": "range excludes its stop value"}}
+      ],
+      "expectedOutput": "15",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.while-loop",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "while 倒计时", "en": "Counting down with while"},
+      "explanation": {"zh-CN": "只要 count > 0 就继续循环；count -= 1 推动条件走向假，循环最终结束。", "en": "The loop continues while count > 0; count -= 1 drives the condition toward false so the loop ends."},
+      "code": "count = 5\nwhile count > 0:\n    print(count)\n    count -= 1\nprint(\"Liftoff!\")",
+      "annotations": [
+        {"start": 10, "end": 15, "note": {"zh-CN": "条件满足时重复执行循环体", "en": "The body repeats while the condition holds"}}
+      ],
+      "expectedOutput": "5\n4\n3\n2\n1\nLiftoff!",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.function-return",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "def 与 return", "en": "def and return"},
+      "explanation": {"zh-CN": "square 接收参数 n 并返回 n * n；square(0) 返回 0，说明 return 会交回任何值。", "en": "square takes n and returns n * n; square(0) returns 0, showing return can hand back any value."},
+      "code": "def square(n):\n    return n * n\n\nprint(square(4))\nprint(square(0))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "def 定义函数", "en": "def defines a function"}},
+        {"start": 15, "end": 21, "note": {"zh-CN": "return 把结果交给调用方", "en": "return hands the result to the caller"}}
+      ],
+      "expectedOutput": "16\n0",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.default-args",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "默认参数与关键字参数", "en": "Default and keyword arguments"},
+      "explanation": {"zh-CN": "name 和 punctuation 都有默认值；greet() 全用默认值，greet(\"Ada\") 覆盖 name，greet(punctuation=\"?\") 用关键字只覆盖 punctuation。", "en": "name and punctuation have defaults; greet() uses them, greet(\"Ada\") overrides name, and greet(punctuation=\"?\") overrides punctuation by keyword."},
+      "code": "def greet(name=\"world\", punctuation=\"!\"):\n    return \"Hello, \" + name + punctuation\n\nprint(greet())\nprint(greet(\"Ada\"))\nprint(greet(\"Ada\", \"?\"))\nprint(greet(punctuation=\"?\"))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "def 定义函数", "en": "def defines the function"}},
+        {"start": 10, "end": 14, "note": {"zh-CN": "带默认值的参数", "en": "A parameter with a default value"}}
+      ],
+      "expectedOutput": "Hello, world!\nHello, Ada!\nHello, Ada?\nHello, world?",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.comprehension",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "列表推导式", "en": "List comprehensions"},
+      "explanation": {"zh-CN": "[n * n for n in numbers] 生成平方列表；带 if 的推导式只保留偶数。", "en": "[n * n for n in numbers] builds squares; adding if keeps only the even values."},
+      "code": "numbers = [1, 2, 3, 4, 5]\nsquares = [n * n for n in numbers]\nprint(squares)\nevens = [n for n in numbers if n % 2 == 0]\nprint(evens)",
+      "annotations": [
+        {"start": 26, "end": 33, "note": {"zh-CN": "推导式结果赋给 squares", "en": "The comprehension result goes to squares"}},
+        {"start": 36, "end": 37, "note": {"zh-CN": "推导式用方括号包裹", "en": "A comprehension is wrapped in brackets"}}
+      ],
+      "expectedOutput": "[1, 4, 9, 16, 25]\n[2, 4]",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.tuple-set",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "元组与集合", "en": "Tuples and sets"},
+      "explanation": {"zh-CN": "元组 (3, 4) 可索引但不可修改；集合 {True, False, True} 自动去重，所以长度是 2。", "en": "The tuple (3, 4) can be indexed but not modified; the set {True, False, True} deduplicates, so its length is 2."},
+      "code": "point = (3, 4)\nprint(point[0], point[1])\nflags = {True, False, True}\nprint(len(flags))\nprint(3 in {1, 2, 3})",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "元组变量", "en": "The tuple variable"}},
+        {"start": 49, "end": 50, "note": {"zh-CN": "集合字面量自动去重", "en": "A set literal removes duplicates"}}
+      ],
+      "expectedOutput": "3 4\n2\nTrue",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.try-except",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "捕获 ZeroDivisionError", "en": "Catching ZeroDivisionError"},
+      "explanation": {"zh-CN": "int(\"42\") 成功，但 value / 0 抛出 ZeroDivisionError，第一个匹配的 except 执行；ValueError 分支不会被执行。", "en": "int(\"42\") succeeds, but value / 0 raises ZeroDivisionError, so the first matching except runs; the ValueError branch is skipped."},
+      "code": "try:\n    value = int(\"42\")\n    print(value / 0)\nexcept ZeroDivisionError:\n    print(\"不能除以零\")\nexcept ValueError:\n    print(\"不是数字\")",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "可能出错的代码放在 try 里", "en": "Risky code lives in try"}},
+        {"start": 48, "end": 54, "note": {"zh-CN": "只捕获指定类型的异常", "en": "Catch only the named exception type"}}
+      ],
+      "expectedOutput": "不能除以零",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.f-string",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "f-string 格式化", "en": "Formatting with f-strings"},
+      "explanation": {"zh-CN": "f 前缀让花括号内的变量被替换成值，拼出完整句子。", "en": "The f prefix replaces variables inside braces with their values to build a complete sentence."},
+      "code": "name = \"Ada\"\nage = 36\nprint(f\"{name} is {age} years old\")",
+      "annotations": [
+        {"start": 28, "end": 29, "note": {"zh-CN": "f 前缀开启字符串格式化", "en": "The f prefix enables string formatting"}}
+      ],
+      "expectedOutput": "Ada is 36 years old",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.with-file",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "with open 读写文件", "en": "Reading and writing files with with open"},
+      "explanation": {"zh-CN": "该示例需要文件系统，标记为仅静态检查：with 语句在块结束时自动关闭文件，比手动 close 更安全。", "en": "This example needs a filesystem and is statically checked only: with closes the file at block exit and is safer than manual close."},
+      "code": "with open(\"notes.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"hello\\n\")\n\nwith open(\"notes.txt\", encoding=\"utf-8\") as file:\n    print(file.read().strip())",
+      "annotations": [
+        {"start": 0, "end": 4, "note": {"zh-CN": "with 开启上下文管理", "en": "with starts context management"}},
+        {"start": 46, "end": 48, "note": {"zh-CN": "as 把打开的文件绑定到变量", "en": "as binds the opened file to a variable"}}
+      ],
+      "expectedOutput": "hello",
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.import-module",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "导入标准库模块", "en": "Importing standard library modules"},
+      "explanation": {"zh-CN": "import math 后用 math.floor 访问成员；from math import sqrt 直接把 sqrt 引入当前命名空间。", "en": "import math exposes members as math.floor; from math import sqrt puts sqrt directly into the current namespace."},
+      "code": "import math\nfrom math import sqrt\n\nprint(sqrt(16))\nprint(math.floor(3.7))",
+      "annotations": [
+        {"start": 0, "end": 6, "note": {"zh-CN": "import 导入整个模块", "en": "import loads the whole module"}},
+        {"start": 12, "end": 16, "note": {"zh-CN": "from ... import ... 只引入指定成员", "en": "from ... import ... brings in a specific member"}}
+      ],
+      "expectedOutput": "4.0\n3",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.python.mutability",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "可变对象与引用", "en": "Mutable objects and references"},
+      "explanation": {"zh-CN": "b = a 只是让两个名字指向同一个列表；通过 b 修改会反映到 a，a is b 为 True。", "en": "b = a makes both names point to the same list; mutating through b is visible in a, so a is b is True."},
+      "code": "a = [1, 2]\nb = a\nb.append(3)\nprint(a)\nprint(a is b)",
+      "annotations": [
+        {"start": 0, "end": 1, "note": {"zh-CN": "列表是可变对象", "en": "Lists are mutable objects"}},
+        {"start": 11, "end": 12, "note": {"zh-CN": "b = a 复制的是引用而不是列表", "en": "b = a copies the reference, not the list"}}
+      ],
+      "expectedOutput": "[1, 2, 3]\nTrue",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    }
+  ]
+}

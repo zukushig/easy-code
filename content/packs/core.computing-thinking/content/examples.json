@@ -1,0 +1,180 @@
+{
+  "examples": [
+    {
+      "id": "example.thinking.decomposition",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "把登录功能分解成子任务", "en": "Decomposing a login feature into subtasks"},
+      "explanation": {"zh-CN": "这不是可执行代码，仅阅读：把“用户登录”拆成校验输入、查询用户、校验密码、返回结果四步，每步都能单独实现和测试。", "en": "Not executable, read-only: \"user login\" splits into validate input, look up user, check password, and return result — each independently implementable and testable."},
+      "code": "任务：实现用户登录\n1. 校验输入：手机号格式、密码非空\n2. 查询用户：按手机号从数据库取记录\n3. 校验密码：比较哈希值\n4. 返回结果：成功发 token，失败给错误码",
+      "annotations": [
+        {"start": 0, "end": 2, "note": {"zh-CN": "先写清任务边界", "en": "State the task boundary first"}},
+        {"start": 10, "end": 11, "note": {"zh-CN": "每个编号是一个可独立验证的子任务", "en": "Each numbered item is a separately verifiable subtask"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.abstraction",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "用函数隐藏实现细节", "en": "Hiding details behind a function"},
+      "explanation": {"zh-CN": "调用方只需要知道 area_of_circle 接收半径、返回面积，不需要关心 π 的取值和乘法细节，这就是抽象。", "en": "The caller only needs to know area_of_circle takes a radius and returns an area; pi and the multiplication details stay hidden — that is abstraction."},
+      "code": "def area_of_circle(radius):\n    return 3.14 * radius * radius\n\nprint(area_of_circle(2))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "函数签名就是对外接口", "en": "The signature is the public interface"}},
+        {"start": 32, "end": 38, "note": {"zh-CN": "公式细节被封装在函数内部", "en": "Formula details are encapsulated inside the function"}}
+      ],
+      "expectedOutput": "12.56",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.pattern-recognition",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "识别“累加”模式", "en": "Recognizing the accumulation pattern"},
+      "explanation": {"zh-CN": "“把每个价格加到总价”是反复出现的累加模式；识别出来后用循环表达，就不必为每个元素写一行。", "en": "\"Add each price to the total\" is a recurring accumulation pattern; once recognized, a loop expresses it instead of one line per item."},
+      "code": "prices = [10, 20, 30]\ntotal = 0\nfor price in prices:\n    total += price\nprint(total)",
+      "annotations": [
+        {"start": 22, "end": 27, "note": {"zh-CN": "累加器初始为 0", "en": "The accumulator starts at 0"}},
+        {"start": 32, "end": 35, "note": {"zh-CN": "同一个模式对每个元素重复", "en": "The same pattern repeats for every element"}}
+      ],
+      "expectedOutput": "60",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.algorithm-pseudocode",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "线性查找的伪代码", "en": "Pseudocode for linear search"},
+      "explanation": {"zh-CN": "仅阅读：算法步骤必须有限且会终止——从前往后比较，找到就返回索引，遍历结束仍未找到返回 -1。", "en": "Read-only: the algorithm must be finite and terminate — compare from the start, return the index when found, otherwise return -1 after the scan."},
+      "code": "算法：线性查找\n1. 从第一个元素开始，依次比较\n2. 如果相等，返回当前索引\n3. 如果遍历结束仍未找到，返回 -1",
+      "annotations": [
+        {"start": 0, "end": 2, "note": {"zh-CN": "算法名称与目标", "en": "Algorithm name and goal"}},
+        {"start": 8, "end": 9, "note": {"zh-CN": "步骤有明确顺序", "en": "Steps are ordered"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.flowchart",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "登录校验的文字版流程图", "en": "Text flowchart of a login check"},
+      "explanation": {"zh-CN": "仅阅读：用箭头表示流向，每个“？”是判断节点，分别有“是”“否”两个出口；先画清控制流再写代码。", "en": "Read-only: arrows show flow and each \"?\" is a decision with yes/no exits; clarify control flow before coding."},
+      "code": "流程图（文字版）：登录校验\n开始 → 读取手机号与密码\n→ 手机号格式合法？\n  否 → 返回格式错误 → 结束\n  是 → 查询用户是否存在？\n  否 → 返回用户不存在 → 结束\n  是 → 校验密码 → 结束",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "流程图标题", "en": "Flowchart title"}},
+        {"start": 14, "end": 16, "note": {"zh-CN": "起点没有前驱", "en": "The start node has no predecessor"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.complexity",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "线性查找的复杂度直觉", "en": "Complexity intuition for linear search"},
+      "explanation": {"zh-CN": "linear_search 最坏要检查全部 6 个元素，输入变成 n 个时最坏检查 n 次，记作 O(n)；15 在索引 2，99 不存在返回 -1。", "en": "linear_search may inspect all 6 elements in the worst case; with n elements it is O(n). 15 sits at index 2, and 99 is absent so -1 is returned."},
+      "code": "numbers = [4, 8, 15, 16, 23, 42]\n\ndef linear_search(target):\n    for index, value in enumerate(numbers):\n        if value == target:\n            return index\n    return -1\n\nprint(linear_search(15))\nprint(linear_search(99))",
+      "annotations": [
+        {"start": 34, "end": 37, "note": {"zh-CN": "函数封装了查找逻辑", "en": "The function encapsulates the search"}},
+        {"start": 65, "end": 68, "note": {"zh-CN": "最坏情况遍历全部元素", "en": "Worst case visits every element"}}
+      ],
+      "expectedOutput": "2\n-1",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.recursion",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "递归计算阶乘", "en": "Computing factorial recursively"},
+      "explanation": {"zh-CN": "factorial(n) 把问题变成 n * factorial(n - 1)；当 n <= 1 时直接返回 1，这就是 base case，保证递归会停下。", "en": "factorial(n) reduces to n * factorial(n - 1); when n <= 1 it returns 1 directly — the base case that makes the recursion stop."},
+      "code": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(5))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "递归函数定义", "en": "Recursive function definition"}},
+        {"start": 41, "end": 47, "note": {"zh-CN": "base case：不再递归，直接返回", "en": "Base case: no further recursion, return directly"}}
+      ],
+      "expectedOutput": "120",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.state",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "两状态的状态机", "en": "A two-state state machine"},
+      "explanation": {"zh-CN": "代码为阅读示例，仅静态检查：idle 收到 start 转到 running，running 收到 stop 转回 idle，其他事件不改变状态。", "en": "Read-only, statically checked: idle goes to running on start, running returns to idle on stop, and other events leave the state unchanged."},
+      "code": "let state = \"idle\";\n\nfunction transition(event) {\n  if (state === \"idle\" && event === \"start\") {\n    state = \"running\";\n  } else if (state === \"running\" && event === \"stop\") {\n    state = \"idle\";\n  }\n}\n\ntransition(\"start\");\nconsole.log(state);\ntransition(\"stop\");\nconsole.log(state);",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "用变量保存当前状态", "en": "The current state is kept in a variable"}},
+        {"start": 21, "end": 29, "note": {"zh-CN": "事件触发状态转移", "en": "Events drive transitions"}}
+      ],
+      "expectedOutput": "running\nidle",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.tradeoffs",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "用字典索引换查询速度", "en": "Trading memory for lookup speed with a dictionary"},
+      "explanation": {"zh-CN": "把姓名到地址的映射存进字典，查询是 O(1)；代价是多占一些内存。相比每次遍历列表，这是典型的空间换时间。", "en": "Storing name-to-address mappings in a dictionary makes lookup O(1) at the cost of memory — a classic space-for-time trade."},
+      "code": "addresses = {\"Ada\": \"Beijing\", \"Bob\": \"Shanghai\"}\nprint(addresses[\"Ada\"])",
+      "annotations": [
+        {"start": 0, "end": 9, "note": {"zh-CN": "预先建好的哈希索引", "en": "A prebuilt hash index"}}
+      ],
+      "expectedOutput": "Beijing",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.verification",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "边界用例：空列表求平均", "en": "Edge case: average of an empty list"},
+      "explanation": {"zh-CN": "average 对空列表返回 0，避免除以 0；空列表是必须测试的边界情况。正常输入 [2, 4] 返回 3.0。", "en": "average returns 0 for an empty list, avoiding division by zero; empty input is a required edge case. Normal input [2, 4] gives 3.0."},
+      "code": "def average(numbers):\n    if not numbers:\n        return 0\n    return sum(numbers) / len(numbers)\n\nprint(average([]))\nprint(average([2, 4]))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "函数定义", "en": "Function definition"}},
+        {"start": 26, "end": 28, "note": {"zh-CN": "先处理空输入这个边界", "en": "Handle the empty-input boundary first"}}
+      ],
+      "expectedOutput": "0\n3.0",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.enumeration-brute",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "暴力枚举所有数对", "en": "Brute-force enumeration of all pairs"},
+      "explanation": {"zh-CN": "has_pair 用双重循环枚举所有两两组合，检查和是否等于目标；最容易写对，但复杂度是 O(n²)。", "en": "has_pair enumerates all pairs with nested loops and checks whether a sum equals the target; easy to get right, but O(n²)."},
+      "code": "def has_pair(numbers, target):\n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if numbers[i] + numbers[j] == target:\n                return True\n    return False\n\nprint(has_pair([1, 2, 4, 7], 9))\nprint(has_pair([1, 2, 4, 7], 20))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "函数定义", "en": "Function definition"}},
+        {"start": 35, "end": 38, "note": {"zh-CN": "两层循环穷举所有组合", "en": "Nested loops enumerate every combination"}}
+      ],
+      "expectedOutput": "True\nFalse",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.thinking.divide-conquer",
+      "language": "python",
+      "languageVersion": "3.12",
+      "title": {"zh-CN": "二分查找：分治的典型例子", "en": "Binary search: a canonical divide-and-conquer example"},
+      "explanation": {"zh-CN": "每次把搜索区间缩小一半，目标 7 依次落在 [1,3,5,7,9] 的右半部分，最后在索引 3 找到，复杂度 O(log n)。", "en": "Each step halves the search range; target 7 lands in the right half of [1,3,5,7,9] and is found at index 3 in O(log n) time."},
+      "code": "def binary_search(sorted_numbers, target):\n    low, high = 0, len(sorted_numbers) - 1\n    while low <= high:\n        middle = (low + high) // 2\n        if sorted_numbers[middle] == target:\n            return middle\n        if sorted_numbers[middle] < target:\n            low = middle + 1\n        else:\n            high = middle - 1\n    return -1\n\nprint(binary_search([1, 3, 5, 7, 9], 7))",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "函数定义", "en": "Function definition"}},
+        {"start": 47, "end": 50, "note": {"zh-CN": "维护左右边界，逐步缩小范围", "en": "Maintain left/right bounds and shrink the range"}}
+      ],
+      "expectedOutput": "3",
+      "runtimeId": "python",
+      "verificationStatus": "static-checked"
+    }
+  ]
+}

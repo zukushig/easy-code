@@ -1,0 +1,33 @@
+{
+  "edges": [
+    {"source": "thinking.overview", "target": "thinking.problem-formulation", "type": "prerequisite"},
+    {"source": "thinking.problem-formulation", "target": "thinking.decomposition", "type": "prerequisite"},
+    {"source": "thinking.decomposition", "target": "thinking.abstraction", "type": "prerequisite"},
+    {"source": "thinking.abstraction", "target": "thinking.pattern-recognition", "type": "prerequisite"},
+    {"source": "thinking.pattern-recognition", "target": "thinking.algorithm", "type": "prerequisite"},
+    {"source": "thinking.algorithm", "target": "thinking.pseudocode", "type": "prerequisite"},
+    {"source": "thinking.algorithm", "target": "thinking.complexity", "type": "prerequisite"},
+    {"source": "thinking.algorithm", "target": "thinking.state", "type": "prerequisite"},
+    {"source": "thinking.algorithm", "target": "thinking.verification", "type": "prerequisite"},
+    {"source": "thinking.complexity", "target": "thinking.recursion", "type": "prerequisite"},
+    {"source": "thinking.complexity", "target": "thinking.tradeoffs", "type": "prerequisite"},
+    {"source": "thinking.pseudocode", "target": "thinking.verification", "type": "prerequisite"},
+
+    {"source": "thinking.abstraction", "target": "thinking.decomposition", "type": "related"},
+    {"source": "thinking.recursion", "target": "thinking.complexity", "type": "related"},
+    {"source": "thinking.tradeoffs", "target": "thinking.complexity", "type": "related"},
+    {"source": "thinking.algorithm", "target": "thinking.verification", "type": "related"},
+    {"source": "thinking.state", "target": "thinking.algorithm", "type": "related"},
+
+    {"source": "thinking.decomposition", "target": "thinking.algorithm", "type": "appliedIn"},
+    {"source": "thinking.abstraction", "target": "thinking.algorithm", "type": "appliedIn"},
+    {"source": "thinking.pattern-recognition", "target": "thinking.algorithm", "type": "appliedIn"},
+    {"source": "thinking.complexity", "target": "thinking.tradeoffs", "type": "appliedIn"},
+    {"source": "thinking.pseudocode", "target": "thinking.algorithm", "type": "appliedIn"},
+
+    {"source": "thinking.algorithm", "target": "thinking.pseudocode", "type": "confusedWith"},
+    {"source": "thinking.abstraction", "target": "thinking.decomposition", "type": "confusedWith"},
+    {"source": "thinking.complexity", "target": "thinking.tradeoffs", "type": "confusedWith"},
+    {"source": "thinking.state", "target": "thinking.algorithm", "type": "confusedWith"}
+  ]
+}

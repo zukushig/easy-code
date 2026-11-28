@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CodeTree 中文文案（与 values/strings.xml 的 key 完全一致）。 -->
+<resources>
+    <string name="app_name">CodeTree</string>
+
+    <!-- 通用 -->
+    <string name="action_retry">重试</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_continue">继续</string>
+    <string name="action_skip">跳过</string>
+    <string name="action_back">返回</string>
+    <string name="action_done">完成</string>
+    <string name="action_clear">清除</string>
+    <string name="action_start_learning">开始学习</string>
+    <string name="loading">加载中…</string>
+
+    <!-- 底部 Tab -->
+    <string name="tab_learn">学习</string>
+    <string name="tab_dictionary">词典</string>
+    <string name="tab_terminal">终端</string>
+    <string name="tab_assistant">AI</string>
+    <string name="tab_profile">我的</string>
+
+    <!-- 内容加载 / 空态 -->
+    <string name="content_loading">正在准备内容…</string>
+    <string name="content_empty_title">还没有内容包</string>
+    <string name="content_empty_desc">没有找到随包分发的内容。可在「我的 → 知识库」导入 .codepack 后开始学习。</string>
+    <string name="content_empty_action">去知识库</string>
+
+    <!-- 三页首次引导 -->
+    <string name="onboarding_page1_title">用知识树学编程</string>
+    <string name="onboarding_page1_body">CodeTree 把编程概念组织成互相关联的知识图谱：按前置关系学习、随时查术语、在安全终端里试命令、卡住时问 AI——优先离线可用。</string>
+    <string name="onboarding_highlight_tree_title">知识树</string>
+    <string name="onboarding_highlight_tree_desc">一眼看清前置关系与相关概念。</string>
+    <string name="onboarding_highlight_dictionary_title">词典</string>
+    <string name="onboarding_highlight_dictionary_desc">中文解释、英文语法、双语对照三种视图。</string>
+    <string name="onboarding_highlight_terminal_title">安全终端</string>
+    <string name="onboarding_highlight_terminal_desc">白名单命令与资源上限，不碰系统目录。</string>
+    <string name="onboarding_highlight_ai_title">AI 助手</string>
+    <string name="onboarding_highlight_ai_desc">自带 OpenAI 兼容服务，密钥只保存在本机。</string>
+
+    <string name="onboarding_page2_title">选择学习方向</string>
+    <string name="onboarding_page2_body">至少选择一个方向，知识树会从对应领域开始。之后可在「我的 → 设置」中修改。</string>
+    <string name="onboarding_page2_hint">请至少选择一个方向后继续。</string>
+
+    <string name="onboarding_page3_title">准备就绪</string>
+    <string name="onboarding_page3_body">学习进度、设置与已下载内容都保存在本机。之后可随时在「我的 → 设置」中重看本引导。</string>
+
+    <!-- 学习方向（与内容包 domain 一一对应） -->
+    <string name="direction_programming_basics">编程基础</string>
+    <string name="direction_computing_thinking">计算思维</string>
+    <string name="direction_python">Python</string>
+    <string name="direction_javascript">JavaScript</string>
+    <string name="direction_git">Git</string>
+    <string name="direction_data_structures">数据结构</string>
+    <string name="direction_kotlin">Kotlin</string>
+    <string name="direction_android">Android</string>
+    <string name="direction_web">Web</string>
+    <string name="direction_networking">网络基础</string>
+    <string name="direction_ai_basics">AI 基础</string>
+    <string name="direction_vibe_coding">Vibe Coding</string>
+
+    <!-- 我的 -->
+    <string name="profile_title">我的</string>
+    <string name="profile_stats_section">学习进度</string>
+    <string name="profile_mastered">已掌握</string>
+    <string name="profile_learning">学习中</string>
+    <string name="profile_not_started">未开始</string>
+    <string name="profile_topics">知识节点</string>
+    <string name="profile_terms">术语</string>
+    <string name="profile_settings_section">设置</string>
+
+    <string name="settings_appearance">外观</string>
+    <string name="theme_system">跟随系统</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
+
+    <string name="settings_font_scale">字号</string>
+    <string name="settings_reduce_motion">减少动效</string>
+    <string name="settings_reduce_motion_desc">关闭位移与缩放动画，只保留淡入淡出</string>
+
+    <string name="settings_bilingual">双语模式</string>
+    <string name="bilingual_zh_only">中文解释</string>
+    <string name="bilingual_en_grammar">英文语法</string>
+    <string name="bilingual_side_by_side">双语对照</string>
+
+    <string name="settings_ai">AI 设置</string>
+    <string name="settings_ai_desc">在 AI 页配置 Base URL、模型与密钥</string>
+    <string name="settings_direction">学习方向</string>
+    <string name="settings_restart_onboarding">重看引导</string>
+    <string name="settings_library">知识库与插件</string>
+    <string name="settings_library_desc">管理已下载内容包与导入</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_diagnostic">诊断</string>
+    <string name="settings_diagnostic_desc">启动状态、警告与已安装内容包</string>
+    <string name="settings_storage">存储占用</string>
+
+    <!-- AI 设置说明（MVP：在 AI Tab 内配置） -->
+    <string name="ai_info_title">AI 设置</string>
+    <string name="ai_info_body">AI 使用 OpenAI 兼容直连。请在 AI 页配置 Base URL、模型与密钥。密钥经 Android Keystore 加密保存、不落明文；AI 回答只是建议，不代表已验证结果。</string>
+    <string name="ai_info_has_key">本机已保存 API 密钥。</string>
+    <string name="ai_info_no_key">尚未保存 API 密钥。</string>
+    <string name="ai_info_keystore_unavailable">设备密钥库不可用，无法安全保存密钥（不会降级为明文存储）。</string>
+    <string name="ai_info_go">前往 AI 页</string>
+
+    <!-- 关于 -->
+    <string name="about_title">关于 CodeTree</string>
+    <string name="about_version">版本</string>
+    <string name="about_body">CodeTree 是一款优先离线的编程学习应用：知识图谱、双语词典、白名单安全终端与自带密钥的 AI 助手。无账号、无云同步、不执行任意代码。</string>
+    <string name="about_content_sources">内容包安装在本地私有目录，可随时导出或删除。</string>
+
+    <!-- 诊断 -->
+    <string name="diagnostic_title">诊断</string>
+    <string name="diagnostic_content_ready">内容索引</string>
+    <string name="diagnostic_ready">就绪</string>
+    <string name="diagnostic_not_ready">未就绪</string>
+    <string name="diagnostic_installed_packs">已安装内容包</string>
+    <string name="diagnostic_warnings">启动警告</string>
+    <string name="diagnostic_none">无</string>
+    <string name="diagnostic_storage">内容存储</string>
+
+    <!-- 占位（feature 未落盘时；集成阶段替换） -->
+    <string name="placeholder_learn_title">学习 Tab</string>
+    <string name="placeholder_learn_body">知识树与节点详情由 T7 实现中，入口已接线。</string>
+    <string name="placeholder_dictionary_title">词典 Tab</string>
+    <string name="placeholder_dictionary_body">搜索与术语详情由 T7 实现中，入口已接线。</string>
+    <string name="placeholder_terminal_title">终端 Tab</string>
+    <string name="placeholder_terminal_body">安全 Shell 会话界面由 T8 实现中，入口已接线。</string>
+    <string name="placeholder_assistant_title">AI Tab</string>
+    <string name="placeholder_assistant_body">AI 助手界面由 T8 实现中，入口已接线。</string>
+    <string name="placeholder_library_title">知识库</string>
+    <string name="placeholder_library_body">知识库与插件管理由 T8 实现中，入口已接线。</string>
+</resources>

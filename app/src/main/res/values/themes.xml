@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 启动窗口主题：只负责窗口背景，界面配色由 Compose CodeTreeTheme 决定（资源最小化）。 -->
+<resources>
+    <style name="Theme.CodeTree" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#FFF5F5F7</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+</resources>

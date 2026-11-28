@@ -1,0 +1,41 @@
+# Gradle / Android
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build
+**/build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.kotlin/
+
+# 签名与本地密钥（绝不入库）
+keystore.properties
+keystore/
+*.keystore
+*.jks
+
+# 构建产物
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# 本机工具链与缓存
+/tools/build/out/
+/content/build/
+/toolchain/
+/tools/build/.probe
+
+# Python
+__pycache__/
+*.pyc
+
+# 生成物 / 二进制（仓库以文本推送，CI 构建前由脚本重新生成）
+gradle/wrapper/gradle-wrapper.jar
+content/dist/
+app/src/main/assets/seed/
+CodeTree-合并文档包.zip

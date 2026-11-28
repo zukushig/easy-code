@@ -1,0 +1,68 @@
+{
+  "language": "python",
+  "displayName": {"zh-CN": "Python", "en": "Python"},
+  "version": "1.0.0",
+  "keywords": ["False", "None", "True", "and", "as", "assert", "async", "await", "break", "class", "continue", "def", "del", "elif", "else", "except", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "nonlocal", "not", "or", "pass", "raise", "return", "try", "while", "with", "yield"],
+  "builtins": ["print", "len", "range", "int", "float", "str", "bool", "list", "dict", "set", "tuple", "sum", "min", "max", "sorted", "open", "input", "type", "isinstance", "enumerate", "zip", "map", "filter", "abs", "round"],
+  "lineComment": "#",
+  "blockComment": ["\"\"\"", "\"\"\""],
+  "stringDelims": ["'", "\""],
+  "brackets": [["(", ")"], ["[", "]"], ["{", "}"]],
+  "diagnostics": [
+    {
+      "id": "py.missing-colon",
+      "pattern": "^\\s*(?:if|elif|else|for|while|def|class|try|except|finally|with|async def)\\b[^:]*$",
+      "message": {"zh-CN": "这一行缺少结尾的冒号。", "en": "This line is missing a trailing colon."},
+      "severity": "error",
+      "fix": {"kind": "append", "text": ":"},
+      "hint": {"zh-CN": "if / for / while / def / try 等复合语句的头部必须以冒号结尾。", "en": "Compound statement headers such as if / for / while / def / try must end with a colon."}
+    },
+    {
+      "id": "py.mixed-indentation",
+      "pattern": "^(?:\\t+ +| +\\t)",
+      "message": {"zh-CN": "同一缩进中混用了制表符和空格。", "en": "Tabs and spaces are mixed in the same indentation."},
+      "severity": "error",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "Python 对缩进敏感，请统一使用 4 个空格。", "en": "Python is indentation-sensitive; use four spaces consistently."}
+    },
+    {
+      "id": "py.assignment-in-condition",
+      "pattern": "^\\s*(?:if|elif|while)\\s+[A-Za-z_]\\w*\\s*=\\s*[^=]",
+      "message": {"zh-CN": "条件表达式里用了单个 =，可能应该是 ==。", "en": "A single = inside a condition probably should be ==."},
+      "severity": "warning",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "= 是赋值，== 才是比较；Python 3 中 if 里的赋值会直接报语法错误。", "en": "= assigns while == compares; Python 3 rejects assignment inside if."}
+    },
+    {
+      "id": "py.print-statement",
+      "pattern": "\\bprint\\s+[^(\\n]",
+      "message": {"zh-CN": "Python 3 的 print 是函数，参数要放在括号里。", "en": "In Python 3 print is a function; wrap arguments in parentheses."},
+      "severity": "warning",
+      "fix": null,
+      "hint": {"zh-CN": "写成 print(value)；例如 print(42)，而不是 print 42。", "en": "Write print(value), e.g. print(42) instead of print 42."}
+    },
+    {
+      "id": "py.bare-except",
+      "pattern": "^\\s*except\\s*:",
+      "message": {"zh-CN": "裸 except 会吞掉所有异常（含 Ctrl+C），建议捕获具体类型。", "en": "A bare except swallows every exception (including Ctrl+C); catch specific types."},
+      "severity": "warning",
+      "fix": null,
+      "hint": {"zh-CN": "先想清楚可能抛出什么异常，例如 except ValueError:。", "en": "Decide which exception may occur, e.g. except ValueError:."}
+    }
+  ],
+  "completions": [
+    {
+      "when": "word",
+      "items": [
+        {"text": "print(", "detail": "内置函数 print(value)", "insertText": "print()"},
+        {"text": "len(", "detail": "内置函数 len(sequence)", "insertText": "len()"},
+        {"text": "range(", "detail": "内置函数 range(start, stop)", "insertText": "range()"},
+        {"text": "def", "detail": "定义函数", "insertText": "def ()"},
+        {"text": "for", "detail": "for 循环语句", "insertText": "for in :"},
+        {"text": "if", "detail": "条件语句", "insertText": "if :"},
+        {"text": "import", "detail": "导入模块", "insertText": "import "},
+        {"text": "try", "detail": "异常处理", "insertText": "try:"}
+      ]
+    }
+  ]
+}

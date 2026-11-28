@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  CodeTree 英文默认文案（values-zh/strings.xml 提供中文，两套 key 必须完全一致）。
+  业务组件文案由调用方传入；本文件只放 App 壳/引导/设置/占位的用户可见文本。
+-->
+<resources>
+    <string name="app_name">CodeTree</string>
+
+    <!-- 通用 -->
+    <string name="action_retry">Retry</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_skip">Skip</string>
+    <string name="action_back">Back</string>
+    <string name="action_done">Done</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_start_learning">Start learning</string>
+    <string name="loading">Loading…</string>
+
+    <!-- 底部 Tab -->
+    <string name="tab_learn">Learn</string>
+    <string name="tab_dictionary">Dictionary</string>
+    <string name="tab_terminal">Terminal</string>
+    <string name="tab_assistant">AI</string>
+    <string name="tab_profile">Me</string>
+
+    <!-- 内容加载 / 空态 -->
+    <string name="content_loading">Preparing content…</string>
+    <string name="content_empty_title">No content packs yet</string>
+    <string name="content_empty_desc">Bundled packs were not found. Import a .codepack from Me → Library to start learning.</string>
+    <string name="content_empty_action">Open library</string>
+
+    <!-- 三页首次引导 -->
+    <string name="onboarding_page1_title">Learn code by growing a knowledge tree</string>
+    <string name="onboarding_page1_body">CodeTree turns programming concepts into a connected graph. Follow prerequisites, open terms, run safe commands and ask AI when you get stuck — offline first.</string>
+    <string name="onboarding_highlight_tree_title">Knowledge tree</string>
+    <string name="onboarding_highlight_tree_desc">See prerequisites and related concepts at a glance.</string>
+    <string name="onboarding_highlight_dictionary_title">Dictionary</string>
+    <string name="onboarding_highlight_dictionary_desc">Chinese explanations, English grammar and bilingual views.</string>
+    <string name="onboarding_highlight_terminal_title">Safe terminal</string>
+    <string name="onboarding_highlight_terminal_desc">A whitelisted shell with limits — no system access.</string>
+    <string name="onboarding_highlight_ai_title">AI assistant</string>
+    <string name="onboarding_highlight_ai_desc">Bring your own OpenAI-compatible endpoint; keys stay on device.</string>
+
+    <string name="onboarding_page2_title">Choose your directions</string>
+    <string name="onboarding_page2_body">Pick at least one direction so the tree starts in the right place. You can change it later in Me → Settings.</string>
+    <string name="onboarding_page2_hint">Select at least one direction to continue.</string>
+
+    <string name="onboarding_page3_title">You are ready</string>
+    <string name="onboarding_page3_body">Progress, settings and downloaded content stay on this device. You can replay this guide anytime from Me → Settings.</string>
+
+    <!-- 学习方向（与内容包 domain 一一对应） -->
+    <string name="direction_programming_basics">Programming basics</string>
+    <string name="direction_computing_thinking">Computational thinking</string>
+    <string name="direction_python">Python</string>
+    <string name="direction_javascript">JavaScript</string>
+    <string name="direction_git">Git</string>
+    <string name="direction_data_structures">Data structures</string>
+    <string name="direction_kotlin">Kotlin</string>
+    <string name="direction_android">Android</string>
+    <string name="direction_web">Web</string>
+    <string name="direction_networking">Networking basics</string>
+    <string name="direction_ai_basics">AI basics</string>
+    <string name="direction_vibe_coding">Vibe coding</string>
+
+    <!-- 我的 -->
+    <string name="profile_title">Me</string>
+    <string name="profile_stats_section">Learning progress</string>
+    <string name="profile_mastered">Mastered</string>
+    <string name="profile_learning">Learning</string>
+    <string name="profile_not_started">Not started</string>
+    <string name="profile_topics">Topics</string>
+    <string name="profile_terms">Terms</string>
+    <string name="profile_settings_section">Settings</string>
+
+    <string name="settings_appearance">Appearance</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+
+    <string name="settings_font_scale">Text size</string>
+    <string name="settings_reduce_motion">Reduce motion</string>
+    <string name="settings_reduce_motion_desc">Remove movement and scaling animations</string>
+
+    <string name="settings_bilingual">Bilingual mode</string>
+    <string name="bilingual_zh_only">Chinese</string>
+    <string name="bilingual_en_grammar">English grammar</string>
+    <string name="bilingual_side_by_side">Side by side</string>
+
+    <string name="settings_ai">AI settings</string>
+    <string name="settings_ai_desc">Configure Base URL, model and API key in the AI tab</string>
+    <string name="settings_direction">Learning directions</string>
+    <string name="settings_restart_onboarding">Replay the guide</string>
+    <string name="settings_library">Library and plugins</string>
+    <string name="settings_library_desc">Manage downloaded content packs and imports</string>
+    <string name="settings_about">About</string>
+    <string name="settings_diagnostic">Diagnostics</string>
+    <string name="settings_diagnostic_desc">Startup status, warnings and installed packs</string>
+    <string name="settings_storage">Storage used</string>
+
+    <!-- AI 设置说明（MVP：在 AI Tab 内配置） -->
+    <string name="ai_info_title">AI settings</string>
+    <string name="ai_info_body">AI runs as a direct OpenAI-compatible connection. Configure Base URL, model and API key in the AI tab. The key is encrypted with the Android Keystore and never stored as plain text; answers are suggestions, never verified results.</string>
+    <string name="ai_info_has_key">An API key is saved on this device.</string>
+    <string name="ai_info_no_key">No API key saved yet.</string>
+    <string name="ai_info_keystore_unavailable">The device keystore is unavailable, so the API key cannot be saved securely. It will not be stored as plain text.</string>
+    <string name="ai_info_go">Open AI tab</string>
+
+    <!-- 关于 -->
+    <string name="about_title">About CodeTree</string>
+    <string name="about_version">Version</string>
+    <string name="about_body">CodeTree is an offline-first programming learning app: knowledge graph, bilingual dictionary, whitelisted terminal and a bring-your-own-key AI assistant. No account, no cloud sync, no arbitrary code execution.</string>
+    <string name="about_content_sources">Content packs are installed locally and can be exported or removed at any time.</string>
+
+    <!-- 诊断 -->
+    <string name="diagnostic_title">Diagnostics</string>
+    <string name="diagnostic_content_ready">Content index</string>
+    <string name="diagnostic_ready">Ready</string>
+    <string name="diagnostic_not_ready">Not ready</string>
+    <string name="diagnostic_installed_packs">Installed packs</string>
+    <string name="diagnostic_warnings">Startup warnings</string>
+    <string name="diagnostic_none">None</string>
+    <string name="diagnostic_storage">Content storage</string>
+
+    <!-- 占位（feature 未落盘时；集成阶段替换） -->
+    <string name="placeholder_learn_title">Learn tab</string>
+    <string name="placeholder_learn_body">Knowledge tree and topic details are being implemented by T7. The entry point is already wired.</string>
+    <string name="placeholder_dictionary_title">Dictionary tab</string>
+    <string name="placeholder_dictionary_body">Search and term details are being implemented by T7. The entry point is already wired.</string>
+    <string name="placeholder_terminal_title">Terminal tab</string>
+    <string name="placeholder_terminal_body">Safe shell session UI is being implemented by T8. The entry point is already wired.</string>
+    <string name="placeholder_assistant_title">AI tab</string>
+    <string name="placeholder_assistant_body">Assistant UI is being implemented by T8. The entry point is already wired.</string>
+    <string name="placeholder_library_title">Library</string>
+    <string name="placeholder_library_body">Library and plugin management is being implemented by T8. The entry point is already wired.</string>
+</resources>

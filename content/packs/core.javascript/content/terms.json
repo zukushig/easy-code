@@ -1,0 +1,513 @@
+{
+  "terms": [
+    {
+      "id": "term.js.runtime",
+      "termType": "tool",
+      "displayName": {"zh-CN": "运行环境", "en": "Runtime"},
+      "aliases": [
+        {"text": "运行环境", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "runtime", "lang": "en", "matchType": "exact"},
+        {"text": "node", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "JavaScript 需要运行环境：浏览器提供 DOM / 事件，Node.js 提供文件与进程能力；同一段代码在不同环境可用的 API 不同。", "en": "JavaScript needs a runtime: browsers provide DOM and events, Node.js provides files and processes; available APIs differ per environment."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.hello"],
+      "relatedTermIds": ["term.js.dom", "term.js.module"],
+      "topicIds": ["js.getting-started"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.let",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "let", "en": "let"},
+      "aliases": [
+        {"text": "let", "lang": "en", "matchType": "exact"},
+        {"text": "let 声明", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "let 声明块级作用域、可重新赋值的变量。", "en": "let declares a block-scoped variable that can be reassigned."},
+      "syntaxRef": "syntax/javascript.json#let",
+      "exampleIds": ["example.js.hello"],
+      "relatedTermIds": ["term.js.const", "term.js.var"],
+      "topicIds": ["js.getting-started", "js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.const",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "const", "en": "const"},
+      "aliases": [
+        {"text": "const", "lang": "en", "matchType": "exact"},
+        {"text": "常量声明", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "const 声明块级作用域变量，绑定后不能重新赋值；对象或数组的内容仍可修改。", "en": "const declares a block-scoped binding that cannot be reassigned; the contents of objects and arrays may still change."},
+      "syntaxRef": "syntax/javascript.json#const",
+      "exampleIds": ["example.js.hello"],
+      "relatedTermIds": ["term.js.let"],
+      "topicIds": ["js.getting-started", "js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.var",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "var（遗留）", "en": "var (legacy)"},
+      "aliases": [
+        {"text": "var", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "var 是旧式声明，函数作用域且会提升到函数顶部；新代码应优先 let / const。", "en": "var is the old declaration form: function-scoped and hoisted; new code should prefer let / const."},
+      "syntaxRef": "syntax/javascript.json#var",
+      "exampleIds": [],
+      "relatedTermIds": ["term.js.let", "term.js.const"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.string",
+      "termType": "concept",
+      "displayName": {"zh-CN": "字符串", "en": "String"},
+      "aliases": [
+        {"text": "字符串", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "string", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "字符串是文本值，可用单引号、双引号或反引号（模板字符串）创建，length 取长度。", "en": "A string is a text value created with single quotes, double quotes, or backticks (template literal); length gives its size."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.types"],
+      "relatedTermIds": ["term.js.template-literal"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.number",
+      "termType": "concept",
+      "displayName": {"zh-CN": "数字", "en": "Number"},
+      "aliases": [
+        {"text": "数字", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "number", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "number 同时表示整数和浮点数（IEEE 754 双精度）；注意 0.1 + 0.2 !== 0.3 这类精度问题。", "en": "number covers both integers and floats (IEEE 754 double); beware precision issues such as 0.1 + 0.2 !== 0.3."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.types"],
+      "relatedTermIds": ["term.js.operator"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.boolean",
+      "termType": "concept",
+      "displayName": {"zh-CN": "布尔值", "en": "Boolean"},
+      "aliases": [
+        {"text": "布尔值", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "boolean", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "布尔值只有 true / false，条件语句和比较运算的结果都是布尔值。", "en": "Boolean has only true / false; conditions and comparisons produce booleans."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.types"],
+      "relatedTermIds": ["term.js.truthy-falsy"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.null",
+      "termType": "concept",
+      "displayName": {"zh-CN": "null", "en": "null"},
+      "aliases": [
+        {"text": "null", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "null 表示“故意设为空”；typeof null 返回 \"object\"，是历史遗留问题。", "en": "null means an intentional empty value; typeof null returns \"object\" due to a historical quirk."},
+      "syntaxRef": null,
+      "exampleIds": [],
+      "relatedTermIds": ["term.js.undefined"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.undefined",
+      "termType": "concept",
+      "displayName": {"zh-CN": "undefined", "en": "undefined"},
+      "aliases": [
+        {"text": "undefined", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "undefined 表示“还没有值”，常见于声明未初始化、函数没有 return、访问不存在的属性。", "en": "undefined means \"no value yet\", common for uninitialized declarations, functions without return, and missing properties."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.types"],
+      "relatedTermIds": ["term.js.null"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.object",
+      "termType": "concept",
+      "displayName": {"zh-CN": "对象", "en": "Object"},
+      "aliases": [
+        {"text": "对象", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "object", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "对象是键值对集合，用 obj.key 或 obj[\"key\"] 访问属性，可嵌套数组与其他对象。", "en": "An object is a collection of key-value pairs, accessed via obj.key or obj[\"key\"], and may nest arrays and other objects."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.object"],
+      "relatedTermIds": ["term.js.json", "term.js.array"],
+      "topicIds": ["js.objects"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.array",
+      "termType": "concept",
+      "displayName": {"zh-CN": "数组", "en": "Array"},
+      "aliases": [
+        {"text": "数组", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "array", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "数组是按索引（从 0 开始）存放多个值的有序集合，length 表示元素个数，push 在末尾追加。", "en": "An array is an ordered collection indexed from 0; length is the element count and push appends to the end."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.array-basics"],
+      "relatedTermIds": ["term.js.map", "term.js.object"],
+      "topicIds": ["js.arrays"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.function",
+      "termType": "concept",
+      "displayName": {"zh-CN": "函数", "en": "Function"},
+      "aliases": [
+        {"text": "函数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "function", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "函数是可调用的代码单元，接收参数、返回结果；在 JS 中函数也是值，可以赋值和传递。", "en": "A function is a callable unit taking arguments and returning a result; in JS functions are values that can be assigned and passed."},
+      "syntaxRef": "syntax/javascript.json#function",
+      "exampleIds": ["example.js.function-decl"],
+      "relatedTermIds": ["term.js.arrow-function", "term.js.callback", "term.js.closure"],
+      "topicIds": ["js.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.arrow-function",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "箭头函数", "en": "Arrow Function"},
+      "aliases": [
+        {"text": "箭头函数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "arrow function", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "箭头函数用 (参数) => 表达式 定义，没有自己的 this，适合短回调和函数式写法。", "en": "Arrow functions use (params) => expression, have no own this, and suit short callbacks and functional style."},
+      "syntaxRef": "syntax/javascript.json#arrow-function",
+      "exampleIds": ["example.js.arrow-function"],
+      "relatedTermIds": ["term.js.function", "term.js.callback"],
+      "topicIds": ["js.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.callback",
+      "termType": "concept",
+      "displayName": {"zh-CN": "回调函数", "en": "Callback"},
+      "aliases": [
+        {"text": "回调函数", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "callback", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "回调函数是作为参数传入、由另一段代码在适当时机调用的函数，是异步与事件处理的基础。", "en": "A callback is a function passed as an argument and invoked later by other code, foundational for async and events."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.array-methods"],
+      "relatedTermIds": ["term.js.function", "term.js.promise"],
+      "topicIds": ["js.functions", "js.array-methods", "js.async.promises"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.closure",
+      "termType": "concept",
+      "displayName": {"zh-CN": "闭包", "en": "Closure"},
+      "aliases": [
+        {"text": "闭包", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "closure", "lang": "en", "matchType": "exact"},
+        {"text": "bibao", "lang": "zh-CN", "matchType": "pinyin"}
+      ],
+      "definitions": {"zh-CN": "闭包是函数与其定义时作用域的组合：内部函数在外层函数返回后仍能访问外层变量。", "en": "A closure is a function together with its defining scope: an inner function can still access outer variables after the outer call returns."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.closure"],
+      "relatedTermIds": ["term.js.function", "term.js.arrow-function"],
+      "topicIds": ["js.functions"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.template-literal",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "模板字符串", "en": "Template Literal"},
+      "aliases": [
+        {"text": "模板字符串", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "template literal", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "模板字符串用反引号包围，${表达式} 可插入变量，支持多行文本。", "en": "A template literal is wrapped in backticks, supports ${expression} interpolation, and allows multi-line text."},
+      "syntaxRef": "syntax/javascript.json#template-literal",
+      "exampleIds": ["example.js.template-literal"],
+      "relatedTermIds": ["term.js.string"],
+      "topicIds": ["js.variables-types"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.truthy-falsy",
+      "termType": "concept",
+      "displayName": {"zh-CN": "真值与假值", "en": "Truthy and Falsy"},
+      "aliases": [
+        {"text": "真值与假值", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "truthy falsy", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "条件中会被当作 false 的值有 false、0、\"\"、null、undefined、NaN，其余为真值。", "en": "Values treated as false in conditions are false, 0, \"\", null, undefined, and NaN; everything else is truthy."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.if-else"],
+      "relatedTermIds": ["term.js.boolean", "term.js.operator"],
+      "topicIds": ["js.operators", "js.control-flow"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.operator",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "运算符", "en": "Operator"},
+      "aliases": [
+        {"text": "运算符", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "operator", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "运算符对值做运算；=== 严格相等（类型和值都相同），== 会先做隐式类型转换。", "en": "Operators compute on values; === is strict equality (same type and value) while == coerces types first."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.operators"],
+      "relatedTermIds": ["term.js.truthy-falsy"],
+      "topicIds": ["js.operators", "js.control-flow"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.map",
+      "termType": "api",
+      "displayName": {"zh-CN": "map", "en": "map"},
+      "aliases": [
+        {"text": "map", "lang": "en", "matchType": "exact"},
+        {"text": "Array.map", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "arr.map(fn) 对每个元素调用 fn，返回由结果组成的新数组，不修改原数组。", "en": "arr.map(fn) calls fn for each element and returns a new array of results without mutating the original."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.array-methods"],
+      "relatedTermIds": ["term.js.filter", "term.js.reduce"],
+      "topicIds": ["js.array-methods"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.filter",
+      "termType": "api",
+      "displayName": {"zh-CN": "filter", "en": "filter"},
+      "aliases": [
+        {"text": "filter", "lang": "en", "matchType": "exact"},
+        {"text": "Array.filter", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "arr.filter(fn) 保留回调返回真值的元素，返回新数组。", "en": "arr.filter(fn) keeps elements whose callback returns a truthy value and returns a new array."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.array-methods"],
+      "relatedTermIds": ["term.js.map", "term.js.reduce"],
+      "topicIds": ["js.array-methods"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.reduce",
+      "termType": "api",
+      "displayName": {"zh-CN": "reduce", "en": "reduce"},
+      "aliases": [
+        {"text": "reduce", "lang": "en", "matchType": "exact"},
+        {"text": "Array.reduce", "lang": "en", "matchType": "abbr"}
+      ],
+      "definitions": {"zh-CN": "arr.reduce(fn, initial) 用累加器把数组折叠成一个值，初始值能避免空数组报错。", "en": "arr.reduce(fn, initial) folds the array into one value with an accumulator; providing an initial value avoids empty-array errors."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.array-methods"],
+      "relatedTermIds": ["term.js.map", "term.js.filter"],
+      "topicIds": ["js.array-methods"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.promise",
+      "termType": "concept",
+      "displayName": {"zh-CN": "Promise", "en": "Promise"},
+      "aliases": [
+        {"text": "Promise", "lang": "en", "matchType": "exact"},
+        {"text": "承诺对象", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "Promise 表示异步操作的最终结果，状态为 pending / fulfilled / rejected 之一，用 then 与 catch 处理。", "en": "A Promise represents the eventual result of an async operation, being pending / fulfilled / rejected, handled with then and catch."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.promise"],
+      "relatedTermIds": ["term.js.async", "term.js.await", "term.js.callback"],
+      "topicIds": ["js.async.promises", "js.async.async-await"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.async",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "async", "en": "async"},
+      "aliases": [
+        {"text": "async", "lang": "en", "matchType": "exact"},
+        {"text": "async 函数", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "async 关键字把函数标记为异步：函数总是返回 Promise，内部可以使用 await。", "en": "async marks a function asynchronous: it always returns a Promise and may use await inside."},
+      "syntaxRef": "syntax/javascript.json#async",
+      "exampleIds": ["example.js.async-await"],
+      "relatedTermIds": ["term.js.await", "term.js.promise"],
+      "topicIds": ["js.async.async-await"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.await",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "await", "en": "await"},
+      "aliases": [
+        {"text": "await", "lang": "en", "matchType": "exact"},
+        {"text": "等待", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "await 等待 Promise 完成并返回结果；被 reject 时会像抛异常一样，需要 try / catch。", "en": "await pauses until a Promise settles and returns its value; a rejected Promise throws, so wrap it in try / catch."},
+      "syntaxRef": "syntax/javascript.json#await",
+      "exampleIds": ["example.js.async-await"],
+      "relatedTermIds": ["term.js.async", "term.js.promise"],
+      "topicIds": ["js.async.async-await"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.module",
+      "termType": "concept",
+      "displayName": {"zh-CN": "模块", "en": "Module"},
+      "aliases": [
+        {"text": "模块", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "module", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "模块是一个独立文件，有自己的作用域，通过 import / export 与其他模块交互。", "en": "A module is a separate file with its own scope, interacting with others through import / export."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.modules"],
+      "relatedTermIds": ["term.js.import-export"],
+      "topicIds": ["js.modules"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.import-export",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "import / export", "en": "import / export"},
+      "aliases": [
+        {"text": "import export", "lang": "en", "matchType": "exact"},
+        {"text": "导入导出", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "export 导出模块成员（命名或默认），import 从其他模块引入；依赖关系因此显式可见。", "en": "export exposes module members (named or default) and import brings them in, making dependencies explicit."},
+      "syntaxRef": "syntax/javascript.json#import",
+      "exampleIds": ["example.js.modules"],
+      "relatedTermIds": ["term.js.module"],
+      "topicIds": ["js.modules"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.dom",
+      "termType": "concept",
+      "displayName": {"zh-CN": "DOM", "en": "DOM"},
+      "aliases": [
+        {"text": "DOM", "lang": "en", "matchType": "exact"},
+        {"text": "文档对象模型", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "DOM 是浏览器把 HTML 解析成的节点树，JS 用 document.querySelector 等 API 查询和修改页面。", "en": "The DOM is the node tree browsers build from HTML; JS queries and modifies it with APIs such as document.querySelector."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.dom"],
+      "relatedTermIds": ["term.js.event", "term.js.runtime"],
+      "topicIds": ["js.dom.overview"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.event",
+      "termType": "concept",
+      "displayName": {"zh-CN": "事件", "en": "Event"},
+      "aliases": [
+        {"text": "事件", "lang": "zh-CN", "matchType": "exact"},
+        {"text": "event", "lang": "en", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "事件是用户或浏览器触发的动作（click、input 等）；addEventListener 注册回调来响应事件。", "en": "An event is an action from the user or browser (click, input, ...); addEventListener registers a callback to respond."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.dom"],
+      "relatedTermIds": ["term.js.dom", "term.js.callback"],
+      "topicIds": ["js.dom.overview"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.json",
+      "termType": "api",
+      "displayName": {"zh-CN": "JSON", "en": "JSON"},
+      "aliases": [
+        {"text": "JSON", "lang": "en", "matchType": "exact"},
+        {"text": "json 对象", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "JSON 是文本格式的数据交换标准；JSON.stringify 把值转成字符串，JSON.parse 把字符串还原。", "en": "JSON is a text data-interchange format; JSON.stringify converts values to text and JSON.parse parses text back."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.json"],
+      "relatedTermIds": ["term.js.object"],
+      "topicIds": ["js.objects"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "term.js.try-catch",
+      "termType": "syntax",
+      "displayName": {"zh-CN": "try / catch", "en": "try / catch"},
+      "aliases": [
+        {"text": "try catch", "lang": "en", "matchType": "exact"},
+        {"text": "异常处理", "lang": "zh-CN", "matchType": "exact"}
+      ],
+      "definitions": {"zh-CN": "try / catch 捕获运行时抛出的异常；catch 会收到 Error 对象，可读 name 与 message。", "en": "try / catch catches runtime exceptions; catch receives an Error with name and message."},
+      "syntaxRef": null,
+      "exampleIds": ["example.js.try-catch"],
+      "relatedTermIds": ["term.js.promise"],
+      "topicIds": ["js.errors-debugging"],
+      "source": "seed",
+      "contentVersion": "1.0.0",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

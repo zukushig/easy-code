@@ -1,0 +1,200 @@
+{
+  "examples": [
+    {
+      "id": "example.git.init",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "初始化一个仓库", "en": "Initializing a repository"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：先建目录，再 git init 生成 .git 仓库，git status 查看当前分支与文件状态。", "en": "Read-only (statically checked): create a directory, git init to create the .git repository, then git status shows branch and file states."},
+      "code": "mkdir my-project\ncd my-project\ngit init\ngit status",
+      "annotations": [
+        {"start": 31, "end": 39, "note": {"zh-CN": "git init 在当前目录创建仓库", "en": "git init creates a repository in the current directory"}},
+        {"start": 40, "end": 50, "note": {"zh-CN": "git status 查看状态", "en": "git status inspects state"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.status-add-commit",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "暂存并提交一次改动", "en": "Staging and committing a change"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：git add 把 notes.txt 放进暂存区，git commit -m 把暂存内容保存为一次提交。", "en": "Read-only (statically checked): git add stages notes.txt and git commit -m saves the staged content as a commit."},
+      "code": "git status\ngit add notes.txt\ngit commit -m \"Add notes\"",
+      "annotations": [
+        {"start": 11, "end": 18, "note": {"zh-CN": "git add 把改动放进暂存区", "en": "git add moves the change into the staging area"}},
+        {"start": 33, "end": 39, "note": {"zh-CN": "commit 只保存已暂存的内容", "en": "commit only saves staged content"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.commit-message",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "好的提交信息与不好的提交信息", "en": "Good and bad commit messages"},
+      "explanation": {"zh-CN": "仅阅读：好的提交信息说清改动内容和意图；update code 这类信息无法帮助别人理解历史。", "en": "Read-only: a good message states what changed and why; messages like \"update code\" do not help anyone read history."},
+      "code": "好的提交信息：\nfix: reject empty note titles\n\n不好的提交信息：\nupdate code",
+      "annotations": [
+        {"start": 0, "end": 6, "note": {"zh-CN": "说明这是提交信息格式", "en": "This line introduces the message format"}},
+        {"start": 8, "end": 11, "note": {"zh-CN": "type 前缀表示改动类别", "en": "The type prefix categorizes the change"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.log-diff",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "查看历史与差异", "en": "Inspecting history and diffs"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：git log --oneline 用单行查看提交历史；git diff HEAD~1 HEAD 对比上上次与最近一次提交。", "en": "Read-only (statically checked): git log --oneline lists commits one per line; git diff HEAD~1 HEAD compares the last two commits."},
+      "code": "git log --oneline\ngit diff HEAD~1 HEAD",
+      "annotations": [
+        {"start": 0, "end": 7, "note": {"zh-CN": "git log 查看提交历史", "en": "git log shows commit history"}},
+        {"start": 22, "end": 26, "note": {"zh-CN": "diff 对比两个快照", "en": "diff compares two snapshots"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.branch-switch",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "创建与切换分支", "en": "Creating and switching branches"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：git branch 创建分支但不切换；git switch 才是切换分支的推荐命令。", "en": "Read-only (statically checked): git branch creates without switching; git switch is the recommended way to switch."},
+      "code": "git branch feature-login\ngit switch feature-login\ngit branch",
+      "annotations": [
+        {"start": 4, "end": 10, "note": {"zh-CN": "branch 子命令用于分支操作", "en": "The branch subcommand manages branches"}},
+        {"start": 29, "end": 35, "note": {"zh-CN": "switch 切换当前分支", "en": "switch changes the current branch"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.merge-ff",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "把功能分支合并进 main", "en": "Merging a feature branch into main"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：在主分支上执行 merge；历史用 --graph 查看，快进合并不会产生新的合并提交。", "en": "Read-only (statically checked): run merge while on main; inspect with --graph — a fast-forward creates no merge commit."},
+      "code": "git switch main\ngit merge feature-login\ngit log --oneline --graph",
+      "annotations": [
+        {"start": 20, "end": 25, "note": {"zh-CN": "merge 把另一分支并入当前分支", "en": "merge brings another branch into the current one"}},
+        {"start": 58, "end": 65, "note": {"zh-CN": "--graph 可视化历史形状", "en": "--graph visualizes history shape"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.conflict",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "冲突标记的样子", "en": "What conflict markers look like"},
+      "explanation": {"zh-CN": "仅阅读：<<<<<<< 到 ======= 是当前分支（HEAD）的内容，======= 到 >>>>>>> 是另一分支的内容，需要人工决定保留哪个版本。", "en": "Read-only: <<<<<<< to ======= is the current branch (HEAD) version and ======= to >>>>>>> is the other branch's; a human decides what to keep."},
+      "code": "<<<<<<< HEAD\nnote title\n=======\nnote-title\n>>>>>>> feature-login",
+      "annotations": [
+        {"start": 0, "end": 7, "note": {"zh-CN": "当前分支内容从这里开始", "en": "Current branch content starts here"}},
+        {"start": 24, "end": 31, "note": {"zh-CN": "分隔两个版本的等号线", "en": "The separator line between versions"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.conflict-resolve",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "解决冲突的步骤", "en": "Resolving a conflict"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：编辑文件保留想要的内容并删除冲突标记，git add 标记为已解决，最后 git commit 完成合并。", "en": "Read-only (statically checked): edit the file to the desired content, delete the markers, git add to mark resolved, then git commit to finish the merge."},
+      "code": "# 1. 编辑文件，保留想要的内容并删除冲突标记\ngit add notes.md\n# 2. 继续合并\ngit commit",
+      "annotations": [
+        {"start": 25, "end": 32, "note": {"zh-CN": "git add 把文件标记为已解决", "en": "git add marks the file resolved"}},
+        {"start": 52, "end": 62, "note": {"zh-CN": "commit 完成这次合并", "en": "commit finishes the merge"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.remote-push",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "关联远端并推送", "en": "Adding a remote and pushing"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：remote add 登记远程地址并命名为 origin；push -u 首次推送并建立跟踪关系。", "en": "Read-only (statically checked): remote add registers the URL as origin; push -u uploads and sets up tracking."},
+      "code": "git remote add origin git@example.com:ada/notes.git\ngit push -u origin main",
+      "annotations": [
+        {"start": 4, "end": 10, "note": {"zh-CN": "remote 子命令管理远程仓库", "en": "The remote subcommand manages remotes"}},
+        {"start": 56, "end": 60, "note": {"zh-CN": "push 上传本地提交", "en": "push uploads local commits"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.fetch-pull",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "fetch 与 pull", "en": "fetch versus pull"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：fetch 只下载不合并；pull 等于 fetch 后再合并当前分支，--ff-only 要求只能快进。", "en": "Read-only (statically checked): fetch downloads without merging; pull fetches then merges, and --ff-only requires a fast-forward."},
+      "code": "git fetch origin\ngit pull --ff-only",
+      "annotations": [
+        {"start": 4, "end": 9, "note": {"zh-CN": "fetch 只更新远端跟踪分支", "en": "fetch only updates remote-tracking branches"}},
+        {"start": 21, "end": 25, "note": {"zh-CN": "pull 会同时合并", "en": "pull merges as well"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.reset-revert",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "本地撤销与已推送撤销", "en": "Undoing locally versus after pushing"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：reset --soft 撤销提交但保留改动；revert 生成反向提交，适合已经共享的历史。", "en": "Read-only (statically checked): reset --soft drops the commit but keeps changes; revert creates an inverse commit for shared history."},
+      "code": "# 撤销最近一次提交但保留文件改动\ngit reset --soft HEAD~1\n# 生成一个反向提交，历史保留\ngit revert HEAD",
+      "annotations": [
+        {"start": 18, "end": 27, "note": {"zh-CN": "reset 移动当前分支指针", "en": "reset moves the current branch pointer"}},
+        {"start": 59, "end": 69, "note": {"zh-CN": "revert 用新提交抵消旧提交", "en": "revert cancels an old commit with a new one"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.stash",
+      "language": "shell",
+      "languageVersion": "git 2.40",
+      "title": {"zh-CN": "用 stash 收起未完成改动", "en": "Shelving work with stash"},
+      "explanation": {"zh-CN": "仅阅读（静态检查）：stash 把未提交改动存到一边，工作区变干净；处理完其他事情后用 stash pop 恢复。", "en": "Read-only (statically checked): stash shelves uncommitted changes so the tree is clean; restore them later with stash pop."},
+      "code": "git stash push -m \"wip: notes\"\ngit switch main\ngit stash pop",
+      "annotations": [
+        {"start": 4, "end": 9, "note": {"zh-CN": "stash 临时保存改动", "en": "stash saves changes temporarily"}},
+        {"start": 57, "end": 60, "note": {"zh-CN": "pop 恢复并删除该条 stash", "en": "pop restores and drops that stash entry"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.pull-request",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "Pull Request 的四步", "en": "Four steps of a pull request"},
+      "explanation": {"zh-CN": "仅阅读：提交功能分支并推送 → 在托管平台建 PR → 按评审意见修改 → 通过后合并到主分支。", "en": "Read-only: commit and push the feature branch, open a PR on the host, address review comments, then merge into the main branch."},
+      "code": "1. 在功能分支上提交并推送\ngit push -u origin feature-login\n2. 在托管平台创建 Pull Request\n3. 请求评审，按评论修改\n4. 评审通过后合并到 main",
+      "annotations": [
+        {"start": 0, "end": 1, "note": {"zh-CN": "编号步骤", "en": "Numbered step"}},
+        {"start": 59, "end": 63, "note": {"zh-CN": "PR 是评审入口", "en": "The PR is the review entry point"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.git.feature-branch-workflow",
+      "language": "text",
+      "languageVersion": "N/A",
+      "title": {"zh-CN": "功能分支工作流命令序列", "en": "Feature-branch workflow commands"},
+      "explanation": {"zh-CN": "仅阅读：从 main 拉出功能分支、小步提交、推送、开 PR 评审、合并后切回 main 拉取最新代码。", "en": "Read-only: branch from main, commit in small steps, push, open a PR for review, then switch back to main and pull latest."},
+      "code": "1. git switch -c feature-x\n2. git add . && git commit -m \"feat: x\"\n3. git push -u origin feature-x\n4. open pull request and review\n5. git switch main && git pull",
+      "annotations": [
+        {"start": 3, "end": 6, "note": {"zh-CN": "第一步从主分支创建功能分支", "en": "Step one creates the feature branch from main"}},
+        {"start": 47, "end": 53, "note": {"zh-CN": "提交改动并附信息", "en": "Commit changes with a message"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    }
+  ]
+}

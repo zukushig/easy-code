@@ -1,0 +1,232 @@
+{
+  "topics": [
+    {
+      "id": "ds.overview",
+      "domain": "data-structures",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "数据结构概览", "en": "Data Structures Overview"},
+      "summary": {"zh-CN": "数据结构决定数据如何存储与访问；选择依据是你要做哪些操作、对速度和内存有什么要求。", "en": "A data structure decides how data is stored and accessed; choose based on which operations you need and your speed/memory requirements."},
+      "objectives": {
+        "zh-CN": ["说出数组、链表、栈、队列、哈希表、树、图的典型用途", "用 O 记号比较常见操作的代价", "根据需求选择一个合适的数据结构"],
+        "en": ["Name typical uses of arrays, lists, stacks, queues, hash tables, trees, and graphs", "Compare common operations with O notation", "Pick a suitable structure for a requirement"]
+      },
+      "contentRef": "content/topics.json#ds.overview",
+      "termIds": ["term.ds.array", "term.thinking.tradeoff", "term.thinking.big-o"],
+      "exampleIds": ["example.ds.complexity-table", "example.ds.array-access"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "为一个“撤销最近操作”的功能选择数据结构，并说明理由。", "en": "Choose a data structure for an \"undo the most recent action\" feature and justify it."},
+        "hint": {"zh-CN": "撤销总是操作“最近一个”，后进先出，栈最合适。", "en": "Undo always touches the most recent item (last in, first out), so a stack fits."}
+      }
+    },
+    {
+      "id": "ds.arrays",
+      "domain": "data-structures",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "数组与动态数组", "en": "Arrays and Dynamic Arrays"},
+      "summary": {"zh-CN": "数组在连续内存中存放元素，按下标访问 O(1)；动态数组可扩容，尾部追加平均 O(1)。", "en": "Arrays store elements in contiguous memory with O(1) indexed access; dynamic arrays grow and append at the end in amortized O(1)."},
+      "objectives": {
+        "zh-CN": ["说明数组下标访问为什么是 O(1)", "区分固定数组与动态数组", "分析中间插入/删除的代价"],
+        "en": ["Explain why indexed access is O(1)", "Distinguish fixed from dynamic arrays", "Analyze the cost of inserting or deleting in the middle"]
+      },
+      "contentRef": "content/topics.json#ds.arrays",
+      "termIds": ["term.ds.array", "term.ds.dynamic-array"],
+      "exampleIds": ["example.ds.array-access", "example.ds.dynamic-append"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "在长度 1000 的数组开头插入一个元素，大约要移动多少元素？中间插入呢？", "en": "Inserting at the front of an array of length 1000 moves about how many elements? What about the middle?"},
+        "hint": {"zh-CN": "开头要移动全部 1000 个；中间平均约 500 个。", "en": "Front insertion moves all 1000; middle insertion moves about 500 on average."}
+      }
+    },
+    {
+      "id": "ds.linked-list",
+      "domain": "data-structures",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "链表", "en": "Linked Lists"},
+      "summary": {"zh-CN": "链表由节点通过指针串起来，插入删除只需改指针，但按下标访问要逐个走，代价 O(n)。", "en": "A linked list chains nodes via pointers: insert/delete only rewires pointers, but indexed access walks node by node in O(n)."},
+      "objectives": {
+        "zh-CN": ["描述单链表的节点结构", "比较链表与数组在插入/访问上的差异", "遍历链表并读取每个节点的值"],
+        "en": ["Describe a singly linked node", "Compare lists and arrays for insertion and access", "Traverse a linked list and read values"]
+      },
+      "contentRef": "content/topics.json#ds.linked-list",
+      "termIds": ["term.ds.linked-list", "term.ds.node", "term.ds.pointer"],
+      "exampleIds": ["example.ds.linked-list"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "手写一个含 3 个节点的单链表结构，并说明如何删除中间节点。", "en": "Sketch a singly linked list with three nodes and explain how to delete the middle one."},
+        "hint": {"zh-CN": "找到前一个节点，把它 next 指向要删节点的 next，再释放节点。", "en": "Find the previous node, point its next to the target's next, and free the node."}
+      }
+    },
+    {
+      "id": "ds.stack",
+      "domain": "data-structures",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "栈", "en": "Stacks"},
+      "summary": {"zh-CN": "栈是后进先出（LIFO）的结构，只允许在顶部入栈 push 和出栈 pop；适合撤销、括号匹配、调用栈。", "en": "A stack is last-in-first-out (LIFO), with push and pop at the top; used for undo, bracket matching, and call stacks."},
+      "objectives": {
+        "zh-CN": ["用 push / pop 实现栈操作", "判断一个序列是否符合 LIFO 语义", "用栈解决括号匹配问题"],
+        "en": ["Implement stack operations with push / pop", "Decide whether a sequence fits LIFO semantics", "Solve bracket matching with a stack"]
+      },
+      "contentRef": "content/topics.json#ds.stack",
+      "termIds": ["term.ds.stack", "term.ds.lifo"],
+      "exampleIds": ["example.ds.stack", "example.ds.stack-parens"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用栈判断字符串 \"{[]}\" 和 \"{[(])}\" 的括号是否配对。", "en": "Use a stack to check whether brackets in \"{[]}\" and \"{[(])}\" are balanced."},
+        "hint": {"zh-CN": "左括号入栈；右括号要与栈顶匹配，遇到不匹配就失败。", "en": "Push open brackets; a closing bracket must match the top or it fails."}
+      }
+    },
+    {
+      "id": "ds.queue",
+      "domain": "data-structures",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "队列与双端队列", "en": "Queues and Deques"},
+      "summary": {"zh-CN": "队列是先进先出（FIFO）的结构，在队尾入队、队头出队；双端队列两端都能进出。", "en": "A queue is first-in-first-out (FIFO), enqueuing at the back and dequeuing at the front; a deque allows both ends."},
+      "objectives": {
+        "zh-CN": ["用 enqueue / dequeue 描述队列操作", "说明队列与栈的顺序差异", "用双端队列处理两端操作"],
+        "en": ["Describe queue operations as enqueue / dequeue", "Explain how queue order differs from stack order", "Use a deque for both-end operations"]
+      },
+      "contentRef": "content/topics.json#ds.queue",
+      "termIds": ["term.ds.queue", "term.ds.fifo", "term.ds.deque"],
+      "exampleIds": ["example.ds.queue"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "打印任务按先后顺序排队，应该用栈还是队列？解释原因。", "en": "Print jobs are processed in arrival order — stack or queue? Explain why."},
+        "hint": {"zh-CN": "先到的先打印是 FIFO，用队列。", "en": "First arrived prints first (FIFO), so use a queue."}
+      }
+    },
+    {
+      "id": "ds.hash-table",
+      "domain": "data-structures",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "哈希表", "en": "Hash Tables"},
+      "summary": {"zh-CN": "哈希表用哈希函数把键映射到桶，平均 O(1) 查找；碰撞和负载因子决定性能。", "en": "A hash table maps keys to buckets with a hash function for average O(1) lookup; collisions and load factor shape performance."},
+      "objectives": {
+        "zh-CN": ["说明哈希函数与桶的关系", "解释碰撞的常见处理方式", "说明负载因子为何触发扩容"],
+        "en": ["Explain the relation between hash functions and buckets", "Describe common collision handling", "Explain why load factor triggers resizing"]
+      },
+      "contentRef": "content/topics.json#ds.hash-table",
+      "termIds": ["term.ds.hash-table", "term.ds.hash-function", "term.ds.collision", "term.ds.load-factor"],
+      "exampleIds": ["example.ds.hash-count"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "用哈希表统计一个字符串里每个字符出现的次数，并说明最坏情况为什么会退化。", "en": "Count character frequencies with a hash table and explain why worst-case performance degrades."},
+        "hint": {"zh-CN": "最坏情况所有键都碰撞到同一个桶，查找退化为 O(n)。", "en": "If all keys collide into one bucket, lookup degrades to O(n)."}
+      }
+    },
+    {
+      "id": "ds.tree",
+      "domain": "data-structures",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "树", "en": "Trees"},
+      "summary": {"zh-CN": "树是分层结构：根、子节点、叶子；树适合表示层级关系，遍历分深度优先与广度优先。", "en": "A tree is hierarchical: root, children, leaves; it represents hierarchies and is traversed depth-first or breadth-first."},
+      "objectives": {
+        "zh-CN": ["说出根、叶子、父子关系", "区分二叉树与一般树", "用递归或队列完成一次遍历"],
+        "en": ["Name root, leaf, and parent-child relations", "Distinguish binary trees from general trees", "Traverse with recursion or a queue"]
+      },
+      "contentRef": "content/topics.json#ds.tree",
+      "termIds": ["term.ds.tree", "term.ds.root", "term.ds.leaf", "term.ds.binary-tree"],
+      "exampleIds": ["example.ds.tree-traversal"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "为目录结构设计一棵树的数据表示，写出每个节点的字段。", "en": "Design a tree representation for a directory structure and list each node's fields."},
+        "hint": {"zh-CN": "每个节点有 name 和 children 列表；文件节点 children 为空。", "en": "Each node has name and a children list; file nodes have empty children."}
+      }
+    },
+    {
+      "id": "ds.bst",
+      "domain": "data-structures",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "二叉搜索树", "en": "Binary Search Trees"},
+      "summary": {"zh-CN": "二叉搜索树中左子树都小于根、右子树都大于根，查找/插入平均 O(log n)，退化成链时是 O(n)。", "en": "In a BST all left descendants are smaller and right ones larger, giving O(log n) average lookup/insert, degrading to O(n) when skewed."},
+      "objectives": {
+        "zh-CN": ["判断一棵二叉树是否满足 BST 性质", "实现 BST 查找", "说明有序插入为什么会退化"],
+        "en": ["Check whether a binary tree satisfies the BST property", "Implement BST search", "Explain why sorted insertion degrades performance"]
+      },
+      "contentRef": "content/topics.json#ds.bst",
+      "termIds": ["term.ds.bst", "term.ds.tree-traversal"],
+      "exampleIds": ["example.ds.bst-search"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "依次插入 1、2、3、4 到 BST，画出树并说明查找复杂度为什么变差。", "en": "Insert 1, 2, 3, 4 into a BST in order, draw the tree, and explain why lookup degrades."},
+        "hint": {"zh-CN": "有序插入会形成一条链，树高 = n，查找退化为 O(n)。", "en": "Sorted insertion forms a chain of height n, so lookup degrades to O(n)."}
+      }
+    },
+    {
+      "id": "ds.graph",
+      "domain": "data-structures",
+      "difficulty": "advanced",
+      "title": {"zh-CN": "图", "en": "Graphs"},
+      "summary": {"zh-CN": "图由顶点和边组成，可分为有向/无向、带权/无权；常用邻接表或邻接矩阵表示，遍历用 BFS/DFS。", "en": "A graph has vertices and edges, directed or undirected, weighted or not; adjacency lists or matrices represent it, traversed by BFS/DFS."},
+      "objectives": {
+        "zh-CN": ["用邻接表表示一个图", "区分有向图与无向图", "用 BFS 按层遍历并标记已访问"],
+        "en": ["Represent a graph with an adjacency list", "Distinguish directed from undirected graphs", "Traverse level by level with BFS and visited marks"]
+      },
+      "contentRef": "content/topics.json#ds.graph",
+      "termIds": ["term.ds.graph", "term.ds.adjacency-list", "term.ds.adjacency-matrix", "term.ds.directed-graph"],
+      "exampleIds": ["example.ds.graph-bfs", "example.ds.adjacency-list"],
+      "estimatedMinutes": 30,
+      "exercise": {
+        "prompt": {"zh-CN": "为“城市之间的直达航班”建模：该用有向还是无向图？邻接表存什么？", "en": "Model direct flights between cities: directed or undirected? What does the adjacency list store?"},
+        "hint": {"zh-CN": "航班通常有方向（A→B 不等于 B→A），用有向图；邻接表键是出发城市，值是目的地列表。", "en": "Flights are usually directed; keys are origin cities and values are destination lists."}
+      }
+    },
+    {
+      "id": "ds.sorting",
+      "domain": "data-structures",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "排序", "en": "Sorting"},
+      "summary": {"zh-CN": "排序把元素按顺序重排；冒泡/插入排序 O(n²) 易理解，归并/快速排序平均 O(n log n) 更实用。", "en": "Sorting orders elements; bubble/insertion sort are O(n²) and easy to understand, while merge/quick sort are O(n log n) in practice."},
+      "objectives": {
+        "zh-CN": ["说明排序的稳定性意味着什么", "手写冒泡排序并分析复杂度", "为场景选择合适的排序方式"],
+        "en": ["Explain what sort stability means", "Write bubble sort and analyze its complexity", "Choose a suitable sort for a scenario"]
+      },
+      "contentRef": "content/topics.json#ds.sorting",
+      "termIds": ["term.ds.sorting", "term.ds.stable-sort", "term.thinking.complexity"],
+      "exampleIds": ["example.ds.bubble-sort"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "对 [5, 2, 9, 1] 手动执行一轮冒泡排序，写出每轮结束后的数组。", "en": "Run one bubble-sort pass on [5, 2, 9, 1] and write the array after each pass."},
+        "hint": {"zh-CN": "相邻两两比较，大的往后换；第一轮结束最大元素到末尾。", "en": "Compare adjacent pairs and swap larger right; the max reaches the end after pass one."}
+      }
+    },
+    {
+      "id": "ds.searching",
+      "domain": "data-structures",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "查找", "en": "Searching"},
+      "summary": {"zh-CN": "线性查找 O(n) 适用于无序数据；二分查找 O(log n) 要求数据已排序，每次排除一半区间。", "en": "Linear search is O(n) for unsorted data; binary search is O(log n) on sorted data, halving the range each step."},
+      "objectives": {
+        "zh-CN": ["实现线性查找并说明最坏情况", "实现二分查找并处理边界", "判断某场景能否使用二分查找"],
+        "en": ["Implement linear search and state its worst case", "Implement binary search with correct bounds", "Decide when binary search applies"]
+      },
+      "contentRef": "content/topics.json#ds.searching",
+      "termIds": ["term.ds.binary-search", "term.thinking.big-o"],
+      "exampleIds": ["example.ds.binary-search"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "对 [1, 3, 5, 7, 9] 查找 7，写出二分查找每一步的 low、high、middle。", "en": "Search 7 in [1, 3, 5, 7, 9] and write low, high, middle for each binary-search step."},
+        "hint": {"zh-CN": "初始 low=0、high=4、middle=2（值 5），7 更大，low 变成 3。", "en": "Start low=0, high=4, middle=2 (value 5); 7 is larger so low becomes 3."}
+      }
+    },
+    {
+      "id": "ds.tradeoffs",
+      "domain": "data-structures",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "数据结构选择与权衡", "en": "Choosing Data Structures and Trade-offs"},
+      "summary": {"zh-CN": "没有万能的容器：按主要操作、数据规模、内存限制选择；先用最常见的结构，再按测量结果优化。", "en": "No universal container: choose by dominant operations, data size, and memory limits; start simple and optimize from measurements."},
+      "objectives": {
+        "zh-CN": ["为主操作选择合适结构并说明代价", "比较数组、哈希表、树在查找上的复杂度", "避免为臆想的性能问题过早优化"],
+        "en": ["Pick a structure for dominant operations and state costs", "Compare array, hash table, and tree lookup complexity", "Avoid premature optimization for imagined problems"]
+      },
+      "contentRef": "content/topics.json#ds.tradeoffs",
+      "termIds": ["term.thinking.tradeoff", "term.ds.hash-table", "term.ds.dynamic-array"],
+      "exampleIds": ["example.ds.complexity-table", "example.ds.hash-count"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "为一千条笔记做“按标题快速查找 + 保持顺序展示”，说明为什么哈希表 + 数组都合理。", "en": "For 1000 notes needing fast lookup by title plus ordered display, explain why a hash table plus an array both make sense."},
+        "hint": {"zh-CN": "哈希表负责按标题 O(1) 定位，数组负责顺序遍历展示，各取所长。", "en": "The hash table gives O(1) title lookup; the array preserves order for display."}
+      }
+    }
+  ]
+}

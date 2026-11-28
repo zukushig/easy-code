@@ -1,0 +1,42 @@
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'docs/**'
+          - 'README.md'
+          - 'AGENTS.md'
+          - '*.md'
+
+workflows:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**'
+
+scripts:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'scripts/**'
+
+content:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'content/**'
+          - 'docs/05-*'
+
+android:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/**'
+          - 'core/**'
+          - 'feature/**'
+          - 'runtime/**'
+          - 'plugin-api/**'
+          - 'gradle/**'
+          - '*.gradle'
+          - '*.gradle.kts'
+          - 'settings.gradle*'
+
+security:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'docs/07-*'
+          - '.github/workflows/release.yml'

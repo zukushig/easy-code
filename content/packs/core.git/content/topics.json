@@ -1,0 +1,232 @@
+{
+  "topics": [
+    {
+      "id": "git.intro",
+      "domain": "git",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "版本控制与 Git", "en": "Version Control and Git"},
+      "summary": {"zh-CN": "版本控制记录文件的历史快照；Git 是分布式版本控制工具，提交（commit）是历史的最小单位。", "en": "Version control records snapshots of file history; Git is distributed, and a commit is the smallest unit of history."},
+      "objectives": {
+        "zh-CN": ["说明版本控制解决什么问题", "说出仓库、提交、分支三个核心概念", "解释分布式与集中式的差别"],
+        "en": ["Explain what version control solves", "Name repository, commit, and branch as core concepts", "Explain distributed versus centralized version control"]
+      },
+      "contentRef": "content/topics.json#git.intro",
+      "termIds": ["term.git.repository", "term.git.commit"],
+      "exampleIds": ["example.git.init"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "用自己的话说明：为什么改代码前要提交一次，而不是一直改到满意再提交？", "en": "In your own words: why commit before big changes instead of waiting until everything looks right?"},
+        "hint": {"zh-CN": "提交是安全点：出问题时可以回到上一个提交，也方便对比改动。", "en": "A commit is a safe point: you can return to it and diff changes easily."}
+      }
+    },
+    {
+      "id": "git.repo-setup",
+      "domain": "git",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "创建与克隆仓库", "en": "Creating and Cloning Repositories"},
+      "summary": {"zh-CN": "git init 在本地新建仓库，git clone 把远端仓库复制到本地；.gitignore 排除不该提交的文件。", "en": "git init creates a local repository, git clone copies a remote one, and .gitignore excludes files that should not be committed."},
+      "objectives": {
+        "zh-CN": ["用 git init 初始化仓库", "用 git clone 获取远端仓库", "写 .gitignore 排除构建产物与密钥"],
+        "en": ["Initialize a repository with git init", "Clone a remote repository", "Write .gitignore for build output and secrets"]
+      },
+      "contentRef": "content/topics.json#git.repo-setup",
+      "termIds": ["term.git.repository", "term.git.clone", "term.git.gitignore"],
+      "exampleIds": ["example.git.init"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "写出初始化仓库、创建 .gitignore（忽略 *.log 和 .env）的两条命令/文件内容。", "en": "Write the commands/file content to initialize a repo and a .gitignore ignoring *.log and .env."},
+        "hint": {"zh-CN": "git init 之后新建 .gitignore 文件，每行一个模式。", "en": "After git init, create .gitignore with one pattern per line."}
+      }
+    },
+    {
+      "id": "git.staging",
+      "domain": "git",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "工作区与暂存区", "en": "Working Tree and Staging Area"},
+      "summary": {"zh-CN": "Git 有三个区域：工作区、暂存区、仓库；git add 把改动放进暂存区，git status 显示它们的状态。", "en": "Git has three areas: working tree, staging area, and repository; git add stages changes and git status shows their state."},
+      "objectives": {
+        "zh-CN": ["说出工作区、暂存区、仓库的区别", "用 git status 判断文件处于哪个状态", "用 git add 选择性暂存"],
+        "en": ["Distinguish working tree, staging area, and repository", "Use git status to tell a file's state", "Stage selectively with git add"]
+      },
+      "contentRef": "content/topics.json#git.staging",
+      "termIds": ["term.git.working-tree", "term.git.staging-area", "term.git.commit"],
+      "exampleIds": ["example.git.status-add-commit"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "解释：为什么 git status 里同一个文件会同时出现“已暂存”和“未暂存”两种改动？", "en": "Explain why one file can appear as both staged and unstaged in git status."},
+        "hint": {"zh-CN": "暂存之后又修改了文件，新改动留在工作区，所以会出现两份差异。", "en": "If you edit after staging, the new edit stays in the working tree, producing two diffs."}
+      }
+    },
+    {
+      "id": "git.commits",
+      "domain": "git",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "提交与提交信息", "en": "Commits and Commit Messages"},
+      "summary": {"zh-CN": "git commit 把暂存区的改动保存为一个快照，并附上提交信息；信息应说明“改了什么、为什么”。", "en": "git commit saves staged changes as a snapshot with a message describing what changed and why."},
+      "objectives": {
+        "zh-CN": ["创建一次提交", "写清一个提交信息", "说明一次提交只做一件事的好处"],
+        "en": ["Create a commit", "Write a clear commit message", "Explain the benefit of one-commit-one-purpose"]
+      },
+      "contentRef": "content/topics.json#git.commits",
+      "termIds": ["term.git.commit", "term.git.commit-message"],
+      "exampleIds": ["example.git.status-add-commit", "example.git.commit-message"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "为“修复笔记标题为空时崩溃”这个改动写一条提交信息（英文或中文均可）。", "en": "Write a commit message for \"fix crash when a note title is empty\" (English or Chinese)."},
+        "hint": {"zh-CN": "推荐格式：type: 简短说明，例如 fix: reject empty note titles。", "en": "A common format is type: short summary, e.g. fix: reject empty note titles."}
+      }
+    },
+    {
+      "id": "git.history",
+      "domain": "git",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "查看历史与差异", "en": "Inspecting History and Diffs"},
+      "summary": {"zh-CN": "git log 查看提交历史，git diff 查看改动内容；先看差异再提交能避免误提交。", "en": "git log shows commit history and git diff shows changes; reviewing diffs before committing avoids accidents."},
+      "objectives": {
+        "zh-CN": ["用 git log --oneline 浏览历史", "用 git diff 对比工作区与暂存区", "在提交前审查自己的改动"],
+        "en": ["Browse history with git log --oneline", "Compare working tree and staging area with git diff", "Review your own changes before committing"]
+      },
+      "contentRef": "content/topics.json#git.history",
+      "termIds": ["term.git.diff", "term.git.commit"],
+      "exampleIds": ["example.git.log-diff"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "说明 git diff、git diff --staged、git show <commit> 三个命令各自比较什么。", "en": "Explain what git diff, git diff --staged, and git show <commit> each compare."},
+        "hint": {"zh-CN": "工作区 vs 暂存区、暂存区 vs 最新提交、某个提交的内容。", "en": "Working tree vs staging, staging vs last commit, and a specific commit's contents."}
+      }
+    },
+    {
+      "id": "git.branches",
+      "domain": "git",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "分支", "en": "Branches"},
+      "summary": {"zh-CN": "分支指向某条提交线，让并行开发互不干扰；HEAD 指向当前所在分支。", "en": "A branch points at a line of commits so parallel work stays separate; HEAD points at the current branch."},
+      "objectives": {
+        "zh-CN": ["创建和切换分支", "说明 HEAD 的含义", "在主分支之外开发新功能"],
+        "en": ["Create and switch branches", "Explain what HEAD means", "Develop a feature outside the main branch"]
+      },
+      "contentRef": "content/topics.json#git.branches",
+      "termIds": ["term.git.branch", "term.git.main-branch", "term.git.head", "term.git.rebase"],
+      "exampleIds": ["example.git.branch-switch"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "从 main 创建 feature-login 分支，切换过去，再切回 main，写出三条命令。", "en": "Create feature-login from main, switch to it, then switch back to main — write the three commands."},
+        "hint": {"zh-CN": "git switch -c feature-login；git switch feature-login；git switch main。", "en": "git switch -c feature-login; git switch feature-login; git switch main."}
+      }
+    },
+    {
+      "id": "git.merging",
+      "domain": "git",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "合并分支", "en": "Merging Branches"},
+      "summary": {"zh-CN": "git merge 把一个分支的提交并入当前分支；能快进时直接前移指针，否则生成合并提交。", "en": "git merge brings another branch's commits into the current branch: fast-forward when possible, otherwise a merge commit."},
+      "objectives": {
+        "zh-CN": ["把功能分支合并回 main", "区分快进合并与三方合并", "说明合并提交的作用"],
+        "en": ["Merge a feature branch back into main", "Distinguish fast-forward from three-way merge", "Explain the role of a merge commit"]
+      },
+      "contentRef": "content/topics.json#git.merging",
+      "termIds": ["term.git.merge", "term.git.merge-commit", "term.git.branch"],
+      "exampleIds": ["example.git.merge-ff"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "先合并 feature-login，再用 git log --oneline --graph 观察历史形状，描述快进发生了什么。", "en": "Merge feature-login, then inspect with git log --oneline --graph and describe what fast-forward did."},
+        "hint": {"zh-CN": "快进时 main 只是移动到 feature-login 的位置，不产生新提交。", "en": "During fast-forward, main simply moves to feature-login's tip with no new commit."}
+      }
+    },
+    {
+      "id": "git.conflicts",
+      "domain": "git",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "解决冲突", "en": "Resolving Conflicts"},
+      "summary": {"zh-CN": "两个分支改了同一处时合并会产生冲突，Git 在文件中写入冲突标记，需要人工选择保留内容。", "en": "When both branches change the same place, merging conflicts; Git writes conflict markers into the file for humans to resolve."},
+      "objectives": {
+        "zh-CN": ["认出冲突标记的结构", "选择或合并双方改动并删除标记", "用 git add / git commit 完成冲突解决"],
+        "en": ["Recognize the structure of conflict markers", "Choose or combine both sides and delete markers", "Finish resolution with git add / git commit"]
+      },
+      "contentRef": "content/topics.json#git.conflicts",
+      "termIds": ["term.git.conflict", "term.git.conflict-marker", "term.git.merge"],
+      "exampleIds": ["example.git.conflict", "example.git.conflict-resolve"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "给定一段含 <<<<<<< / ======= / >>>>>>> 的文件，说明解决冲突的完整步骤。", "en": "Given a file containing <<<<<<< / ======= / >>>>>>>, describe the full conflict resolution steps."},
+        "hint": {"zh-CN": "编辑保留目标内容 → 删除三个标记 → git add 该文件 → git commit 完成合并。", "en": "Edit to the desired content, remove all three markers, git add the file, then git commit."}
+      }
+    },
+    {
+      "id": "git.remotes",
+      "domain": "git",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "远程仓库", "en": "Remote Repositories"},
+      "summary": {"zh-CN": "远程仓库是团队共享的 Git 仓库；fetch 只下载、pull 拉取并合并、push 上传本地提交。", "en": "A remote is a shared Git repository: fetch downloads, pull downloads and merges, and push uploads local commits."},
+      "objectives": {
+        "zh-CN": ["添加并查看远程仓库", "区分 fetch 与 pull", "安全地 push 到共享分支"],
+        "en": ["Add and inspect remotes", "Distinguish fetch from pull", "Push safely to shared branches"]
+      },
+      "contentRef": "content/topics.json#git.remotes",
+      "termIds": ["term.git.remote", "term.git.origin", "term.git.fetch", "term.git.pull", "term.git.push"],
+      "exampleIds": ["example.git.remote-push", "example.git.fetch-pull"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "解释 fetch 之后还需要做什么才能让本地分支包含远端改动，pull 又是如何一步完成的。", "en": "Explain what is still needed after fetch for a local branch to include remote changes, and how pull does it in one step."},
+        "hint": {"zh-CN": "fetch 只更新远程跟踪分支；还要 merge 或 rebase。pull 等于 fetch + merge。", "en": "fetch only updates remote-tracking branches; you still merge or rebase. pull is fetch plus merge."}
+      }
+    },
+    {
+      "id": "git.rollback",
+      "domain": "git",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "回滚与撤销", "en": "Rollback and Undo"},
+      "summary": {"zh-CN": "reset 移动分支指针、revert 生成反向提交、stash 临时收起改动；已推送的历史优先用 revert。", "en": "reset moves the branch pointer, revert creates an inverse commit, and stash shelves changes; prefer revert for pushed history."},
+      "objectives": {
+        "zh-CN": ["区分 soft / mixed / hard reset", "用 revert 撤销已推送的提交", "用 stash 暂存未完成改动"],
+        "en": ["Distinguish soft / mixed / hard reset", "Undo a pushed commit with revert", "Shelve work in progress with stash"]
+      },
+      "contentRef": "content/topics.json#git.rollback",
+      "termIds": ["term.git.reset", "term.git.revert", "term.git.stash"],
+      "exampleIds": ["example.git.reset-revert", "example.git.stash"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "想撤销刚做的本地提交但保留改动，该用哪条命令？想撤销已经推送到远端的提交呢？", "en": "Which command undoes the latest local commit but keeps the changes? And for a commit already pushed?"},
+        "hint": {"zh-CN": "本地用 git reset --soft HEAD~1；已推送用 git revert HEAD。", "en": "Locally use git reset --soft HEAD~1; for pushed history use git revert HEAD."}
+      }
+    },
+    {
+      "id": "git.pull-requests",
+      "domain": "git",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "Pull Request 流程", "en": "Pull Request Flow"},
+      "summary": {"zh-CN": "Pull Request 把功能分支的改动提交评审：先推送分支，再创建 PR，评审通过后合并到主分支。", "en": "A pull request submits a feature branch for review: push the branch, open a PR, and merge to the main branch after approval."},
+      "objectives": {
+        "zh-CN": ["描述从分支到 PR 到合并的流程", "写出清晰的 PR 描述（改了什么、怎么验证）", "回应评审意见并更新 PR"],
+        "en": ["Describe the branch-to-PR-to-merge flow", "Write a clear PR description (what changed, how verified)", "Address review comments and update the PR"]
+      },
+      "contentRef": "content/topics.json#git.pull-requests",
+      "termIds": ["term.git.pull-request", "term.git.branch", "term.git.remote"],
+      "exampleIds": ["example.git.pull-request"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "为“修复登录页空密码崩溃”的 PR 写一个三段式描述：背景、改动、验证。", "en": "Write a three-part PR description for \"fix empty-password crash on login\": context, change, verification."},
+        "hint": {"zh-CN": "验证部分写具体命令/结果，例如“新增单测 test_login_empty_password，全部通过”。", "en": "Verification should name concrete commands/results, e.g. a new unit test passing."}
+      }
+    },
+    {
+      "id": "git.workflows",
+      "domain": "git",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "常见 Git 工作流", "en": "Common Git Workflows"},
+      "summary": {"zh-CN": "功能分支工作流：从 main 拉分支、小步提交、推送、PR、合并、删除分支；rebase 与 tag 用于保持历史整洁与发布。", "en": "Feature-branch workflow: branch from main, commit in small steps, push, open a PR, merge, delete the branch; rebase and tags keep history and releases clean."},
+      "objectives": {
+        "zh-CN": ["按功能分支工作流完成一次完整改动", "说明 rebase 与 merge 对历史的影响", "用 tag 标记发布版本"],
+        "en": ["Complete a change via the feature-branch workflow", "Explain how rebase and merge affect history", "Mark releases with tags"]
+      },
+      "contentRef": "content/topics.json#git.workflows",
+      "termIds": ["term.git.branch", "term.git.rebase", "term.git.tag", "term.git.pull-request"],
+      "exampleIds": ["example.git.feature-branch-workflow", "example.git.pull-request"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "写出一个功能从开始到合并的完整命令序列（至少 6 步），并标出哪一步需要人工评审。", "en": "Write the full command sequence for a feature from start to merge (at least 6 steps), marking where human review happens."},
+        "hint": {"zh-CN": "switch -c → 修改 → add → commit → push → PR → 评审 → merge → 删分支。", "en": "switch -c, edit, add, commit, push, PR, review, merge, delete the branch."}
+      }
+    }
+  ]
+}

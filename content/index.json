@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "tools/content/build_dist.py",
+  "publishedAt": "2026-01-01T00:00:00Z",
+  "packCount": 12,
+  "packs": [
+    {
+      "packId": "core.ai-basics",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.ai-basics-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.android",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.android-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.computing-thinking",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.computing-thinking-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.data-structures",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.data-structures-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.git",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.git-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.javascript",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.javascript-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.kotlin",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.kotlin-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.networking",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.networking-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.programming-basics",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.programming-basics-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.python",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.python-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.vibe-coding",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.vibe-coding-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    },
+    {
+      "packId": "core.web",
+      "version": "1.0.0",
+      "entry": "content/topics.json",
+      "file": "content/dist/core.web-1.0.0.codepack",
+      "locales": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ]
+}

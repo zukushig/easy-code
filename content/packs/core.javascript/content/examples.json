@@ -1,0 +1,272 @@
+{
+  "examples": [
+    {
+      "id": "example.js.hello",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "Hello, JavaScript", "en": "Hello, JavaScript"},
+      "explanation": {"zh-CN": "console.log 把值输出到控制台；let 声明可重新赋值的变量。", "en": "console.log writes a value to the console; let declares a reassignable variable."},
+      "code": "let message = \"Hello, CodeTree\";\nconsole.log(message);",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "let 声明变量", "en": "let declares a variable"}},
+        {"start": 4, "end": 11, "note": {"zh-CN": "变量名 message", "en": "The variable name message"}}
+      ],
+      "expectedOutput": "Hello, CodeTree",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.types",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "用 typeof 查看类型", "en": "Checking types with typeof"},
+      "explanation": {"zh-CN": "typeof 返回类型的字符串名：number、string、boolean；注意 typeof null 会返回 \"object\"。", "en": "typeof returns a type name string: number, string, boolean; note that typeof null returns \"object\"."},
+      "code": "const n = 42;\nconst price = 9.9;\nconst label = \"JS\";\nconst ok = true;\nconsole.log(typeof n, typeof label, typeof ok);",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 声明常量", "en": "const declares a constant binding"}},
+        {"start": 84, "end": 90, "note": {"zh-CN": "typeof 返回类型名", "en": "typeof returns the type name"}}
+      ],
+      "expectedOutput": "number string boolean",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.template-literal",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "模板字符串插值", "en": "Template literal interpolation"},
+      "explanation": {"zh-CN": "反引号包围的模板字符串用 ${...} 插入变量，比字符串拼接更清晰。", "en": "A backtick template literal inserts variables with ${...}, clearer than string concatenation."},
+      "code": "const name = \"Ada\";\nconst age = 36;\nconsole.log(`${name} is ${age}`);",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 声明", "en": "const declaration"}},
+        {"start": 50, "end": 51, "note": {"zh-CN": "反引号开始模板字符串", "en": "Backtick starts a template literal"}}
+      ],
+      "expectedOutput": "Ada is 36",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.operators",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "== 与 === 的区别", "en": "Difference between == and ==="},
+      "explanation": {"zh-CN": "1 == \"1\" 会先把字符串转成数字，结果为 true；1 === \"1\" 类型不同，结果为 false。", "en": "1 == \"1\" coerces the string to a number and gives true; 1 === \"1\" has different types and gives false."},
+      "code": "console.log(1 + 2);\nconsole.log(1 == \"1\");\nconsole.log(1 === \"1\");",
+      "annotations": [
+        {"start": 35, "end": 37, "note": {"zh-CN": "== 会做隐式类型转换", "en": "== performs implicit coercion"}},
+        {"start": 59, "end": 62, "note": {"zh-CN": "=== 要求类型和值都相同", "en": "=== requires the same type and value"}}
+      ],
+      "expectedOutput": "3\ntrue\nfalse",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.if-else",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "if / else 条件分支", "en": "if / else branches"},
+      "explanation": {"zh-CN": "85 >= 60 为真，执行 if 分支输出 pass；else 分支被跳过。", "en": "85 >= 60 is true, so the if branch prints pass and the else branch is skipped."},
+      "code": "const score = 85;\nif (score >= 60) {\n  console.log(\"pass\");\n} else {\n  console.log(\"fail\");\n}",
+      "annotations": [
+        {"start": 18, "end": 20, "note": {"zh-CN": "if 后的条件决定分支", "en": "The condition after if decides the branch"}},
+        {"start": 62, "end": 66, "note": {"zh-CN": "条件为假时进入 else", "en": "else runs when the condition is false"}}
+      ],
+      "expectedOutput": "pass",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.for-loop",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "for 循环", "en": "for loops"},
+      "explanation": {"zh-CN": "for (初始化; 条件; 更新) 三段控制循环：i 从 1 开始，每次 +1，直到超过 3。", "en": "for (init; condition; update) has three parts: i starts at 1, increments by 1, and stops when it exceeds 3."},
+      "code": "for (let i = 1; i <= 3; i++) {\n  console.log(i);\n}",
+      "annotations": [
+        {"start": 0, "end": 3, "note": {"zh-CN": "for 关键字", "en": "The for keyword"}},
+        {"start": 24, "end": 27, "note": {"zh-CN": "i++ 在每轮结束后自增", "en": "i++ increments after each iteration"}}
+      ],
+      "expectedOutput": "1\n2\n3",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.function-decl",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "函数声明与返回", "en": "Function declaration and return"},
+      "explanation": {"zh-CN": "function 声明一个具名函数，return 把结果交回调用处；add(2, 3) 返回 5。", "en": "function declares a named function and return hands the result back; add(2, 3) returns 5."},
+      "code": "function add(a, b) {\n  return a + b;\n}\n\nconsole.log(add(2, 3));",
+      "annotations": [
+        {"start": 0, "end": 8, "note": {"zh-CN": "function 开始函数声明", "en": "function starts a declaration"}},
+        {"start": 23, "end": 29, "note": {"zh-CN": "return 返回结果", "en": "return gives the result"}}
+      ],
+      "expectedOutput": "5",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.arrow-function",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "箭头函数", "en": "Arrow functions"},
+      "explanation": {"zh-CN": "箭头函数用 (参数) => 表达式；单参数可省略括号，单表达式可省略 return。", "en": "Arrow functions use (params) => expression; a single parameter may omit parentheses and a single expression may omit return."},
+      "code": "const double = (n) => n * 2;\nconsole.log(double(5));\nconst greet = (name) => `Hi, ${name}`;\nconsole.log(greet(\"Ada\"));",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 声明函数值", "en": "A function value declared with const"}},
+        {"start": 19, "end": 21, "note": {"zh-CN": "=> 连接参数和函数体", "en": "=> connects parameters to the body"}}
+      ],
+      "expectedOutput": "10\nHi, Ada",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.closure",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "闭包保存状态", "en": "Closures keep state"},
+      "explanation": {"zh-CN": "makeCounter 返回的内部函数保留了 count 变量；每次调用 counter() 都让同一个 count 加 1，所以输出 1、2。", "en": "The inner function returned by makeCounter closes over count; each counter() call increments the same count, so it prints 1 then 2."},
+      "code": "function makeCounter() {\n  let count = 0;\n  return function () {\n    count += 1;\n    return count;\n  };\n}\n\nconst counter = makeCounter();\nconsole.log(counter());\nconsole.log(counter());",
+      "annotations": [
+        {"start": 0, "end": 8, "note": {"zh-CN": "外层函数", "en": "The outer function"}},
+        {"start": 27, "end": 30, "note": {"zh-CN": "被闭包捕获的变量", "en": "The variable captured by the closure"}}
+      ],
+      "expectedOutput": "1\n2",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.object",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "对象的读写", "en": "Reading and writing objects"},
+      "explanation": {"zh-CN": "user.name 用点号访问，user[\"age\"] 用方括号访问；两种写法等价。", "en": "user.name uses dot access and user[\"age\"] uses bracket access; both are equivalent."},
+      "code": "const user = {\n  name: \"Ada\",\n  age: 36,\n};\nconsole.log(user.name);\nconsole.log(user[\"age\"]);",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 声明对象", "en": "An object declared with const"}},
+        {"start": 6, "end": 10, "note": {"zh-CN": "对象变量 user", "en": "The object variable user"}}
+      ],
+      "expectedOutput": "Ada\n36",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.array-basics",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "数组的基本操作", "en": "Basic array operations"},
+      "explanation": {"zh-CN": "push 末尾追加，length 取长度，[1] 取第二项，join 用分隔符拼成字符串。", "en": "push appends, length counts, [1] reads the second item, and join builds a delimited string."},
+      "code": "const fruits = [\"apple\", \"banana\"];\nfruits.push(\"cherry\");\nconsole.log(fruits.length);\nconsole.log(fruits[1]);\nconsole.log(fruits.join(\"|\"));",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 声明数组", "en": "An array declared with const"}},
+        {"start": 43, "end": 47, "note": {"zh-CN": "push 原地追加元素", "en": "push appends in place"}}
+      ],
+      "expectedOutput": "3\nbanana\napple|banana|cherry",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.array-methods",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "map / filter / reduce", "en": "map / filter / reduce"},
+      "explanation": {"zh-CN": "map 把每个元素乘 2，filter 保留偶数，reduce 从 0 开始累加得到 10；这些方法都不修改原数组。", "en": "map doubles each element, filter keeps evens, and reduce sums from 0 to 10; none of them mutate the original array."},
+      "code": "const numbers = [1, 2, 3, 4];\nconst doubled = numbers.map((n) => n * 2);\nconst evens = numbers.filter((n) => n % 2 === 0);\nconst total = numbers.reduce((sum, n) => sum + n, 0);\nconsole.log(doubled.join(\",\"));\nconsole.log(evens.join(\",\"));\nconsole.log(total);",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "原数组不被修改", "en": "The original array stays unchanged"}},
+        {"start": 55, "end": 58, "note": {"zh-CN": "map 用回调转换每个元素", "en": "map transforms each element via the callback"}}
+      ],
+      "expectedOutput": "2,4,6,8\n2,4\n10",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.promise",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "Promise 与 then", "en": "Promises and then"},
+      "explanation": {"zh-CN": "new Promise 在 10ms 后 resolve(\"done\")；then 的回调在 Promise 完成后执行并输出结果。", "en": "new Promise resolves with \"done\" after 10ms; the then callback runs once the Promise settles and prints the value."},
+      "code": "const task = new Promise((resolve) => {\n  setTimeout(() => resolve(\"done\"), 10);\n});\n\ntask.then((value) => {\n  console.log(value);\n});",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 接收 Promise 对象", "en": "A Promise held in a const"}},
+        {"start": 92, "end": 96, "note": {"zh-CN": "then 注册成功回调", "en": "then registers the success callback"}}
+      ],
+      "expectedOutput": "done",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.async-await",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "async / await 读取结果", "en": "Reading results with async / await"},
+      "explanation": {"zh-CN": "await 等待 fetchValue() 返回的 Promise 完成，value 得到 42；async 函数内部才能使用 await。", "en": "await waits for the Promise from fetchValue() and value becomes 42; await is only allowed inside async functions."},
+      "code": "function fetchValue() {\n  return Promise.resolve(42);\n}\n\nasync function main() {\n  const value = await fetchValue();\n  console.log(value);\n}\n\nmain();",
+      "annotations": [
+        {"start": 0, "end": 8, "note": {"zh-CN": "普通函数返回 Promise", "en": "A plain function returning a Promise"}},
+        {"start": 98, "end": 103, "note": {"zh-CN": "await 等待 Promise 结果", "en": "await waits for the Promise result"}}
+      ],
+      "expectedOutput": "42",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.try-catch",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "try / catch 与 JSON.parse", "en": "try / catch with JSON.parse"},
+      "explanation": {"zh-CN": "合法 JSON 返回 true；非法 JSON 让 JSON.parse 抛出 SyntaxError，被 catch 捕获后输出错误名，函数返回 null。", "en": "Valid JSON returns true; invalid JSON makes JSON.parse throw SyntaxError, which catch handles by printing the name and returning null."},
+      "code": "function parse(text) {\n  try {\n    const value = JSON.parse(text);\n    return value.ok;\n  } catch (error) {\n    console.log(\"invalid json: \" + error.name);\n    return null;\n  }\n}\n\nconsole.log(parse(\"{\\\"ok\\\": true}\"));\nconsole.log(parse(\"not json\"));",
+      "annotations": [
+        {"start": 0, "end": 8, "note": {"zh-CN": "普通函数定义", "en": "A plain function definition"}},
+        {"start": 89, "end": 94, "note": {"zh-CN": "catch 捕获指定异常对象", "en": "catch receives the thrown error object"}}
+      ],
+      "expectedOutput": "true\ninvalid json: SyntaxError\nnull",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.modules",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "ES Module 的导出与导入", "en": "ES module export and import"},
+      "explanation": {"zh-CN": "仅阅读（跨文件，静态检查）：math.js 用 export 命名导出 add，main.js 用 import 引入；模块有独立作用域。", "en": "Read-only (two files, statically checked): math.js exports add by name and main.js imports it; modules have their own scope."},
+      "code": "// math.js\nexport function add(a, b) {\n  return a + b;\n}\n\n// main.js\nimport { add } from \"./math.js\";\nconsole.log(add(2, 3));",
+      "annotations": [
+        {"start": 11, "end": 17, "note": {"zh-CN": "export 导出命名成员", "en": "export exposes a named member"}},
+        {"start": 69, "end": 75, "note": {"zh-CN": "import 引入其他模块的成员", "en": "import brings in a member from another module"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.dom",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "DOM 选择与事件监听", "en": "DOM selection and event listening"},
+      "explanation": {"zh-CN": "仅阅读（需要浏览器 DOM，静态检查）：querySelector 选中按钮，addEventListener 监听 click，回调里修改按钮文字。", "en": "Read-only (needs browser DOM, statically checked): querySelector selects the button, addEventListener listens for click, and the callback updates its text."},
+      "code": "const button = document.querySelector(\"#save\");\nbutton.addEventListener(\"click\", () => {\n  button.textContent = \"Saved\";\n});",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "const 保存 DOM 元素引用", "en": "A const holds the DOM element reference"}},
+        {"start": 55, "end": 71, "note": {"zh-CN": "addEventListener 注册事件回调", "en": "addEventListener registers the event callback"}}
+      ],
+      "runtimeId": null,
+      "verificationStatus": "static-checked"
+    },
+    {
+      "id": "example.js.json",
+      "language": "javascript",
+      "languageVersion": "ES2023",
+      "title": {"zh-CN": "JSON 序列化与解析", "en": "JSON serialization and parsing"},
+      "explanation": {"zh-CN": "JSON.stringify 把对象转成文本，JSON.parse 再把文本变回对象，因此可以取出 count 属性。", "en": "JSON.stringify converts an object to text and JSON.parse turns it back, so the count property can be read again."},
+      "code": "const data = { ok: true, count: 3 };\nconst text = JSON.stringify(data);\nconsole.log(text);\nconsole.log(JSON.parse(text).count);",
+      "annotations": [
+        {"start": 0, "end": 5, "note": {"zh-CN": "原始对象", "en": "The original object"}},
+        {"start": 50, "end": 64, "note": {"zh-CN": "stringify 输出 JSON 文本", "en": "stringify produces JSON text"}}
+      ],
+      "expectedOutput": "{\"ok\":true,\"count\":3}\n3",
+      "runtimeId": "javascript",
+      "verificationStatus": "static-checked"
+    }
+  ]
+}

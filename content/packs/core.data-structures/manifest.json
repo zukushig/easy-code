@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "packId": "core.data-structures",
+  "packType": "knowledge",
+  "version": "1.0.0",
+  "title": {
+    "zh-CN": "数据结构",
+    "en": "Data Structures"
+  },
+  "defaultLocale": "zh-CN",
+  "locales": ["zh-CN", "en"],
+  "minAppVersion": "0.1.0",
+  "pluginApiVersion": 1,
+  "entry": "content/topics.json",
+  "dependencies": [
+    {"packId": "core.computing-thinking", "versionRange": ">=1.0.0 <2.0.0", "optional": false}
+  ],
+  "files": []
+}

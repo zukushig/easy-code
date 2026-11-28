@@ -1,0 +1,251 @@
+{
+  "topics": [
+    {
+      "id": "python.getting-started",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "第一个 Python 程序", "en": "Your First Python Program"},
+      "summary": {"zh-CN": "Python 代码由解释器从上到下执行；print 输出内容，缩进是语法的一部分而不是排版。", "en": "Python code runs top to bottom in the interpreter; print writes output, and indentation is syntax, not formatting."},
+      "objectives": {
+        "zh-CN": ["运行一行 print 并看懂输出", "说明解释器逐行执行的含义", "写出一个缩进正确的 if 块"],
+        "en": ["Run a print statement and read its output", "Explain what line-by-line interpretation means", "Write an if block with correct indentation"]
+      },
+      "contentRef": "content/topics.json#python.getting-started",
+      "termIds": ["term.python.interpreter", "term.python.indentation", "term.python.variable"],
+      "exampleIds": ["example.python.hello"],
+      "estimatedMinutes": 15,
+      "exercise": {
+        "prompt": {"zh-CN": "用 print 输出三行自我介绍：姓名、正在学习 Python、今天的目标。", "en": "Print a three-line self-introduction: name, learning Python, today's goal."},
+        "hint": {"zh-CN": "一个 print 输出一行；字符串要用引号包起来。", "en": "One print call prints one line; wrap text in quotes."}
+      }
+    },
+    {
+      "id": "python.variables-types",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "变量与类型", "en": "Variables and Types"},
+      "summary": {"zh-CN": "Python 变量不需要声明类型，值属于 int、float、str、bool 或 None；type() 可以查看类型。", "en": "Python variables need no type declaration; values are int, float, str, bool, or None, and type() shows which."},
+      "objectives": {
+        "zh-CN": ["创建并使用变量", "区分 int、float、str、bool、None", "用 type() 验证值的类型"],
+        "en": ["Create and use variables", "Tell int, float, str, bool, and None apart", "Confirm types with type()"]
+      },
+      "contentRef": "content/topics.json#python.variables-types",
+      "termIds": ["term.python.variable", "term.python.int", "term.python.float", "term.python.str", "term.python.bool", "term.python.none", "term.python.mutability"],
+      "exampleIds": ["example.python.variables", "example.python.int-float", "example.python.mutability"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "创建 name、age、height 三个变量并输出一行：Ada 36 1.68（数字与文本混排）。", "en": "Create name, age, height and print one line: Ada 36 1.68 (text and numbers mixed)."},
+        "hint": {"zh-CN": "print 的多个参数之间会自动加空格。", "en": "print inserts a space between multiple arguments."}
+      }
+    },
+    {
+      "id": "python.strings",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "字符串与切片", "en": "Strings and Slicing"},
+      "summary": {"zh-CN": "字符串是不可变的文本序列，支持索引、切片、拼接、格式化（f-string）。", "en": "A string is an immutable text sequence supporting indexing, slicing, concatenation, and formatting (f-strings)."},
+      "objectives": {
+        "zh-CN": ["用索引和切片取出子串", "用 f-string 把变量嵌入文本", "说明字符串不可变意味着什么"],
+        "en": ["Extract substrings with indexing and slicing", "Interpolate variables with f-strings", "Explain what string immutability implies"]
+      },
+      "contentRef": "content/topics.json#python.strings",
+      "termIds": ["term.python.str", "term.python.f-string", "term.python.slicing"],
+      "exampleIds": ["example.python.string-slice", "example.python.f-string"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "给定 text = \"CodeTree\"，分别输出第一个字母、前 4 个字母、最后 3 个字母。", "en": "Given text = \"CodeTree\", print the first letter, the first four letters, and the last three letters."},
+        "hint": {"zh-CN": "索引用 text[0]；切片是 text[0:4]；负数从末尾数：text[-3:]。", "en": "Use text[0], text[0:4], and text[-3:] for the three cases."}
+      }
+    },
+    {
+      "id": "python.lists",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "列表", "en": "Lists"},
+      "summary": {"zh-CN": "列表是有序、可变的集合，用 append 追加、用索引或循环访问；tuple 不可变，set 去重。", "en": "A list is an ordered, mutable collection: append items, access them by index or loop; tuples are immutable and sets deduplicate."},
+      "objectives": {
+        "zh-CN": ["创建列表并增删元素", "用索引、切片和循环访问列表", "按需求选择 list、tuple 或 set"],
+        "en": ["Create lists and add or remove items", "Access lists by index, slice, and loop", "Choose list, tuple, or set for a task"]
+      },
+      "contentRef": "content/topics.json#python.lists",
+      "termIds": ["term.python.list", "term.python.tuple", "term.python.set", "term.python.slicing", "term.python.mutability"],
+      "exampleIds": ["example.python.list-basics", "example.python.tuple-set"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "创建列表 [3, 1, 2]，追加 4，排序后输出，再输出列表长度。", "en": "Create [3, 1, 2], append 4, sort it, print it, then print its length."},
+        "hint": {"zh-CN": "用 append 追加；sort() 原地排序；len() 取长度。", "en": "Use append, sort() in place, and len() for the length."}
+      }
+    },
+    {
+      "id": "python.dicts",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "字典", "en": "Dictionaries"},
+      "summary": {"zh-CN": "字典保存键 → 值的映射，按键读取是平均 O(1)；键必须可哈希，常用字符串或数字。", "en": "A dictionary maps keys to values with average O(1) lookup; keys must be hashable, commonly strings or numbers."},
+      "objectives": {
+        "zh-CN": ["创建字典并按键读写", "用 get 安全读取可能不存在的键", "说明字典与列表在查找上的差异"],
+        "en": ["Create a dictionary and read/write by key", "Read possibly missing keys safely with get", "Explain how dictionary lookup differs from list lookup"]
+      },
+      "contentRef": "content/topics.json#python.dicts",
+      "termIds": ["term.python.dict", "term.python.mutability"],
+      "exampleIds": ["example.python.dict-basics"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "创建 {\"a\": 1}，把 \"b\" 设为 2，用 get 读取 \"c\" 并给出默认值 0，最后输出整个字典。", "en": "Create {\"a\": 1}, set \"b\" to 2, read \"c\" with get and default 0, then print the whole dictionary."},
+        "hint": {"zh-CN": "d[k] = v 写入；d.get(k, default) 不抛异常。", "en": "d[k] = v writes; d.get(k, default) never raises for a missing key."}
+      }
+    },
+    {
+      "id": "python.control-flow.if",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "条件判断", "en": "Conditionals"},
+      "summary": {"zh-CN": "if / elif / else 按顺序判断条件，第一个为真的分支执行；条件表达式产生布尔值。", "en": "if / elif / else checks conditions in order and runs the first true branch; conditions evaluate to booleans."},
+      "objectives": {
+        "zh-CN": ["写多分支 if / elif / else", "用比较运算符构造条件", "指出哪个分支会执行"],
+        "en": ["Write multi-branch if / elif / else", "Build conditions with comparison operators", "Predict which branch runs"]
+      },
+      "contentRef": "content/topics.json#python.control-flow.if",
+      "termIds": ["term.python.if", "term.python.bool"],
+      "exampleIds": ["example.python.if-elif"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "把 72 分映射为 A/B/C 等级（>=90 A，>=60 B，否则 C），输出 B。", "en": "Map 72 points to grade A/B/C (>=90 A, >=60 B, else C) and print B."},
+        "hint": {"zh-CN": "从高到低判断；记得 if/elif/else 行末的冒号和缩进。", "en": "Check from high to low; remember colons and indentation."}
+      }
+    },
+    {
+      "id": "python.control-flow.for-loop",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "for 循环", "en": "for Loops"},
+      "summary": {"zh-CN": "for 循环遍历可迭代对象（列表、字符串、range 等），循环体对每个元素执行一次。", "en": "A for loop iterates over an iterable (list, string, range, ...), running the body once per element."},
+      "objectives": {
+        "zh-CN": ["用 for 遍历列表或 range", "说明 range(start, stop) 不包含 stop", "用循环累计求和"],
+        "en": ["Iterate lists or ranges with for", "Explain that range(start, stop) excludes stop", "Sum values with a loop"]
+      },
+      "contentRef": "content/topics.json#python.control-flow.for-loop",
+      "termIds": ["term.python.for", "term.python.range"],
+      "exampleIds": ["example.python.for-range"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用 for 循环计算 1 到 5 的和并输出 15。", "en": "Use a for loop to sum 1 through 5 and print 15."},
+        "hint": {"zh-CN": "range(1, 6) 产生 1..5；准备 total 累加。", "en": "range(1, 6) yields 1..5; keep a total accumulator."}
+      }
+    },
+    {
+      "id": "python.control-flow.while-loop",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "while 循环", "en": "while Loops"},
+      "summary": {"zh-CN": "while 在条件为真时重复执行；循环体内要改变条件相关变量，否则会死循环。", "en": "while repeats while a condition is true; the body must change the variables involved or the loop never ends."},
+      "objectives": {
+        "zh-CN": ["写一个会正常结束的 while 循环", "用 break / continue 控制流程", "识别死循环的常见原因"],
+        "en": ["Write a while loop that terminates", "Control flow with break / continue", "Spot common causes of infinite loops"]
+      },
+      "contentRef": "content/topics.json#python.control-flow.while-loop",
+      "termIds": ["term.python.while", "term.python.bool"],
+      "exampleIds": ["example.python.while-loop"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用 while 从 5 倒数到 1，再输出 Liftoff!。", "en": "Count down from 5 to 1 with while, then print Liftoff!."},
+        "hint": {"zh-CN": "每次循环把 count 减 1，条件写 count > 0。", "en": "Subtract 1 each iteration and loop while count > 0."}
+      }
+    },
+    {
+      "id": "python.functions",
+      "domain": "python",
+      "difficulty": "beginner",
+      "title": {"zh-CN": "函数", "en": "Functions"},
+      "summary": {"zh-CN": "def 定义函数，return 返回结果；默认参数和关键字参数让调用更灵活。", "en": "def defines functions and return gives a result; default and keyword arguments make calls flexible."},
+      "objectives": {
+        "zh-CN": ["定义带参数和返回值的函数", "使用默认参数与关键字参数", "说明没有 return 时函数返回 None"],
+        "en": ["Define functions with parameters and return values", "Use default and keyword arguments", "Explain that a function without return gives None"]
+      },
+      "contentRef": "content/topics.json#python.functions",
+      "termIds": ["term.python.def", "term.python.return", "term.python.default-argument", "term.python.keyword-argument"],
+      "exampleIds": ["example.python.function-return", "example.python.default-args"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "写函数 power(base, exponent=2) 返回 base 的 exponent 次方，分别用 power(3) 和 power(2, 3) 调用。", "en": "Write power(base, exponent=2) returning base raised to exponent; call power(3) and power(2, 3)."},
+        "hint": {"zh-CN": "用 ** 做幂运算；默认参数写在参数列表末尾。", "en": "Use ** for exponentiation; put default parameters last."}
+      }
+    },
+    {
+      "id": "python.comprehensions",
+      "domain": "python",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "推导式", "en": "Comprehensions"},
+      "summary": {"zh-CN": "推导式用一行表达式从可迭代对象构造列表或字典，可带过滤条件；过度嵌套会降低可读性。", "en": "A comprehension builds a list or dict from an iterable in one expression, optionally filtered; heavy nesting hurts readability."},
+      "objectives": {
+        "zh-CN": ["写列表推导式做映射与过滤", "把简单 for 循环改写成推导式", "判断何时不应使用推导式"],
+        "en": ["Write list comprehensions for mapping and filtering", "Rewrite a simple for loop as a comprehension", "Decide when not to use one"]
+      },
+      "contentRef": "content/topics.json#python.comprehensions",
+      "termIds": ["term.python.list-comprehension", "term.python.for"],
+      "exampleIds": ["example.python.comprehension"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "用推导式把 [1, 2, 3, 4] 变成平方列表，并过滤出其中的偶数。", "en": "Use comprehensions to square [1, 2, 3, 4] and to filter the even numbers."},
+        "hint": {"zh-CN": "形式是 [表达式 for 变量 in 序列 if 条件]。", "en": "The form is [expression for item in iterable if condition]."}
+      }
+    },
+    {
+      "id": "python.exceptions",
+      "domain": "python",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "异常处理", "en": "Exception Handling"},
+      "summary": {"zh-CN": "用 try / except 捕获可预期的错误并给出可读反馈；except 要写具体类型，避免裸 except。", "en": "Use try / except for expected errors and give readable feedback; name specific exception types instead of a bare except."},
+      "objectives": {
+        "zh-CN": ["用 try / except 捕获指定异常", "说明裸 except 的风险", "用 finally 释放资源或收尾"],
+        "en": ["Catch a specific exception with try / except", "Explain the risk of a bare except", "Use finally for cleanup"]
+      },
+      "contentRef": "content/topics.json#python.exceptions",
+      "termIds": ["term.python.exception", "term.python.try-except"],
+      "exampleIds": ["example.python.try-except"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "写一段代码：int(\"x\") 触发 ValueError 时输出“无法转换”，否则输出结果；再用除以 0 触发 ZeroDivisionError 验证第二个 except。", "en": "Write code that prints \"无法转换\" when int(\"x\") raises ValueError, else the result; also verify a second except for ZeroDivisionError."},
+        "hint": {"zh-CN": "把可能失败的语句放进 try；每个 except 只处理一种异常。", "en": "Put the risky statement in try; one except per exception type."}
+      }
+    },
+    {
+      "id": "python.files",
+      "domain": "python",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "文件读写", "en": "Reading and Writing Files"},
+      "summary": {"zh-CN": "open 打开文件，with 语句保证自动关闭；读写文本时显式指定 encoding=\"utf-8\"。", "en": "open opens a file and with guarantees closing; specify encoding=\"utf-8\" for text I/O."},
+      "objectives": {
+        "zh-CN": ["用 with open 读取文本文件", "区分读模式 \"r\" 与写模式 \"w\"", "说明为什么必须指定编码"],
+        "en": ["Read a text file with with open", "Distinguish read mode \"r\" from write mode \"w\"", "Explain why encoding must be specified"]
+      },
+      "contentRef": "content/topics.json#python.files",
+      "termIds": ["term.python.with", "term.python.str"],
+      "exampleIds": ["example.python.with-file"],
+      "estimatedMinutes": 25,
+      "exercise": {
+        "prompt": {"zh-CN": "用 with open 写两行到 tmp.txt，再读回并逐行输出。", "en": "Write two lines to tmp.txt with with open, then read them back and print line by line."},
+        "hint": {"zh-CN": "写用 mode=\"w\"，读用 mode=\"r\"；写完要新开一个 with 再读。", "en": "Write with mode=\"w\", read with mode=\"r\"; open a second with to read."}
+      }
+    },
+    {
+      "id": "python.modules",
+      "domain": "python",
+      "difficulty": "intermediate",
+      "title": {"zh-CN": "模块与包", "en": "Modules and Packages"},
+      "summary": {"zh-CN": "模块是 .py 文件，用 import 复用其他文件或标准库代码；if __name__ == \"__main__\" 区分被导入与直接运行。", "en": "A module is a .py file; import reuses other files or the standard library; if __name__ == \"__main__\" separates import from direct execution."},
+      "objectives": {
+        "zh-CN": ["用 import 和 from ... import ... 引入模块", "说明 __name__ 的作用", "列出 3 个常用标准库模块"],
+        "en": ["Import modules with import and from ... import ...", "Explain the role of __name__", "Name three common standard library modules"]
+      },
+      "contentRef": "content/topics.json#python.modules",
+      "termIds": ["term.python.module", "term.python.import", "term.python.interpreter"],
+      "exampleIds": ["example.python.import-module"],
+      "estimatedMinutes": 20,
+      "exercise": {
+        "prompt": {"zh-CN": "导入 math 模块，输出 sqrt(81) 和 floor(3.9)。", "en": "Import math, print sqrt(81) and floor(3.9)."},
+        "hint": {"zh-CN": "math.sqrt 返回浮点；math.floor 向下取整返回整数。", "en": "math.sqrt returns a float; math.floor rounds down to an integer."}
+      }
+    }
+  ]
+}

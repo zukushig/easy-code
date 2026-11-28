@@ -1,0 +1,70 @@
+{
+  "language": "git",
+  "displayName": {"zh-CN": "Git", "en": "Git"},
+  "version": "1.0.0",
+  "keywords": ["init", "clone", "add", "commit", "status", "log", "diff", "branch", "checkout", "switch", "merge", "rebase", "reset", "revert", "restore", "rm", "mv", "push", "pull", "fetch", "remote", "stash", "tag", "show", "blame", "grep", "clean", "gc", "fsck", "reflog", "cherry-pick", "bisect", "worktree", "submodule", "archive", "apply", "am", "describe", "shortlog", "config", "help", "version"],
+  "builtins": ["HEAD", "origin", "main", "master", "--oneline", "--graph", "--soft", "--mixed", "--hard", "--ff-only", "--no-ff", "--amend", "--all", "--stat", "-u", "-m"],
+  "lineComment": "#",
+  "blockComment": null,
+  "stringDelims": ["'", "\""],
+  "brackets": [],
+  "diagnostics": [
+    {
+      "id": "git.typo-commit",
+      "pattern": "\\bgit\\s+comit\\b",
+      "message": {"zh-CN": "git 子命令拼写错误：comit 应为 commit。", "en": "Git subcommand typo: comit should be commit."},
+      "severity": "error",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "git commit -m \"message\" 才是提交；可以输入 git help 查看用法。", "en": "Use git commit -m \"message\"; run git help for usage."}
+    },
+    {
+      "id": "git.typo-checkout",
+      "pattern": "\\bgit\\s+chekcout\\b",
+      "message": {"zh-CN": "git 子命令拼写错误：chekcout 应为 checkout（或 switch）。", "en": "Git subcommand typo: chekcout should be checkout (or switch)."},
+      "severity": "error",
+      "fix": {"kind": "replace"},
+      "hint": {"zh-CN": "切换分支推荐 git switch <branch>，恢复文件用 git restore。", "en": "Prefer git switch <branch> for branches and git restore for files."}
+    },
+    {
+      "id": "git.push-force",
+      "pattern": "\\bgit\\s+push\\s+(?:\\S+\\s+)*--force(?:-with-lease)?\\b",
+      "message": {"zh-CN": "强制推送会改写远端历史，可能覆盖他人提交。", "en": "Force pushing rewrites remote history and may overwrite others' commits."},
+      "severity": "warning",
+      "fix": null,
+      "hint": {"zh-CN": "共享分支上尽量避免强推；必要时用 --force-with-lease 并先通知协作者。", "en": "Avoid force pushing shared branches; if required, use --force-with-lease and notify collaborators."}
+    },
+    {
+      "id": "git.reset-hard",
+      "pattern": "\\bgit\\s+reset\\s+--hard\\b",
+      "message": {"zh-CN": "reset --hard 会丢弃工作区和暂存区的未提交改动。", "en": "reset --hard discards uncommitted working-tree and staged changes."},
+      "severity": "warning",
+      "fix": null,
+      "hint": {"zh-CN": "先 git stash 或 git diff 确认没有要保留的改动；已推送的提交优先用 git revert。", "en": "Stash or diff first; prefer git revert for commits already pushed."}
+    },
+    {
+      "id": "git.commit-without-message",
+      "pattern": "^\\s*git\\s+commit\\s*$",
+      "message": {"zh-CN": "git commit 不带 -m 会打开编辑器；脚本中务必提供提交信息。", "en": "git commit without -m opens an editor; always supply a message in scripts."},
+      "severity": "warning",
+      "fix": {"kind": "append", "text": " -m \"message\""},
+      "hint": {"zh-CN": "写成 git commit -m \"<type>: <what changed>\" 更清晰。", "en": "Write git commit -m \"<type>: <what changed>\" for clarity."}
+    }
+  ],
+  "completions": [
+    {
+      "when": "word",
+      "items": [
+        {"text": "git init", "detail": "初始化仓库"},
+        {"text": "git status", "detail": "查看工作区状态"},
+        {"text": "git add", "detail": "把改动放入暂存区", "insertText": "git add "},
+        {"text": "git commit -m", "detail": "提交并附信息", "insertText": "git commit -m \"\""},
+        {"text": "git log --oneline", "detail": "单行查看历史"},
+        {"text": "git branch", "detail": "列出/创建分支", "insertText": "git branch "},
+        {"text": "git switch", "detail": "切换分支", "insertText": "git switch "},
+        {"text": "git merge", "detail": "合并分支", "insertText": "git merge "},
+        {"text": "git push", "detail": "推送到远端", "insertText": "git push "},
+        {"text": "git pull", "detail": "拉取并合并远端改动", "insertText": "git pull "}
+      ]
+    }
+  ]
+}
