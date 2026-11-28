@@ -2869,21 +2869,32 @@ runs:
         distribution: temurin
         java-version: ${{ inputs.java-version }}
 
-    - name: 准备 Android SDK 命令行工具
-      uses: android-actions/setup-android@v3
-
-    - name: 安装 Android SDK 组件
+    # 说明：不使用 android-actions/setup-android@v3——该 action 内部会执行
+    # `sdkmanager tools`，而新版 SDK 仓库已移除 `tools` 包，导致 job 失败。
+    # ubuntu-latest runner 预装 Android cmdline-tools，直接调用其中的 sdkmanager 即可。
+    - name: 安装 Android SDK 组件（使用 runner 预装 cmdline-tools）
       shell: bash
       env:
         SDK_PACKAGES: ${{ inputs.sdk-packages }}
       run: |
         set -euo pipefail
+        ANDROID_SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/lib/android/sdk}}"
+        SDKMANAGER="$(command -v sdkmanager 2>/dev/null || true)"
+        if [ -z "$SDKMANAGER" ]; then
+          SDKMANAGER="$(find "$ANDROID_SDK_ROOT/cmdline-tools" -maxdepth 3 -name sdkmanager -type f 2>/dev/null | head -1 || true)"
+        fi
+        if [ -z "$SDKMANAGER" ]; then
+          echo "未找到 sdkmanager（ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT）" >&2
+          exit 1
+        fi
+        echo "sdkmanager: $SDKMANAGER"
+        yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
         for package in $SDK_PACKAGES; do
           echo "安装 Android SDK 组件: $package"
-          sdkmanager --install "$package" > /dev/null
+          "$SDKMANAGER" --install "$package" > /dev/null
         done
         echo "已安装组件："
-        sdkmanager --list_installed | grep -E 'platforms;android-34|build-tools;34.0.0|platform-tools' || true
+        "$SDKMANAGER" --list_installed | grep -E 'platforms;android-34|build-tools;34.0.0|platform-tools' || true
 
     - name: 启用 Gradle 依赖缓存与构建缓存（并安装指定版本 Gradle）
       uses: gradle/actions/setup-gradle@v4
