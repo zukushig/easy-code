@@ -56,7 +56,7 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 ## 5. 环境约束
 
 - **运行环境**：Android 手机上的 Ubuntu 24.04 proot（aarch64），约 1.4GB 可用内存；无 bubblewrap/Landlock 沙箱后端，DSH 的 `workspace-write` 模式不可用，文件工具走会话文件策略；部分 Agent 会话的 bash 工具不可用，命令需由 Lead 或具备执行通道的会话代跑。
-- **构建工具链**：JDK 17 + Gradle 8.9 + Android SDK（compileSdk 34 / build-tools 34.0.0）；官方 aapt2 为 x86_64，本机已用 aarch64 静态 aapt2 覆盖（`-Pandroid.aapt2FromMavenOverride`，写入本机用户级 `/root/.gradle/gradle.properties`，不入仓库；CI 用 x86_64 官方 aapt2，无需覆盖）。**本机出包通道已验证到「aapt2 可执行 + SDK/JDK/Gradle 就绪」**（T2 完成，见 `tools/build/README.md` 与 `/root/toolchain/REPORT.md`）。13 模块代码基本落盘（`core:data` 11 个实现文件、5 个 feature 的 Tab/VM/UI、`app` 10 个入口文件）；全量 `assembleDebug` 中 `designsystem`/`core:data`/`learn`/`dictionary`/`assistant` 编译通过，`feature:terminal`（5 处）与 `feature:library`（1 处）修复中；`:app:assembleDebug`/APK 标注「待发布链验证（T10）」（见 `docs/QA-REPORT.md` §2/§9）。**GitHub Actions（ubuntu-latest，x86_64）是发布与备用出包通道**，CI 结果未产生前不得声称“CI 已验证”。
+- **构建工具链**：JDK 17 + Gradle 8.9 + Android SDK（compileSdk 34 / build-tools 34.0.0）；官方 aapt2 为 x86_64，本机已用 aarch64 静态 aapt2 覆盖（`-Pandroid.aapt2FromMavenOverride`，写入本机用户级 `/root/.gradle/gradle.properties`，不入仓库；CI 用 x86_64 官方 aapt2，无需覆盖）。**本机出包通道已验证**（T2 完成，见 `tools/build/README.md` 与 `/root/toolchain/REPORT.md`）：13 模块全量 `:app:assembleDebug` BUILD SUCCESSFUL，产物 `app/build/outputs/apk/debug/app-debug.apk`（12,484,073 bytes；sha256 `63f88b7ef5ef944f1827bdb0d4032b25217db9cec20e75e5aef67c0c8274bd95`；191 entries；Android Debug 签名）。**GitHub Actions（ubuntu-latest，x86_64）是发布与备用出包通道**，Release 构建与首次 CI 结果未产生前不得声称“CI 已验证”（T10 回填，见 `docs/QA-REPORT.md` §2/§9）。
 - **CI 构建适配（T9）**：`.github/workflows/**` 已适配 easy-code 工程（ci/android/nightly/release + setup-android 复合动作）。**仓库形态约束**：本机无 git 凭据、经 GitHub MCP 只推文本，故 `gradle/wrapper/gradle-wrapper.jar`、`content/dist/*.codepack`、`app/src/main/assets/seed/*.codepack`、`CodeTree-合并文档包.zip` 不入库（Lead 补 `.gitignore`）；CI 不使用 `./gradlew`，改用 `gradle/actions/setup-gradle@v4` 的 `gradle-version: 8.9` + `gradle` 命令，并在构建/门禁前生成内容与文档合集（`build_dist.py`、`sync_seed.py`、`merge_docs.py`）。本地开发仍用 `./gradlew`，版本矩阵一致。文件内容变化会改变文档合集附录，需按 ADR-008 重生成后校验。
 - **依赖来源**：本机直连 Maven Central 不可用，`settings.gradle.kts` 已配置阿里云镜像 + 官方源兜底；CI 使用官方源。
 - **外部服务**：无真实 AI API 密钥、无远程内容目录后端、无签名 keystore；AI/下载/签名相关验收只能 Mock 或标注未验证。
@@ -113,13 +113,11 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 | 已完成 | ADR-001～009、6 份 specs、10 张任务卡、CONTEXT | 本次交付前序 |
 | 已完成 | T2 本机 aarch64 构建工具链：JDK17 + Gradle 8.9 + SDK34 + aarch64 aapt2 覆盖，本机可进入构建 | `tools/build/README.md`、`/root/toolchain/REPORT.md` |
 | 已完成 | 内容包 12 个、`content/dist` 12 个 `.codepack` + `catalog.json` + `sha256sums.txt`、`app/src/main/assets/seed/` 已同步；全量校验 `errors=0` / `warnings=12` RESULT: PASS；`build_dist.py` 12 codepack 自检 OK；`sync_seed.py` synced=8 unchanged=4、seedTotalBytes=242222；QA `check_content.py` errors 0 / warnings 0；`check_seed.py` OK | Lead 回填的内容流水线与 QA 输出 |
-| 已完成 | T9 CI 适配（4 工作流 + setup-android）并全部通过验收：`merge_docs.py --check` OK（Merged lines 3860）、`validate_workflows.py` OK（4/8/1）、`check_repo.py` OK（285 文件、errors 0、warnings 2）、`run_all.sh` 全部通过；`docs/QA-REPORT.md` 已落盘并回填 | Lead 回填的命令输出 |
-| 已完成 | 代码落盘：`core:data` 11 个实现文件、5 个 feature 的 Tab/VM/UI、`app` 组合根（Application/AppContainer/Directions/占位页）；11 个测试文件落盘（core:domain 4 / plugin-api 4 / runtime:safe-shell 3） | 仓库文件（2026-11-28 快照） |
-| 进行中 | 全量编译：`app` 入口已补齐、资源处理已修好；`designsystem`/`core:data`/`feature:learn`/`dictionary`/`assistant` 编译通过；`feature:terminal` 5 处、`feature:library` 1 处修复中，APK 待 T10 | Lead 后台编译 |
-| 已完成 | 全量编译与首个 APK：`:app:assembleDebug` BUILD SUCCESSFUL（13 模块全部编译通过），`app/build/outputs/apk/debug/app-debug.apk` 12.48MB；sha256/安装验证待回填 | Lead 构建输出（2026-11-28） |
-| 进行中 | 纯 JVM 单测复跑：首轮 250 用例 7 失败，engine 已修复；11 个测试文件（core:domain 4 / plugin-api 4 / runtime:safe-shell 3）待重跑回填 | Lead 后台运行 |
-| 待完成 | T9 剩余：单测复跑结果回填（到证据即完成 T9）；T10：APK sha256/安装验证、`assembleRelease`、首 CI、tag v0.1.0（待发布链验证） | QA 报告 §4/§9 |
-| 下一步 | ① 回填单测复跑结果并完成 T9；② T10 走 §9 Runbook 出 Release APK + tag；③ 契约收敛 `Term.displayName`；④ 真机/安全集成负例；⑤ 首 CI 运行记录回填 | — |
+| 已完成 | T9 交付完成：CI 适配（4 工作流 + setup-android，含“二进制不入库”生成步骤）、`tools/verify/`、`docs/QA-REPORT.md`；门禁复跑 `merge_docs.py --check` / `validate_workflows.py` OK | Lead 回填的命令输出（2026-11-28） |
+| 已完成 | 全量编译与首个 APK：13 模块 `:app:assembleDebug` BUILD SUCCESSFUL；`app-debug.apk` 12,484,073 bytes / sha256 `63f8…bd95` / 191 entries / Android Debug 签名；badging 校验通过（v0.1.0(1)、SDK 26-34、INTERNET+ACCESS_NETWORK_STATE） | Lead 构建输出（2026-11-28） |
+| 已完成 | 纯 JVM 单测：250 用例 / 0 失败 / 0 skipped（plugin-api 95、core:domain 63、runtime:safe-shell 92），BUILD SUCCESSFUL | Lead 回填（2026-11-28） |
+| 待完成 | T10：GitHub 文本推送 → 首次 CI（android.yml）→ tag `v0.1.0` 触发 release.yml → Release APK + `SHA256SUMS` 回填；APK 真机安装冒烟；发布说明写明未验证项 | QA 报告 §9 |
+| 下一步 | ① Lead 推送并触发首次 CI；② tag/Release 后回填 Release APK sha256 与下载链接；③ 真机安装冒烟（§9.8）；④ 契约收敛 `Term.displayName`；⑤ 安全集成负例与未验证项收尾 | — |
 
 ## 9. 已知风险
 
@@ -136,7 +134,8 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 | 部分 Agent 会话 bash 不可用 | 命令需代跑，证据链变慢 | Lead 统一执行命令并贴回输出；任务卡要求贴真实输出，禁止伪造 |
 | 依赖镜像可用性 | 构建/CI 拉取失败 | 阿里云镜像 + 官方源兜底（`settings.gradle.kts`）；CI 使用官方源 |
 | 仓库唯一推送者瓶颈 | 集成延迟 | Lead 统一 commit/push；并行任务先落盘、由 Lead 批量提交 |
-| `feature:terminal`/`feature:library` 编译错误（5 处 + 1 处） | 阻塞 APK 产出、T10 发布 | tools 修复后重跑全量编译（QA-012）；`app` 入口缺失已修复（QA-001） |
+| Release 构建与首次 CI 未运行 | CI 出包能力与 Release 产物未验证 | T10 推送后触发 `android.yml`/`release.yml` 并回填运行链接与 artifact |
+| `feature:terminal`/`feature:library` 编译错误（已修复） | 曾阻塞 APK 产出 | tools 修复后全量编译通过（QA-001/QA-012 已关闭） |
 | 内容 `Term.displayName` 双语对象 vs `:core:domain` 的 `String` 模型 | 数据层解析/显示名可能失败 | 走 `CONTRACT_CHANGE`：统一 `LocalizedText` 或数据层映射并补测试（QA-004） |
 | 内容回归风险（后续内容变更可能重新引入 error/warnings） | `ci.yml` 内容门禁红、无法发版 | 内容校验已 0 error（warnings=12）并接入 CI；内容变更后保持 0 error（QA-006） |
 | 本地文件误提交风险（`local.properties`、构建缓存） | 泄露本机路径或增大仓库 | Lead 已补 `.gitignore`（含 local.properties/build/.gradle）；`check_repo.py` 已通过（QA-008） |
@@ -162,4 +161,4 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 | 2026-11-22 | T9 验收推进：内容 0 error（warnings=12）、`check_content`/`check_repo`/`check_seed`/`run_all` 全部通过；核心模块 4/5 编译通过（designsystem 修复中）；QA 报告与 CONTEXT 回填实测结果 | architect |
 | 2026-11-28 | 代码状态更新：13 模块基本落盘（core:data 11 实现、5 feature UI/VM、app 组合根、11 个测试文件）；QA 报告按 B 口径把 APK/首 CI 标为「待发布链验证（T10）」，新增 T10 Release Runbook（QA-REPORT §9 + TASK-110） | architect |
 | 2026-11-28 | 编译进展回填：app 10 个入口文件已补齐、aapt2 覆盖改为用户级属性；`assembleDebug` 中间结果 10 模块通过，`feature:terminal`/`feature:library` 修复中；QA-001 标记已修复、新增 QA-012 | architect |
-| 2026-11-28 | 首个 APK 成功：13 模块全量 `assembleDebug` BUILD SUCCESSFUL（app-debug.apk 12.48MB）；CI 按“二进制不入库”适配（系统 gradle 8.9 + 构建前生成内容/文档）；QA-001/QA-012 标为已修复，T10 Runbook 更新待发布链验证 | architect |
+| 2026-11-28 | 首个 APK 成功：13 模块全量 `assembleDebug` BUILD SUCCESSFUL（app-debug.apk 12,484,073 bytes / sha256 `63f8…bd95`，Android Debug 签名、badging 校验通过）；纯 JVM 单测 250 用例 0 失败；CI 按“二进制不入库”适配（系统 gradle 8.9 + 构建前生成内容/文档）；**T9 完成**，T10 待推送/首 CI/tag | architect |

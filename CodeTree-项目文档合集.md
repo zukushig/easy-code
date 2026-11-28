@@ -2387,7 +2387,26 @@ jobs:
       - name: 安装固定版本校验依赖
         run: python3 -m pip install -r scripts/requirements-ci.txt
 
-      - name: 生成单文件合集与压缩包（压缩包为二进制，不提交仓库）
+      - name: 校验合集时效性（内存重建比对，不覆盖工作区）
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts")
+          import merge_docs
+
+          expected = merge_docs.build_document()
+          merged = merge_docs.MERGED
+          if not merged.is_file():
+              raise SystemExit("合集未入库：请提交 CodeTree-项目文档合集.md")
+          if expected != merged.read_text(encoding="utf-8"):
+              raise SystemExit("合集与源文档或工程文件不一致：请运行 python3 scripts/merge_docs.py 并提交")
+          print("freshness: OK")
+          PY
+
+      - name: 生成单文件合集压缩包（压缩包为二进制，不提交仓库）
         run: python3 scripts/merge_docs.py
 
       - name: 校验单文件合集、时效性与压缩包
@@ -2608,6 +2627,25 @@ jobs:
       - name: 安装固定版本校验依赖
         run: python3 -m pip install -r scripts/requirements-ci.txt
 
+      - name: 校验合集时效性（内存重建比对，不覆盖工作区）
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts")
+          import merge_docs
+
+          expected = merge_docs.build_document()
+          merged = merge_docs.MERGED
+          if not merged.is_file():
+              raise SystemExit("合集未入库：请提交 CodeTree-项目文档合集.md")
+          if expected != merged.read_text(encoding="utf-8"):
+              raise SystemExit("合集与源文档或工程文件不一致：请运行 python3 scripts/merge_docs.py 并提交")
+          print("freshness: OK")
+          PY
+
       - name: 生成文档合集与内容产物（压缩包/种子为二进制，不提交仓库）
         run: |
           python3 scripts/merge_docs.py
@@ -2699,6 +2737,25 @@ jobs:
 
       - name: 安装固定版本校验依赖
         run: python3 -m pip install -r scripts/requirements-ci.txt
+
+      - name: 校验合集时效性（内存重建比对，不覆盖工作区）
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "scripts")
+          import merge_docs
+
+          expected = merge_docs.build_document()
+          merged = merge_docs.MERGED
+          if not merged.is_file():
+              raise SystemExit("合集未入库：请提交 CodeTree-项目文档合集.md")
+          if expected != merged.read_text(encoding="utf-8"):
+              raise SystemExit("合集与源文档或工程文件不一致：请运行 python3 scripts/merge_docs.py 并提交")
+          print("freshness: OK")
+          PY
 
       - name: 生成文档合集与内容产物（压缩包/种子为二进制，不提交仓库）
         run: |

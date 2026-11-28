@@ -7,6 +7,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -137,10 +138,8 @@ fun CTToast(
                         style = CodeTreeTheme.typography.footnote,
                         color = colors.accent,
                         modifier = Modifier
-                            .padding(start = spacing.sm)
-                            .background(Color.Transparent)
-                            .padding(vertical = spacing.xxs)
-                            .then(Modifier),
+                            .clickable(onClick = onAction)
+                            .padding(horizontal = spacing.xs, vertical = spacing.xxs),
                     )
                 }
             }

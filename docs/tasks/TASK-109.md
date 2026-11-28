@@ -12,7 +12,7 @@
 | 关联 WBS | CT-000-04（CI 基线）、CT-800-01～CT-800-06（追踪矩阵/端到端/迁移/安全/性能/设备） |
 | 关联需求 | NFR-001～NFR-007、全部 P0 需求的验收证据 |
 | 优先级 | P0 |
-| 状态 | Ready |
+| 状态 | Done（2026-11-28：CI 适配 + 门禁复跑 + QA 报告回填完成；APK/Release/首 CI 归 T10） |
 | 当前负责人 | qa |
 | 评审人 | lead + architect |
 | 目标里程碑 | M5（发布候选前置） |
@@ -120,5 +120,8 @@ docs/CONTEXT.md
 - 下一步：交 Lead 做 TASK-110 集成与发布决策。
 
 ## 执行日志
+
+- 2026-11-22：CI 适配（4 工作流 + setup-android）、`tools/verify/` 交付；`merge_docs.py`/`validate_workflows.py`/`run_all.sh` 复跑通过。
+- 2026-11-28：按“二进制不入库”改造 CI（系统 `gradle` 8.9 + 构建/门禁前生成内容与文档合集）；门禁复跑 OK；纯 JVM 单测 250 用例全绿；debug APK 产出并完成 sha256/结构/badging 校验；QA-REPORT 回填，T9 完成。APK 安装冒烟、Release 产物、首次 CI 运行归 T10。
 
 - 2026-11-15：任务 Ready，等待 qa 认领。
