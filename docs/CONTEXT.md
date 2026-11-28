@@ -60,7 +60,7 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 - **CI 构建适配（T9）**：`.github/workflows/**` 已适配 easy-code 工程（ci/android/nightly/release + setup-android 复合动作）。**仓库形态约束**：本机无 git 凭据、经 GitHub MCP 只推文本，故 `gradle/wrapper/gradle-wrapper.jar`、`content/dist/*.codepack`、`app/src/main/assets/seed/*.codepack`、`CodeTree-合并文档包.zip` 不入库（Lead 补 `.gitignore`）；CI 不使用 `./gradlew`，改用 `gradle/actions/setup-gradle@v4` 的 `gradle-version: 8.9` + `gradle` 命令，并在构建/门禁前生成内容与文档合集（`build_dist.py`、`sync_seed.py`、`merge_docs.py`）。本地开发仍用 `./gradlew`，版本矩阵一致。文件内容变化会改变文档合集附录，需按 ADR-008 重生成后校验。
 - **依赖来源**：本机直连 Maven Central 不可用，`settings.gradle.kts` 已配置阿里云镜像 + 官方源兜底；CI 使用官方源。
 - **外部服务**：无真实 AI API 密钥、无远程内容目录后端、无签名 keystore；AI/下载/签名相关验收只能 Mock 或标注未验证。
-- **仓库写权限**：只有 Lead 执行 `git commit` / `git push`；GitHub 远端 `zukushig/easy-code` 为公开仓库，其他 Agent 不得直接推送或调用 GitHub 写接口。
+- **仓库写权限**：只有 Lead 执行 `git commit` / `git push`；GitHub 远端 `zukushig/easy-code` 为公开仓库，其他 Agent 不得直接推送或调用 GitHub 写接口。本机无 git 凭据、GitHub MCP 无法批量传文件，**T10 推送需要用户提供 PAT（用户已同意提供）**。
 - **构建参数**：`gradle.properties` 已为低内存设备设置 `-Xmx1536m`、`org.gradle.workers.max=1`、`org.gradle.parallel=false`、`org.gradle.configuration-cache=false`；不要随意上调。
 
 ## 6. 模块布局（13 模块）
@@ -116,7 +116,7 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 | 已完成 | T9 交付完成：CI 适配（4 工作流 + setup-android，含“二进制不入库”生成步骤）、`tools/verify/`、`docs/QA-REPORT.md`；门禁复跑 `merge_docs.py --check` / `validate_workflows.py` OK | Lead 回填的命令输出（2026-11-28） |
 | 已完成 | 全量编译与首个 APK：13 模块 `:app:assembleDebug` BUILD SUCCESSFUL；`app-debug.apk` 12,484,073 bytes / sha256 `63f8…bd95` / 191 entries / Android Debug 签名；badging 校验通过（v0.1.0(1)、SDK 26-34、INTERNET+ACCESS_NETWORK_STATE） | Lead 构建输出（2026-11-28） |
 | 已完成 | 纯 JVM 单测：250 用例 / 0 失败 / 0 skipped（plugin-api 95、core:domain 63、runtime:safe-shell 92），BUILD SUCCESSFUL | Lead 回填（2026-11-28） |
-| 待完成 | T10：GitHub 文本推送 → 首次 CI（android.yml）→ tag `v0.1.0` 触发 release.yml → Release APK + `SHA256SUMS` 回填；APK 真机安装冒烟；发布说明写明未验证项 | QA 报告 §9 |
+| 待完成 | T10（**当前阻塞：等待用户提供 GitHub PAT**）：推送 main → 首次 CI（android.yml）→ tag `v0.1.0` 触发 release.yml → Release APK + `SHA256SUMS` 回填；APK 真机安装冒烟；发布说明写明未验证项 | QA 报告 §9 |
 | 下一步 | ① Lead 推送并触发首次 CI；② tag/Release 后回填 Release APK sha256 与下载链接；③ 真机安装冒烟（§9.8）；④ 契约收敛 `Term.displayName`；⑤ 安全集成负例与未验证项收尾 | — |
 
 ## 9. 已知风险
@@ -134,6 +134,7 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 | 部分 Agent 会话 bash 不可用 | 命令需代跑，证据链变慢 | Lead 统一执行命令并贴回输出；任务卡要求贴真实输出，禁止伪造 |
 | 依赖镜像可用性 | 构建/CI 拉取失败 | 阿里云镜像 + 官方源兜底（`settings.gradle.kts`）；CI 使用官方源 |
 | 仓库唯一推送者瓶颈 | 集成延迟 | Lead 统一 commit/push；并行任务先落盘、由 Lead 批量提交 |
+| GitHub 推送凭据缺失（需用户 PAT） | T10 无法推送、无法触发首 CI | 用户已同意提供 PAT；拿到后由 Lead 推送 main 与 tag（QA 报告 CI 状态保持「未运行」） |
 | Release 构建与首次 CI 未运行 | CI 出包能力与 Release 产物未验证 | T10 推送后触发 `android.yml`/`release.yml` 并回填运行链接与 artifact |
 | `feature:terminal`/`feature:library` 编译错误（已修复） | 曾阻塞 APK 产出 | tools 修复后全量编译通过（QA-001/QA-012 已关闭） |
 | 内容 `Term.displayName` 双语对象 vs `:core:domain` 的 `String` 模型 | 数据层解析/显示名可能失败 | 走 `CONTRACT_CHANGE`：统一 `LocalizedText` 或数据层映射并补测试（QA-004） |
@@ -162,3 +163,4 @@ T9 已按 easy-code 工程适配 `.github/**`（4 个工作流 + 1 个复合动�
 | 2026-11-28 | 代码状态更新：13 模块基本落盘（core:data 11 实现、5 feature UI/VM、app 组合根、11 个测试文件）；QA 报告按 B 口径把 APK/首 CI 标为「待发布链验证（T10）」，新增 T10 Release Runbook（QA-REPORT §9 + TASK-110） | architect |
 | 2026-11-28 | 编译进展回填：app 10 个入口文件已补齐、aapt2 覆盖改为用户级属性；`assembleDebug` 中间结果 10 模块通过，`feature:terminal`/`feature:library` 修复中；QA-001 标记已修复、新增 QA-012 | architect |
 | 2026-11-28 | 首个 APK 成功：13 模块全量 `assembleDebug` BUILD SUCCESSFUL（app-debug.apk 12,484,073 bytes / sha256 `63f8…bd95`，Android Debug 签名、badging 校验通过）；纯 JVM 单测 250 用例 0 失败；CI 按“二进制不入库”适配（系统 gradle 8.9 + 构建前生成内容/文档）；**T9 完成**，T10 待推送/首 CI/tag | architect |
+| 2026-11-28 | T9 最终验收确认：单测 250/0/0、`merge_docs.py` 3897 行/148703 bytes + `--check` OK、`validate_workflows.py` 4/8/1 OK、debug APK sha256/结构/badging 校验、纯 JVM 安全自检 0 命中；**T10 阻塞于用户 PAT**，CI 在首次运行前保持「未运行」 | architect |

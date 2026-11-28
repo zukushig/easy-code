@@ -89,6 +89,7 @@
 - [ ] 静态门禁：`merge_docs.py --check`、`validate_workflows.py`、`tools/content/validate_content.py`、`bash tools/verify/run_all.sh` 全通过。
 - [ ] `docs/QA-REPORT.md` 已回填实测数据；未验证项明确。
 - [ ] 仓库无密钥/本地文件（`.gitignore` 生效），GitHub 远端已同步。
+- [ ] **GitHub PAT 已由用户提供**（本机无 git 凭据、MCP 无法批量传文件），Lead 可推送 `main` 与 tag。
 
 ### 版本与触发
 
